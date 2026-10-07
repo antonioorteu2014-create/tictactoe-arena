@@ -1,0 +1,28 @@
+# Python: bytecode compilado y artefactos de empaquetado
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Entornos virtuales: cada uno crea el suyo, nunca se suben
+.venv/
+venv/
+env/
+
+# Cachés de las herramientas de pruebas y estilo
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Sitio de documentación generado por `mkdocs build`
+site/
+
+# Sistema operativo y editores
+.DS_Store
+.idea/
+.vscode/
+*.swp

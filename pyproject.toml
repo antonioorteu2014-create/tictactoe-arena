@@ -1,0 +1,63 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tictactoe-arena"
+version = "0.1.0"
+description = "Tic-Tac-Toe: a game library, a player API for bots, and an automatic tournament."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Antonio Orteu" },
+    { name = "Álvaro Domingo" },
+    { name = "María Sanz" },
+]
+keywords = ["tic-tac-toe", "game", "ai", "minimax", "tournament", "education"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Education",
+    "Topic :: Games/Entertainment :: Board Games",
+]
+# El juego solo usa la librería estándar: instalarlo no arrastra nada más.
+dependencies = []
+
+[project.optional-dependencies]
+# Herramientas para desarrollar: pruebas y comprobación de estilo.
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.4",
+]
+# Herramientas para construir la documentación (las usa también Read the Docs).
+# MkDocs se limita a <2: la 2.0 rompe la compatibilidad con el tema Material.
+docs = [
+    "mkdocs>=1.6,<2",
+    "mkdocs-material>=9.5",
+]
+
+[project.urls]
+Repository = "https://github.com/antonioorteu2014-create/tictactoe-arena"
+Documentation = "https://tictactoe-arena.readthedocs.io"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tictactoe"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests"]
+# `bots/` guarda los bots para juegos de OTROS equipos (requisito 3.2). Importan
+# las librerías de esos juegos, no la nuestra, así que aquí no se comprueban.
+extend-exclude = ["bots"]
+
+[tool.ruff.lint]
+# E/W: estilo PEP 8, F: errores reales (pyflakes), I: orden de los imports,
+# UP: sintaxis moderna de Python, B: patrones que suelen ser bugs (bugbear).
+select = ["E", "F", "I", "UP", "B", "W"]

@@ -1,0 +1,40 @@
+site_name: Tic-Tac-Toe Arena
+site_description: >-
+  El tres en raya como proyecto open-source: librería de Python, API para bots y
+  torneo automático.
+site_url: https://tictactoe-arena.readthedocs.io/
+repo_url: https://github.com/antonioorteu2014-create/tictactoe-arena
+repo_name: tictactoe-arena
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: es
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Cambiar a modo oscuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Cambiar a modo claro
+  features:
+    - content.code.copy
+    - navigation.footer
+    - search.highlight
+
+nav:
+  - Inicio: index.md
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc:
+      permalink: true

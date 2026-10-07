@@ -1,0 +1,47 @@
+name: Tests
+
+# Se ejecuta en cada push a main y en cada pull request. Declarado como
+# comprobación obligatoria en la protección de main, un PR en rojo no se puede
+# fusionar.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# Solo necesita leer el código, nunca escribir en el repositorio.
+permissions:
+  contents: read
+
+# Si llega un push nuevo al mismo PR, se cancela la ejecución anterior.
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        # La versión mínima que promete pyproject.toml (3.10), una intermedia y
+        # la más reciente. La 3.10 es la que más importa: es lo que prometemos.
+        python-version: ["3.10", "3.12", "3.14"]
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Lint (ruff)
+        run: ruff check .
+
+      - name: Run tests (pytest)
+        run: pytest -q
