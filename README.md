@@ -8,9 +8,9 @@ El **tres en raya** como proyecto open-source: el juego en una librería de Pyth
 una plataforma para que cualquiera programe y suba su propio bot, y un torneo
 automático que enfrenta a todos los bots y publica la clasificación.
 
-> **Estado:** en construcción. Por ahora existe la base del proyecto (paquete
-> instalable, pruebas automáticas y documentación); el juego llega en los
-> siguientes pasos.
+> **Estado:** en construcción. Las reglas del juego están implementadas y
+> probadas, y se puede jugar entre dos personas en la terminal. El API para bots,
+> la web y el torneo llegan en los siguientes pasos.
 
 ## Instalación
 
@@ -30,6 +30,28 @@ Para comprobar que todo funciona:
 pytest          # ejecuta las pruebas
 ruff check .    # comprueba el estilo del código
 ```
+
+## Jugar
+
+En la terminal, entre dos personas:
+
+```bash
+tictactoe-play
+```
+
+O desde Python, sin ninguna interfaz:
+
+```python
+from tictactoe import game
+
+state = game.initial_state()              # "........."
+for move in [4, 1, 0, 2, 8]:              # casillas 0-8, por filas
+    state = game.apply_move(state, move)
+print(game.winner(state))                 # "X"
+```
+
+Las reglas completas y la representación del tablero están en
+[Reglas del juego](https://tictactoe-arena.readthedocs.io/es/latest/rules/).
 
 ## Estructura del proyecto
 
