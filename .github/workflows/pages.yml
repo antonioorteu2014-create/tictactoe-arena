@@ -1,0 +1,45 @@
+name: Pages
+
+# Publica la carpeta web en github pages cada vez que cambia main
+
+on:
+  push:
+    branches: [main]
+
+  # Permite lanzarlo a mano desde la pestaña Actions
+  workflow_dispatch:
+
+# Permisos minimos para publicar en pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si llegan dos despliegues seguidos, se ponen en cola, no cortamos
+# uno a medias por que puede dejar la pagina publicada a medio actualizar
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Empaquetar la carpeta web
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+    
