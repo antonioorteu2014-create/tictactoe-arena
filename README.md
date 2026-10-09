@@ -4,17 +4,17 @@
 [![Documentation](https://readthedocs.org/projects/tictactoe-arena/badge/?version=latest)](https://tictactoe-arena.readthedocs.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+**▶ Juega ahora en el navegador:** <https://antonioorteu2014-create.github.io/tictactoe-arena/>
+
 El **tres en raya** como proyecto open-source: el juego en una librería de Python,
 una plataforma para que cualquiera programe y suba su propio bot, y un torneo
 automático que enfrenta a todos los bots y publica la clasificación.
 
-> **Estado:** en construcción. Las reglas del juego y la plataforma de bots están
-> implementadas y probadas: se puede jugar entre dos personas en la terminal y
-> cualquiera puede escribir y enviar su propio bot. La web jugable y el torneo
-> llegan en los siguientes pasos.
+> **Estado:** en construcción. Ya se puede jugar contra un bot en la web, jugar
+> entre dos personas en la terminal, y cualquiera puede escribir y enviar su
+> propio bot. El torneo automático llega en el siguiente paso.
 
 - **Documentación:** <https://tictactoe-arena.readthedocs.io>
-- **Web:** <https://antonioorteu2014-create.github.io/tictactoe-arena/>
 
 ## Instalación
 
@@ -46,7 +46,18 @@ pytest          # ejecuta las pruebas
 ruff check .    # comprueba el estilo del código
 ```
 
+Para probar la web en tu ordenador (hay que servir la carpeta, no abrir el
+archivo con doble clic):
+
+```bash
+python scripts/build_web.py
+python -m http.server 8000 --directory web    # y abre http://localhost:8000
+```
+
 ## Jugar
+
+En el **navegador**, contra un bot y sin instalar nada:
+<https://antonioorteu2014-create.github.io/tictactoe-arena/>
 
 En la terminal, entre dos personas:
 
@@ -88,7 +99,8 @@ envía por pull request: un archivo en `players/custom/` y una línea en
 tictactoe-arena/
 ├── src/tictactoe/      # la librería: reglas, API de jugadores y partidas
 ├── players/            # los bots: builtin/ (del equipo) y custom/ (enviados)
-├── web/                # la página web (GitHub Pages)
+├── web/                # la página web (GitHub Pages + Pyodide)
+├── scripts/            # build_web.py: empaqueta el Python para la web
 ├── tests/              # pruebas automáticas (pytest)
 ├── docs/               # documentación (MkDocs → Read the Docs)
 ├── .github/            # pruebas automáticas en GitHub Actions y plantilla de PR
