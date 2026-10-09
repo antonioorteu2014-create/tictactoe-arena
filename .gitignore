@@ -26,3 +26,7 @@ site/
 .idea/
 .vscode/
 *.swp
+
+# Web: archivos generados por scripts/build_web.py (los crea el flujo de Pages)
+web/py.zip
+web/py/
