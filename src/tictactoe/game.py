@@ -33,14 +33,16 @@ State = str
 Move = int
 """Un movimiento: el número de casilla, del 0 al 8, donde se coloca la ficha."""
 
-Player = str
-"""Un jugador: ``"X"`` u ``"O"``."""
+Mark = str
+"""La ficha de un jugador: ``"X"`` u ``"O"``.
 
-X: Player = "X"
+No confundir con [`tictactoe.player.Player`][tictactoe.player.Player], la interfaz de los bots."""
+
+X: Mark = "X"
 # Ruff avisa (E741) de que `O` se confunde con el cero. Aquí es el nombre del
 # jugador, el mismo símbolo que se ve en el tablero, y llamarlo de otra forma
 # haría el código más difícil de leer que de escribir mal.
-O: Player = "O"  # noqa: E741
+O: Mark = "O"  # noqa: E741
 EMPTY = "."
 
 SIZE = 3
@@ -62,7 +64,7 @@ WINNING_LINES: tuple[tuple[int, int, int], ...] = (
 # --------------------------------------------------------------------------- #
 
 
-def _find_lines(state: State, player: Player) -> list[tuple[int, int, int]]:
+def _find_lines(state: State, player: Mark) -> list[tuple[int, int, int]]:
     """Las líneas que ``player`` tiene completas en ``state`` (sin validar)."""
     return [line for line in WINNING_LINES if all(state[i] == player for i in line)]
 
@@ -139,7 +141,7 @@ def initial_state() -> State:
     return INITIAL_STATE
 
 
-def current_player(state: State) -> Player:
+def current_player(state: State) -> Mark:
     """Devolver el jugador al que le toca mover.
 
     Se deduce del tablero: si hay tantas X como O le toca a X, y si hay una X
@@ -157,7 +159,7 @@ def winning_line(state: State) -> tuple[int, int, int] | None:
     """Devolver las tres casillas del tres en raya, o ``None`` si no lo hay.
 
     Si un mismo movimiento completa dos líneas a la vez, devuelve la primera en
-    el orden de :data:`WINNING_LINES`.
+    el orden de [`WINNING_LINES`][tictactoe.game.WINNING_LINES].
 
     Raises:
         ValueError: si ``state`` no es una posición válida.
@@ -170,11 +172,11 @@ def winning_line(state: State) -> tuple[int, int, int] | None:
     return None
 
 
-def winner(state: State) -> Player | None:
+def winner(state: State) -> Mark | None:
     """Devolver el ganador (``"X"`` u ``"O"``), o ``None`` si no lo hay.
 
     ``None`` significa que la partida sigue en juego **o** que ha terminado en
-    empate; :func:`is_terminal` los distingue.
+    empate; [`is_terminal()`][tictactoe.game.is_terminal] los distingue.
 
     Raises:
         ValueError: si ``state`` no es una posición válida.
@@ -221,7 +223,7 @@ def is_legal(state: State, move: object) -> bool:
     Es la única definición de «movimiento legal» del proyecto: el torneo la usa
     para descalificar a un bot que devuelve un movimiento ilegal.
 
-    ``move`` se anota como ``object`` y no como :data:`Move` a propósito: su
+    ``move`` se anota como ``object`` y no como [`Move`][tictactoe.game.Move] a propósito: su
     trabajo es juzgar lo que devuelve un bot en el que no se confía, que puede
     ser cualquier cosa (``None``, ``"4"``, ``4.0``, ``True``…).
 
@@ -229,9 +231,10 @@ def is_legal(state: State, move: object) -> bool:
         ValueError: si ``state`` no es una posición válida. Un movimiento mal
             formado no lanza: devuelve ``False``.
     """
-    # `bool` es subclase de `int` en Python (True == 1), así que se excluye aparte:
-    # un bot que devuelve True no ha elegido la casilla 1.
-    if not isinstance(move, int) or isinstance(move, bool):
+    # Solo un `int` exacto. Se excluyen las subclases: `bool` lo es (True == 1, y un
+    # bot que devuelve True no ha elegido la casilla 1), y una subclase hecha a
+    # medida podría cambiar cómo se compara o se suma.
+    if type(move) is not int:
         return False
     if not 0 <= move < CELLS:
         return False

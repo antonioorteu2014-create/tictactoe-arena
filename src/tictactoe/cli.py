@@ -2,11 +2,11 @@
 
 Se lanza con el comando ``tictactoe-play`` (o ``python -m tictactoe``). Es el
 único módulo del paquete que lee del teclado e imprime: las reglas
-(:mod:`tictactoe.game`) siguen siendo puras, y ``import tictactoe`` no muestra
+([`tictactoe.game`][tictactoe.game]) siguen siendo puras, y ``import tictactoe`` no muestra
 nada por pantalla.
 
 Las casillas se piden del **1 al 9**, que es más natural para una persona, y se
-traducen a los movimientos 0-8 de :mod:`tictactoe.game`. Las casillas vacías se
+traducen a los movimientos 0-8 de [`tictactoe.game`][tictactoe.game]. Las casillas vacías se
 dibujan con su número, así que el tablero dice a la vez qué está libre y qué
 escribir.
 """
@@ -46,7 +46,7 @@ def ask_move(state: game.State, read: Reader, write: Writer) -> game.Move:
         return move
 
 
-def play(read: Reader = input, write: Writer = print) -> game.Player | None:
+def play(read: Reader = input, write: Writer = print) -> game.Mark | None:
     """Jugar una partida completa entre dos personas.
 
     ``read`` y ``write`` son, por defecto, el teclado y la pantalla. Se pueden

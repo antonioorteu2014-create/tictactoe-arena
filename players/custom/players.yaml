@@ -1,0 +1,22 @@
+# Tic-Tac-Toe Arena — lista de admitidos de los jugadores ENVIADOS por otros.
+#
+# Para añadir tu bot: copia tu archivo .py en esta carpeta, añade UNA entrada
+# abajo y abre un pull request. El tutorial completo está en la documentación:
+# https://tictactoe-arena.readthedocs.io (sección «Subir un bot»).
+#
+# Ningún bot entra por estar en la carpeta: quien revisa ve en el mismo pull
+# request tu archivo y la línea que lo admite.
+#
+# Cada entrada tiene:
+#   file    el archivo .py, en esta misma carpeta.
+#   class   la clase (subclase de tictactoe.player.Player) que se admite.
+#
+# El nombre de tu bot lo declara la clase (get_name) y debe ser único: las
+# pruebas rechazan un nombre repetido.
+#
+# Ejemplo (copia la forma; no lo descomentes):
+#
+#   - file: tu-usuario-mi-bot.py
+#     class: MiBot
+
+players: []
