@@ -7,9 +7,10 @@ propios bots sin tocar el código del juego; y un torneo automático que enfrent
 todos los bots y publica la clasificación.
 
 !!! note "Proyecto en construcción"
-    Por ahora existe la base del proyecto: el paquete instalable, las pruebas
-    automáticas y este sitio de documentación. Las reglas del juego, el API de
-    jugadores y el torneo se documentarán aquí a medida que se implementen.
+    Ya están las [reglas del juego](rules.md), implementadas y probadas, y se
+    puede jugar una partida entre dos personas en la terminal. El API de
+    jugadores, los bots, la web y el torneo se documentarán aquí a medida que se
+    implementen.
 
 ## Instalación
 
@@ -22,6 +23,37 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -e ".[dev]"
 ```
+
+## Jugar en la terminal
+
+Dos personas, un teclado:
+
+```bash
+tictactoe-play
+```
+
+Cada jugador escribe el número de la casilla donde quiere poner su ficha, del 1
+al 9. Las casillas libres se muestran con su número.
+
+## Usar el juego desde Python
+
+Las reglas son funciones puras del módulo `tictactoe.game`. Una partida completa,
+sin ninguna interfaz:
+
+```python
+from tictactoe import game
+
+state = game.initial_state()              # "........."
+for move in [4, 1, 0, 2, 8]:              # X: 4, 0, 8 · O: 1, 2
+    state = game.apply_move(state, move)
+
+print(state)                              # "XOO.X...X"
+print(game.winner(state))                 # "X"
+print(game.is_terminal(state))            # True
+```
+
+Cómo se representan el tablero y los movimientos está explicado al final de las
+[reglas del juego](rules.md#como-lo-representa-el-codigo).
 
 ## Autores
 

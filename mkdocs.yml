@@ -32,6 +32,7 @@ theme:
 
 nav:
   - Inicio: index.md
+  - Reglas del juego: rules.md
 
 markdown_extensions:
   - admonition

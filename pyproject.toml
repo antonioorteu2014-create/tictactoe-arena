@@ -42,6 +42,10 @@ docs = [
 Repository = "https://github.com/antonioorteu2014-create/tictactoe-arena"
 Documentation = "https://tictactoe-arena.readthedocs.io"
 
+[project.scripts]
+# Partida entre dos personas en la terminal (paso 1.5 de la guía).
+tictactoe-play = "tictactoe.cli:main"
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/tictactoe"]
 
