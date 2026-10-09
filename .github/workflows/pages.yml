@@ -19,7 +19,7 @@ permissions:
 # uno a medias por que puede dejar la pagina publicada a medio actualizar
 concurrency:
   group: pages
-  cancel-in-progress:false
+  cancel-in-progress: false
 
 jobs:
   build:
