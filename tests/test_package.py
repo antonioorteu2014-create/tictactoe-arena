@@ -16,4 +16,6 @@ def test_package_imports() -> None:
 
 def test_package_exposes_version() -> None:
     assert isinstance(tictactoe.__version__, str)
+    assert tictactoe.__version__ == "9.9.9"  # PRUEBA: test roto a propósito
+
     assert tictactoe.__version__.count(".") == 2  # formato MAYOR.MENOR.PARCHE
