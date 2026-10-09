@@ -1,0 +1,19 @@
+# Tic-Tac-Toe Arena — lista de admitidos de los jugadores PROPIOS del proyecto.
+#
+# Los bots del equipo. Un bot enviado por otra persona NO va aquí: va en
+# ../custom/players.yaml, junto a su archivo .py.
+#
+# Ningún bot entra por estar en la carpeta: tiene que estar apuntado en una lista
+# de admitidos. Así, en un pull request se ven a la vez el archivo del bot y la
+# línea que lo admite, y la revisión es la puerta de entrada.
+#
+# Cada entrada tiene:
+#   file    el archivo .py, en esta misma carpeta.
+#   class   la clase (subclase de tictactoe.player.Player) que se admite.
+#
+# El nombre, los autores y la descripción los declara la propia clase
+# (get_name, get_authors, get_description): aquí no se repiten.
+
+players:
+  - file: aleatorio.py
+    class: Aleatorio

@@ -22,8 +22,11 @@ classifiers = [
     "Intended Audience :: Education",
     "Topic :: Games/Entertainment :: Board Games",
 ]
-# El juego solo usa la librería estándar: instalarlo no arrastra nada más.
-dependencies = []
+# Las reglas solo usan la librería estándar. PyYAML hace falta para leer las
+# listas de jugadores admitidos (players/*/players.yaml).
+dependencies = [
+    "PyYAML>=6.0",
+]
 
 [project.optional-dependencies]
 # Herramientas para desarrollar: pruebas y comprobación de estilo.
@@ -36,6 +39,8 @@ dev = [
 docs = [
     "mkdocs>=1.6,<2",
     "mkdocs-material>=9.5",
+    # Genera la «Referencia del API» a partir de los docstrings del código.
+    "mkdocstrings[python]>=0.25",
 ]
 
 [project.urls]

@@ -33,9 +33,34 @@ theme:
 nav:
   - Inicio: index.md
   - Reglas del juego: rules.md
+  - Subir un bot:
+      - 1. El API de jugador: upload-a-bot/player-api.md
+      - 2. Enviar tu bot: upload-a-bot/submit-a-player.md
+  - Referencia del API: api.md
 
 markdown_extensions:
   - admonition
+  - attr_list
   - tables
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
   - toc:
       permalink: true
+
+plugins:
+  - search
+  # Genera la «Referencia del API» (docs/api.md) a partir de los docstrings.
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            show_root_heading: true
+            show_source: false
+            members_order: source
+            heading_level: 2
