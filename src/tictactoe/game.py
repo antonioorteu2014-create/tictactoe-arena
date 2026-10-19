@@ -27,6 +27,8 @@ Decisiones de diseño:
 
 from __future__ import annotations
 
+from functools import cache
+
 State = str
 """Una posición: 9 caracteres ``"X"``, ``"O"`` o ``"."``, por filas."""
 
@@ -77,10 +79,20 @@ def _check_state(state: object) -> None:
     (siempre empieza X), o uno en el que la partida siguió después de que
     alguien hiciera tres en raya.
     """
-    if not isinstance(state, str):
+    # Solo un str exacto: una subclase podría cambiar cómo se compara.
+    if type(state) is not str:
         raise ValueError(
             f"el estado debe ser un str, no {type(state).__name__}: {state!r}"
         )
+    _check_board(state)
+
+
+# Los tableros válidos se recuerdan: solo hay unos pocos miles, y un bot que busca
+# hacia delante (minimax) pregunta por los mismos tableros miles de veces. Un
+# tablero inválido no se recuerda (lanza ValueError), así que se rechaza siempre.
+@cache
+def _check_board(state: str) -> None:
+    """La comprobación de ``_check_state`` para un ``str``, recordando los válidos."""
     if len(state) != CELLS:
         raise ValueError(
             f"el estado debe tener {CELLS} casillas, tiene {len(state)}: {state!r}"
@@ -165,6 +177,12 @@ def winning_line(state: State) -> tuple[int, int, int] | None:
         ValueError: si ``state`` no es una posición válida.
     """
     _check_state(state)
+    return _first_line(state)
+
+
+@cache
+def _first_line(state: State) -> tuple[int, int, int] | None:
+    """La primera línea completa de ``state`` (sin validar; se recuerda)."""
     for player in (X, O):
         lines = _find_lines(state, player)
         if lines:
