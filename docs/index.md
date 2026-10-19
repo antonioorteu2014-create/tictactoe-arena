@@ -6,11 +6,16 @@ puede instalar; una plataforma para que otros desarrolladores programen sus
 propios bots sin tocar el código del juego; y un torneo automático que enfrenta a
 todos los bots y publica la clasificación.
 
+!!! tip "Juega ahora"
+    **[Juega contra un bot en el navegador](https://antonioorteu2014-create.github.io/tictactoe-arena/)**,
+    sin instalar nada. Funciona también en el móvil.
+
 !!! note "Proyecto en construcción"
-    Ya están las [reglas del juego](rules.md) y la plataforma de bots: se puede
-    jugar entre dos personas en la terminal y cualquiera puede
-    [escribir y enviar su propio bot](upload-a-bot/player-api.md). La web
-    jugable y el torneo se documentarán aquí a medida que se implementen.
+    Ya están las [reglas del juego](rules.md), la plataforma de bots y la web:
+    se puede jugar contra un bot en el navegador o entre dos personas en la
+    terminal, y cualquiera puede
+    [escribir y enviar su propio bot](upload-a-bot/player-api.md). El torneo
+    automático se documentará aquí cuando se implemente.
 
 ## ¿Quieres escribir un bot?
 

@@ -4,10 +4,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tic-Tac-Toe Arena</title>
+    <meta name="description" content="Juega al tres en raya contra un bot, directamente en el navegador.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Tic-Tac-Toe Arena</h1>
+    <main class="page">
+        <header>
+            <h1>Tic-Tac-Toe Arena</h1>
+            <p class="subtitle">Juega al tres en raya contra un bot. Las reglas y los bots son el
+                mismo Python del proyecto, ejecutándose en tu navegador.</p>
+        </header>
+
+        <!-- Errores inesperados: se muestran aquí en vez de dejar la página muda. -->
+        <div id="error" class="error" role="alert" hidden></div>
+
+        <section class="controls" aria-label="Opciones de la partida">
+            <label>
+                Rival
+                <select id="bot" disabled></select>
+            </label>
+            <label>
+                Tu ficha
+                <select id="side" disabled>
+                    <option value="X">X (empiezas tú)</option>
+                    <option value="O">O (empieza el bot)</option>
+                </select>
+            </label>
+            <button id="new-game" type="button" disabled>Nueva partida</button>
+        </section>
+        <p id="bot-description" class="bot-description"></p>
+
+        <p id="status" class="status" aria-live="polite">Cargando…</p>
+
+        <div id="board" class="board" role="group" aria-label="Tablero"></div>
+
+        <footer>
+            <a href="https://tictactoe-arena.readthedocs.io">Documentación</a> ·
+            <a href="https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/player-api/">Escribe tu propio bot</a> ·
+            <a href="https://github.com/antonioorteu2014-create/tictactoe-arena">Código en GitHub</a>
+        </footer>
+    </main>
+
+    <script src="engine.js"></script>
     <script src="app.js"></script>
 </body>
 </html>

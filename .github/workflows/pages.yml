@@ -24,8 +24,19 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # Mete el juego, los bots y el puente en web/py.zip, que la página descarga
+      # y ejecuta en el navegador con Pyodide. py.zip no se guarda en git: se
+      # genera aquí en cada publicación, así nunca queda desactualizado.
+      - name: Generar web/py.zip
+        run: python scripts/build_web.py
 
       - name: Empaquetar la carpeta web
         uses: actions/upload-pages-artifact@v5
