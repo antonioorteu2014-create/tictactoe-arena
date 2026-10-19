@@ -33,6 +33,7 @@ theme:
 nav:
   - Inicio: index.md
   - Reglas del juego: rules.md
+  - Nuestros bots: bots.md
   - Subir un bot:
       - 1. El API de jugador: upload-a-bot/player-api.md
       - 2. Enviar tu bot: upload-a-bot/submit-a-player.md

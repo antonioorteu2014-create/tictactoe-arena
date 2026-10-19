@@ -13,4 +13,8 @@ Para escribir un bot basta con [`tictactoe.player`](#tictactoe.player) y
 
 ::: tictactoe.match
 
+::: tictactoe.bots.greedy
+
+::: tictactoe.bots.minimax
+
 ::: tictactoe.registry

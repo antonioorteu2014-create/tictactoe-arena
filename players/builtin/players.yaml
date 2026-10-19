@@ -14,6 +14,13 @@
 # El nombre, los autores y la descripción los declara la propia clase
 # (get_name, get_authors, get_description): aquí no se repiten.
 
+# De menos a más fuerte: la escalera con la que se mide cualquier otro bot.
 players:
   - file: aleatorio.py
     class: Aleatorio
+
+  - file: voraz.py
+    class: Voraz
+
+  - file: minimax.py
+    class: Minimax

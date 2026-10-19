@@ -70,6 +70,23 @@ print(game.winner(state))                 # "X"
 Las reglas completas y la representación del tablero están en
 [Reglas del juego](https://tictactoe-arena.readthedocs.io/es/latest/rules/).
 
+## Los bots
+
+| Bot | Cómo decide |
+|---|---|
+| 🎲 `aleatorio` | Al azar entre las casillas libres |
+| 🦈 `voraz` | Gana si puede, bloquea si debe y prefiere el centro; no mira hacia delante |
+| 🧠 `minimax` | Busca todas las jugadas futuras (minimax con poda alfa-beta): nunca pierde |
+
+Para medirlos entre sí (la misma semilla da siempre los mismos números):
+
+```bash
+python scripts/benchmark.py --games 100 --seed 0
+```
+
+Cómo decide cada uno, sus resultados y sus debilidades:
+[Nuestros bots](https://tictactoe-arena.readthedocs.io/es/latest/bots/).
+
 ## Escribir un bot
 
 Un bot es una clase que hereda de `tictactoe.player.Player` e implementa un
