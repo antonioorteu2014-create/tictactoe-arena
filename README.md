@@ -117,7 +117,7 @@ tictactoe-arena/
 ├── src/tictactoe/      # la librería: reglas, API de jugadores y partidas
 ├── players/            # los bots: builtin/ (del equipo) y custom/ (enviados)
 ├── web/                # la página web (GitHub Pages + Pyodide)
-├── scripts/            # build_web.py: empaqueta el Python para la web
+├── scripts/            # benchmark.py (mide los bots) y build_web.py (empaqueta la web)
 ├── tests/              # pruebas automáticas (pytest)
 ├── docs/               # documentación (MkDocs → Read the Docs)
 ├── .github/            # pruebas automáticas en GitHub Actions y plantilla de PR
