@@ -177,3 +177,95 @@ footer {
 footer a {
     color: var(--accent);
 }
+
+/* --------------------------------------------------------------------------
+   Clasificación del torneo (la dibuja leaderboard.js)
+   -------------------------------------------------------------------------- */
+
+.leaderboard {
+    margin-top: 2.5rem;
+}
+
+.leaderboard h2 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.leaderboard-intro,
+.leaderboard-message,
+.leaderboard-updated {
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* En pantallas estrechas la tabla se desplaza dentro de su caja, no la página. */
+.table-scroll {
+    margin-top: 1rem;
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 0.75rem;
+    background: var(--card);
+}
+
+.leaderboard table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.leaderboard th,
+.leaderboard td {
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.leaderboard tbody tr:last-child > * {
+    border-bottom: 0;
+}
+
+.leaderboard thead th {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.leaderboard abbr {
+    text-decoration: none;
+    cursor: help;
+}
+
+.leaderboard .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.leaderboard tbody th {
+    font-weight: 600;
+}
+
+.leaderboard tbody th small {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--muted);
+    white-space: normal;
+}
+
+.leaderboard tbody td:last-child {
+    font-weight: 700;
+}
+
+/* En el móvil, menos aire entre columnas para que quepan todas, puntos incluidos. */
+@media (max-width: 30rem) {
+    .leaderboard table {
+        font-size: 0.85rem;
+    }
+
+    .leaderboard th,
+    .leaderboard td {
+        padding: 0.45rem 0.3rem;
+    }
+}

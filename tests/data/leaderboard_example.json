@@ -1,0 +1,44 @@
+{
+    "schema_version": 1,
+    "generated_at": "2026-10-20T05:17:00Z",
+    "standings": [
+        {
+            "rank": 1,
+            "name": "minimax",
+            "icon": "🧠",
+            "authors": ["Antonio Orteu", "Álvaro Domingo", "María Sanz"],
+            "played": 40,
+            "wins": 21,
+            "draws": 19,
+            "losses": 0,
+            "forfeits": 0,
+            "points": 82
+        },
+        {
+            "rank": 2,
+            "name": "voraz",
+            "icon": "🦈",
+            "authors": ["Antonio Orteu", "Álvaro Domingo", "María Sanz"],
+            "played": 40,
+            "wins": 19,
+            "draws": 17,
+            "losses": 4,
+            "forfeits": 0,
+            "points": 74
+        },
+        {
+            "rank": 3,
+            "name": "aleatorio",
+            "icon": "🎲",
+            "authors": ["Antonio Orteu", "Álvaro Domingo", "María Sanz"],
+            "played": 40,
+            "wins": 0,
+            "draws": 4,
+            "losses": 36,
+            "forfeits": 0,
+            "points": 4
+        }
+    ]
+    
+}
+
