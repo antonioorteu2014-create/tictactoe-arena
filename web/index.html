@@ -37,6 +37,31 @@
         <p id="status" class="status" aria-live="polite">Cargando…</p>
 
         <div id="board" class="board" role="group" aria-label="Tablero"></div>
+        
+        <!-- La clasificación del último torneo: la dibuja leaderboard.js. -->
+        <section id="leaderboard" class="leaderboard" aria-labelledby="leaderboard-title">
+            <h2 id="leaderboard-title">Clasificación</h2>
+            <p class="leaderboard-intro">Resultado del último torneo entre todos los bots, jugando con X y con O.</p>
+            <p id="leaderboard-message" class="leaderboard-message" aria-live="polite">Cargando la clasificación…</p>
+            <div id="leaderboard-table" class="table-scroll" hidden>
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col" class="num"><abbr title="Posición">#</abbr></th>
+                            <th scope="col">Bot</th>
+                            <th scope="col" class="num"><abbr title="Partidas jugadas">PJ</abbr></th>
+                            <th scope="col" class="num"><abbr title="Ganadas">G</abbr></th>
+                            <th scope="col" class="num"><abbr title="Empatadas">E</abbr></th>
+                            <th scope="col" class="num"><abbr title="Perdidas">P</abbr></th>
+                            <th scope="col" class="num"><abbr title="Perdidas por abandono: error, trampa o tiempo agotado">Ab.</abbr></th>
+                            <th scope="col" class="num"><abbr title="Puntos">Pts</abbr></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <p id="leaderboard-updated" class="leaderboard-updated" hidden></p>
+        </section>
 
         <footer>
             <a href="https://tictactoe-arena.readthedocs.io">Documentación</a> ·
@@ -47,5 +72,6 @@
 
     <script src="engine.js"></script>
     <script src="app.js"></script>
+    <script src="leaderboard.js"></script>
 </body>
 </html>

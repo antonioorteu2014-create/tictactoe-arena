@@ -30,3 +30,7 @@ site/
 # Web: archivos generados por scripts/build_web.py (los crea el flujo de Pages)
 web/py.zip
 web/py/
+
+# Web: la clasificación la genera el torneo al publicar la web; no se guarda en git
+
+web/leaderboard.json
