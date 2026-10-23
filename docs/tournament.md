@@ -83,3 +83,26 @@ pierde solo sus partidas y la tabla sale completa.
 
 Se guarda en un archivo, y no solo en la pantalla, para que lo lea la web, quede en
 el historial de git y se vea en el diff de un pull request.
+
+## Se juega solo cada día
+
+La web publica siempre la clasificación de un torneo recién jugado. El torneo se
+juega dentro del flujo que publica la web (`.github/workflows/pages.yml`), en
+tres momentos:
+
+- **Todos los días a las 05:00 UTC** (`schedule`), sin que nadie haga nada.
+- **Cada vez que cambia `main`** (`push`), por ejemplo al fusionar un bot nuevo:
+  así entra en la tabla al momento.
+- **A mano**, con el botón **Run workflow** de la pestaña Actions
+  (`workflow_dispatch`).
+
+El flujo deja la clasificación en `web/leaderboard.json`, junto a la página, y
+el marcador la descarga con `cache: "no-cache"` para no enseñar una copia vieja.
+Ese archivo se genera en cada publicación y no se guarda en git.
+
+!!! note "Por qué no se hace commit de la clasificación"
+    `main` está protegida: solo entra un pull request aprobado y con las pruebas
+    en verde, sin excepciones. Un flujo que hiciera `git push` a `main` sería
+    rechazado. Además, GitHub no lanza ningún flujo con los commits que hace
+    otro flujo, así que la web no se enteraría. Jugar el torneo en el mismo
+    flujo que publica la web evita los dos problemas.

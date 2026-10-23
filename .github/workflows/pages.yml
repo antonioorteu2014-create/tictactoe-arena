@@ -1,10 +1,16 @@
 name: Pages
 
-# Publica la carpeta web en github pages cada vez que cambia main
+# Publica la carpeta web en GitHub Pages. Antes de publicar juega el torneo y deja
+# la clasificación junto a la página, así el marcador siempre está al día.
 
 on:
+  # Cada vez que cambia main (por ejemplo, al fusionar un bot nuevo)
   push:
     branches: [main]
+
+  # Todos los días a las 05:00 UTC (las 6 o las 7 en España), sin que nadie haga nada
+  schedule:
+    - cron: "0 5 * * *"
 
   # Permite lanzarlo a mano desde la pestaña Actions
   workflow_dispatch:
@@ -24,7 +30,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
 
@@ -37,6 +43,13 @@ jobs:
       # genera aquí en cada publicación, así nunca queda desactualizado.
       - name: Generar web/py.zip
         run: python scripts/build_web.py
+
+      # Juega el torneo con todos los bots admitidos y deja la clasificación en
+      # web/leaderboard.json, que es el archivo que lee el marcador de la página.
+      - name: Jugar el torneo
+        run: |
+          python -m pip install -e .
+          tictactoe-tournament --time-limit 2 --output web/leaderboard.json
 
       - name: Empaquetar la carpeta web
         uses: actions/upload-pages-artifact@v5
@@ -53,4 +66,3 @@ jobs:
       - name: Publicar en GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
-    
