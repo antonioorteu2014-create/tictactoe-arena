@@ -98,6 +98,19 @@ python scripts/benchmark.py --games 100 --seed 0
 Cómo decide cada uno, sus resultados y sus debilidades:
 [Nuestros bots](https://tictactoe-arena.readthedocs.io/es/latest/bots/).
 
+## El torneo
+
+Todos los bots admitidos juegan contra todos, con X y con O. La clasificación se
+escribe en [`results/leaderboard.json`](results/leaderboard.json):
+
+```bash
+tictactoe-tournament
+```
+
+Un bot que falla, hace trampa o se queda pensando pierde esa partida, pero no
+rompe el torneo. Las reglas completas están en
+[El torneo](https://tictactoe-arena.readthedocs.io/es/latest/tournament/).
+
 ## Escribir un bot
 
 Un bot es una clase que hereda de `tictactoe.player.Player` e implementa un
@@ -118,6 +131,7 @@ tictactoe-arena/
 ├── players/            # los bots: builtin/ (del equipo) y custom/ (enviados)
 ├── web/                # la página web (GitHub Pages + Pyodide)
 ├── scripts/            # benchmark.py (mide los bots) y build_web.py (empaqueta la web)
+├── results/            # leaderboard.json: la clasificación del último torneo
 ├── tests/              # pruebas automáticas (pytest)
 ├── docs/               # documentación (MkDocs → Read the Docs)
 ├── .github/            # pruebas automáticas en GitHub Actions y plantilla de PR
