@@ -1,0 +1,1100 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-23T13:37:01+00:00",
+  "settings": {
+    "seed": 0,
+    "games_per_pairing": 10,
+    "move_time_limit": 1.0
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "name": "minimax",
+      "icon": "🧠",
+      "authors": [
+        "Antonio Orteu",
+        "Álvaro Domingo",
+        "María Sanz"
+      ],
+      "description": "Imagina todas las jugadas futuras suponiendo que los dos juegan perfecto (minimax con poda alfa-beta) y elige la mejor. Nunca pierde.",
+      "origin": "builtin",
+      "played": 40,
+      "wins": 19,
+      "draws": 21,
+      "losses": 0,
+      "forfeits": 0,
+      "points": 29.5
+    },
+    {
+      "rank": 2,
+      "name": "voraz",
+      "icon": "🦈",
+      "authors": [
+        "Antonio Orteu",
+        "Álvaro Domingo",
+        "María Sanz"
+      ],
+      "description": "Gana si puede, bloquea si debe y si no prefiere el centro y las esquinas. No mira más allá de la jugada actual, así que no ve venir las dobles amenazas.",
+      "origin": "builtin",
+      "played": 40,
+      "wins": 19,
+      "draws": 19,
+      "losses": 2,
+      "forfeits": 0,
+      "points": 28.5
+    },
+    {
+      "rank": 3,
+      "name": "aleatorio",
+      "icon": "🎲",
+      "authors": [
+        "Antonio Orteu",
+        "Álvaro Domingo",
+        "María Sanz"
+      ],
+      "description": "Elige al azar entre las casillas libres. No tiene estrategia: es la referencia que cualquier otro bot debe superar.",
+      "origin": "builtin",
+      "played": 40,
+      "wins": 0,
+      "draws": 4,
+      "losses": 36,
+      "forfeits": 0,
+      "points": 2.0
+    }
+  ],
+  "games": [
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 2933268453,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        2,
+        4,
+        5,
+        8,
+        0,
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 423161680,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        7,
+        2,
+        1,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 4101782870,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        2,
+        4,
+        5,
+        8,
+        0,
+        1,
+        6,
+        7
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 1599686628,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        1,
+        4,
+        6,
+        5,
+        8,
+        3
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 1104455710,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        3,
+        2,
+        0,
+        6,
+        8,
+        4
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 2990363839,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        0,
+        4,
+        8,
+        6,
+        7,
+        2
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 2199291295,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        8,
+        4,
+        5,
+        2,
+        3,
+        6
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 2859805901,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        3,
+        2,
+        5,
+        4,
+        8,
+        6
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 2581470439,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        5,
+        4,
+        0,
+        7,
+        6,
+        1
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "voraz",
+      "seed": 760205527,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        5,
+        4,
+        1,
+        6,
+        0,
+        2
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 3343227091,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        6,
+        4,
+        8,
+        7,
+        1,
+        3,
+        5,
+        2,
+        0
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 746931702,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        8,
+        4,
+        1,
+        0,
+        6,
+        7,
+        5,
+        2,
+        3
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 301895368,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        7,
+        6,
+        2,
+        4,
+        3,
+        0,
+        8,
+        5,
+        1
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 1572290037,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        0,
+        4,
+        1,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 266162379,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        6,
+        4,
+        7,
+        8,
+        1,
+        0
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 3199168223,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        7,
+        6,
+        3,
+        1,
+        8,
+        2,
+        0,
+        4
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 105520966,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        1,
+        0,
+        5,
+        6,
+        7,
+        3
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 3847063143,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        7,
+        6,
+        8,
+        3,
+        1,
+        0
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 1169468808,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        5,
+        2,
+        7,
+        0,
+        4,
+        1
+      ]
+    },
+    {
+      "x": "aleatorio",
+      "o": "minimax",
+      "seed": 1788912378,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        0,
+        4,
+        5,
+        8,
+        1,
+        2,
+        3,
+        6
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 1237425671,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        8,
+        2,
+        5,
+        6
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 3523869868,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        8,
+        1,
+        6,
+        7
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 1308042540,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        8,
+        3,
+        1,
+        5
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 1957681909,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        7,
+        2,
+        1,
+        6
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 814644196,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        8,
+        3,
+        5,
+        2,
+        6,
+        7,
+        0,
+        1
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 4271547744,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        3,
+        2,
+        6,
+        0,
+        5,
+        1
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 4053829247,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        6,
+        0,
+        5,
+        8
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 1181465398,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        1,
+        6,
+        2,
+        0,
+        5,
+        8
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 644805173,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        0,
+        6,
+        2,
+        1,
+        7,
+        3,
+        5,
+        8
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "aleatorio",
+      "seed": 2721745497,
+      "winner": "voraz",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        6,
+        8,
+        5,
+        0
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 810285020,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        2,
+        7,
+        1,
+        0,
+        8,
+        5,
+        3,
+        6
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 815192464,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        8,
+        1,
+        7,
+        6,
+        2,
+        5,
+        3,
+        0
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 815164360,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        8,
+        0,
+        6,
+        7,
+        1,
+        5,
+        3,
+        2
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 1547070826,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        6,
+        8,
+        0,
+        3,
+        5,
+        1,
+        7,
+        2
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 3757387744,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        0,
+        6,
+        2,
+        1,
+        7,
+        3,
+        5,
+        8
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 3143712058,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        8,
+        3,
+        5,
+        2,
+        6,
+        7,
+        1,
+        0
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 427948382,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        8,
+        0,
+        6,
+        7,
+        1,
+        5,
+        3,
+        2
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 1140154938,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        2,
+        0,
+        8,
+        5,
+        3,
+        1,
+        7,
+        6
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 990172941,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        8,
+        6,
+        2,
+        5,
+        3,
+        1,
+        7,
+        0
+      ]
+    },
+    {
+      "x": "voraz",
+      "o": "minimax",
+      "seed": 3284470111,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        4,
+        2,
+        7,
+        1,
+        0,
+        8,
+        5,
+        3,
+        6
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 2244929712,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        8,
+        7,
+        4,
+        0,
+        5,
+        1,
+        2
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 2517243463,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        2,
+        3,
+        8,
+        4,
+        5
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 4013735115,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        6,
+        3,
+        4,
+        1,
+        2
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 2034900977,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        6,
+        4,
+        2,
+        7,
+        1,
+        8,
+        0
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 1356593329,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        6,
+        5,
+        0,
+        2,
+        3
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 2386529638,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        8,
+        2,
+        7,
+        6,
+        4,
+        3,
+        0
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 1101287451,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        6,
+        3,
+        4,
+        2,
+        7,
+        8,
+        1
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 3133842178,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        2,
+        1,
+        8,
+        4,
+        5
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 113037569,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        8,
+        2,
+        0,
+        5,
+        4
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "aleatorio",
+      "seed": 2126576742,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        2,
+        8,
+        0,
+        6,
+        1
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 1458949108,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        2,
+        4,
+        6,
+        3,
+        5,
+        8,
+        0,
+        1,
+        7
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 2879962130,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        2,
+        4,
+        6,
+        1,
+        7,
+        8,
+        0,
+        3,
+        5
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 146746337,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        0,
+        4,
+        8,
+        5,
+        3,
+        6,
+        2,
+        1,
+        7
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 4097147597,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        0,
+        4,
+        8,
+        6,
+        2,
+        5,
+        1
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 3078193267,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        6,
+        4,
+        2,
+        5,
+        3,
+        0,
+        8,
+        7,
+        1
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 1124008189,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        6,
+        4,
+        2,
+        3,
+        5,
+        8,
+        0,
+        1,
+        7
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 3461954273,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        6,
+        4,
+        2,
+        1,
+        7,
+        8,
+        0,
+        3,
+        5
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 2175822773,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        8,
+        4,
+        0,
+        7,
+        1,
+        2,
+        6,
+        3,
+        5
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 3827920871,
+      "winner": null,
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        2,
+        4,
+        6,
+        3,
+        5,
+        8,
+        0,
+        1,
+        7
+      ]
+    },
+    {
+      "x": "minimax",
+      "o": "voraz",
+      "seed": 2682273597,
+      "winner": "minimax",
+      "ending": "normal",
+      "detail": "",
+      "moves": [
+        0,
+        4,
+        8,
+        2,
+        6,
+        3,
+        7
+      ]
+    }
+  ]
+}

@@ -16,6 +16,8 @@ Contenido:
 * ``tictactoe.match`` — ``play_game``, que juega una partida entre dos jugadores.
 * ``tictactoe.registry`` — ``load_players``, que carga los bots admitidos en
   ``players/*/players.yaml``.
+* ``tictactoe.tournament`` — la liguilla entre todos los bots y la clasificación
+  en ``results/leaderboard.json`` (comando ``tictactoe-tournament``).
 * ``tictactoe.cli`` — partida entre dos personas en la terminal (comando
   ``tictactoe-play``). No se importa aquí: el paquete es silencioso.
 """

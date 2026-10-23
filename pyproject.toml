@@ -50,6 +50,8 @@ Documentation = "https://tictactoe-arena.readthedocs.io"
 [project.scripts]
 # Partida entre dos personas en la terminal (paso 1.5 de la guía).
 tictactoe-play = "tictactoe.cli:main"
+# Liguilla entre todos los bots; escribe results/leaderboard.json (paso 5).
+tictactoe-tournament = "tictactoe.tournament:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/tictactoe"]
