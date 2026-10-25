@@ -175,12 +175,12 @@ def _completes_line(state: game.State, cell: game.Move, mark: str) -> bool:
 - Solo usa la librería estándar de Python y el paquete `tictactoe`: nada de
   dependencias extra.
 - No accede a la red ni a archivos, ni ejecuta otros programas.
-- Responde rápido: el torneo pondrá un límite de tiempo por partida.
+- Responde rápido: el torneo pone un límite de tiempo a cada movimiento.
 
 La **prueba de contrato** (`tests/test_players.py`) comprueba automáticamente en
 cada pull request, sin que tengas que escribir pruebas para tu bot, que este se
 carga, que su identidad es válida y su nombre único, que se construye con una
 semilla, que devuelve movimientos legales y que juega partidas completas sin
 perder por abandono. Las demás normas (dependencias, red, archivos) las
-comprueba la persona que revisa el pull request, y el límite de tiempo llegará
-con el torneo.
+comprueba la persona que revisa el pull request, y el límite de tiempo lo aplica
+el torneo.

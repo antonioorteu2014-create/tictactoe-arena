@@ -34,6 +34,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -e ".[dev]"
+pytest
 ```
 
 ## Jugar
