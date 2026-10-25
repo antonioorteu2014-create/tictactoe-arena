@@ -173,6 +173,10 @@ oportunista no cumple el contrato:
   Oportunista devolvió el movimiento ilegal 4 en 'XO.XO....'
 ```
 
+Si `ruff` avisa de `W292 No newline at end of file` (suele pasar al pegar el
+código en el Bloc de notas), ejecuta `ruff check --fix players/custom`: añade
+el salto de línea que falta.
+
 Si quieres ver a tu bot jugar una partida contra el bot aleatorio:
 
 ```bash
