@@ -4,17 +4,15 @@
 [![Documentation](https://readthedocs.org/projects/tictactoe-arena/badge/?version=latest)](https://tictactoe-arena.readthedocs.io/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**▶ Juega ahora en el navegador:** <https://antonioorteu2014-create.github.io/tictactoe-arena/>
+**▶ [Juega en el navegador](https://antonioorteu2014-create.github.io/tictactoe-arena/)** ·
+**🏆 [Clasificación del torneo](https://antonioorteu2014-create.github.io/tictactoe-arena/#leaderboard)** ·
+**📖 [Documentación](https://tictactoe-arena.readthedocs.io)**
 
-El **tres en raya** como proyecto open-source: el juego en una librería de Python,
-una plataforma para que cualquiera programe y suba su propio bot, y un torneo
-automático que enfrenta a todos los bots y publica la clasificación.
+El **tres en raya** como proyecto open-source. El juego es una librería de Python,
+cualquiera puede programar su propio bot y enviarlo por pull request, y un torneo
+automático enfrenta cada día a todos los bots y publica la clasificación en la web.
 
-> **Estado:** en construcción. Ya se puede jugar contra un bot en la web, jugar
-> entre dos personas en la terminal, y cualquiera puede escribir y enviar su
-> propio bot. El torneo automático llega en el siguiente paso.
-
-- **Documentación:** <https://tictactoe-arena.readthedocs.io>
+![La web: una partida contra un bot y, debajo, la clasificación del último torneo](docs/img/web.png)
 
 ## Instalación
 
@@ -26,6 +24,7 @@ cd tictactoe-arena
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -e ".[dev]"
+pytest                                # comprueba que todo funciona
 ```
 
 En **Windows (PowerShell)**, las líneas del entorno son distintas:
@@ -37,37 +36,13 @@ python -m venv .venv
 python -m pip install -e ".[dev]"
 ```
 
-El entorno está activado cuando la línea de la terminal empieza por `(.venv)`.
-
-Para comprobar que todo funciona:
-
-```bash
-pytest          # ejecuta las pruebas
-ruff check .    # comprueba el estilo del código
-```
-
-Para probar la web en tu ordenador (hay que servir la carpeta, no abrir el
-archivo con doble clic):
-
-```bash
-python scripts/build_web.py
-python -m http.server 8000 --directory web    # y abre http://localhost:8000
-```
-
 ## Jugar
 
-En el **navegador**, contra un bot y sin instalar nada:
-<https://antonioorteu2014-create.github.io/tictactoe-arena/>
-
-En la terminal, entre dos personas:
-
-```bash
-tictactoe-play
-```
-
-(Si en Windows el comando no se reconoce, usa `python -m tictactoe`.)
-
-O desde Python, sin ninguna interfaz:
+- **En el navegador**, contra un bot y sin instalar nada:
+  <https://antonioorteu2014-create.github.io/tictactoe-arena/>
+- **En la terminal**, entre dos personas: `tictactoe-play`
+  (en Windows, si no se reconoce, `python -m tictactoe`).
+- **Desde Python**, sin ninguna interfaz:
 
 ```python
 from tictactoe import game
@@ -78,83 +53,63 @@ for move in [4, 1, 0, 2, 8]:              # casillas 0-8, por filas
 print(game.winner(state))                 # "X"
 ```
 
-Las reglas completas y la representación del tablero están en
-[Reglas del juego](https://tictactoe-arena.readthedocs.io/es/latest/rules/).
+Las reglas completas están en [Reglas del juego](https://tictactoe-arena.readthedocs.io/es/latest/rules/).
 
-## Los bots
+## Bots y torneo
 
 | Bot | Cómo decide |
 |---|---|
-| 🎲 `aleatorio` | Al azar entre las casillas libres |
-| 🦈 `voraz` | Gana si puede, bloquea si debe y prefiere el centro; no mira hacia delante |
-| 🧠 `minimax` | Busca todas las jugadas futuras (minimax con poda alfa-beta): nunca pierde |
+| 🧠 `minimax` | Busca todas las jugadas futuras (poda alfa-beta): nunca pierde |
+| 🦈 `voraz` | Gana si puede, bloquea si debe; no mira hacia delante |
+| 🎲 `aleatorio` | Al azar: la referencia que cualquier bot debe superar |
 
-Para medirlos entre sí (la misma semilla da siempre los mismos números):
-
-```bash
-python scripts/benchmark.py --games 100 --seed 0
-```
-
-Cómo decide cada uno, sus resultados y sus debilidades:
-[Nuestros bots](https://tictactoe-arena.readthedocs.io/es/latest/bots/).
-
-## El torneo
-
-Todos los bots admitidos juegan contra todos, con X y con O. La clasificación se
-escribe en [`results/leaderboard.json`](results/leaderboard.json):
+Cada día, y cada vez que entra un cambio en `main`, todos los bots juegan contra
+todos con X y con O, y la [clasificación](https://antonioorteu2014-create.github.io/tictactoe-arena/#leaderboard)
+se publica sola en la web. Un bot que falla, hace trampa o se cuelga pierde esa
+partida, pero no rompe el torneo.
 
 ```bash
-tictactoe-tournament
+tictactoe-tournament                              # el torneo en tu ordenador
+python scripts/benchmark.py --games 100 --seed 0  # mide los bots entre sí
 ```
 
-Un bot que falla, hace trampa o se queda pensando pierde esa partida, pero no
-rompe el torneo. Las reglas completas están en
-[El torneo](https://tictactoe-arena.readthedocs.io/es/latest/tournament/).
+Más detalles en [Nuestros bots](https://tictactoe-arena.readthedocs.io/es/latest/bots/)
+y [El torneo](https://tictactoe-arena.readthedocs.io/es/latest/tournament/).
 
-## Escribir un bot
+## Escribe tu propio bot
 
-Un bot es una clase que hereda de `tictactoe.player.Player` e implementa un
-método, `choose_move(state)`, que devuelve la casilla (0-8) donde jugar. Se
-envía por pull request: un archivo en `players/custom/` y una línea en
-`players/custom/players.yaml`. Las pruebas lo examinan solas.
+1. Crea una clase que herede de `tictactoe.player.Player` e implemente
+   `choose_move(state)`, que devuelve la casilla (0-8) donde jugar.
+2. Guárdala en `players/custom/` y apúntala en `players/custom/players.yaml`.
+3. Abre un pull request: las pruebas la examinan solas y, al fusionarla, entra en
+   el torneo.
 
-- [El API de jugador](https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/player-api/):
-  qué tiene que hacer un bot, con un ejemplo completo.
-- [Enviar tu bot](https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/submit-a-player/):
-  el paso a paso hasta el pull request.
+El paso a paso: [El API de jugador](https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/player-api/)
+y [Enviar tu bot](https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/submit-a-player/).
 
 ## Estructura del proyecto
 
 ```
 tictactoe-arena/
-├── src/tictactoe/      # la librería: reglas, API de jugadores y partidas
+├── src/tictactoe/      # la librería: reglas, API de jugadores, partidas y torneo
 ├── players/            # los bots: builtin/ (del equipo) y custom/ (enviados)
-├── web/                # la página web (GitHub Pages + Pyodide)
+├── web/                # la web: el juego y la clasificación (GitHub Pages + Pyodide)
 ├── scripts/            # benchmark.py (mide los bots) y build_web.py (empaqueta la web)
-├── results/            # leaderboard.json: la clasificación del último torneo
+├── results/            # leaderboard.json de ejemplo (lo escribe tictactoe-tournament)
 ├── tests/              # pruebas automáticas (pytest)
 ├── docs/               # documentación (MkDocs → Read the Docs)
-├── .github/            # pruebas automáticas en GitHub Actions y plantilla de PR
+├── .github/            # pruebas en cada pull request y publicación diaria de la web
 ├── pyproject.toml      # descripción del paquete y de sus dependencias
 └── mkdocs.yml          # configuración del sitio de documentación
 ```
 
-## Documentación
+Para probar la web en tu ordenador: `python scripts/build_web.py` y
+`python -m http.server 8000 --directory web`, y abre <http://localhost:8000>.
 
-La documentación completa está publicada en
-<https://tictactoe-arena.readthedocs.io>.
+## Contribuir, autores y licencia
 
-## Cómo contribuir
-
-La rama `main` está protegida: todo cambio llega mediante un *pull request* que
-necesita una revisión aprobatoria y las pruebas en verde. Ver
-[CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Autores
+La rama `main` está protegida: todo cambio llega por un pull request con una
+revisión aprobatoria y las pruebas en verde. Ver [CONTRIBUTING.md](CONTRIBUTING.md).
 
 Antonio Orteu, Álvaro Domingo y María Sanz — Inteligencia Artificial, 3.º MAT-A,
-CUNEF Universidad (curso 2026/2027).
-
-## Licencia
-
-Distribuido bajo la licencia [MIT](LICENSE).
+CUNEF Universidad (curso 2026/2027). Distribuido bajo la licencia [MIT](LICENSE).
