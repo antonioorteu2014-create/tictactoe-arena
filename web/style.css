@@ -1,33 +1,58 @@
+/* Tic-Tac-Toe Arena · diseño «Holograma»
+   El tablero es una lámina de cristal que flota sobre una aurora de color.
+   Las rayas son líneas de luz que se desvanecen en los extremos y las fichas
+   son trazos de luz: las X en turquesa y violeta, las O en magenta y ámbar.
+   Letras: Michroma (títulos, en mayúsculas) y Barlow Condensed (texto),
+   cargadas desde Google Fonts en index.html.
+
+   Solo cambia el aspecto: los id y las clases que usan app.js y
+   leaderboard.js (cell, x, o, win, leaderboard…) son los mismos de siempre. */
+
 :root {
-    --bg: #f6f7fb;
-    --card: #ffffff;
-    --ink: #1d2230;
-    --muted: #5b6272;
-    --line: #d9dce5;
-    --accent: #3b4cc0;
-    --on-accent: #ffffff;
-    --x: #3b4cc0;
-    --o: #c0392b;
-    --win: #fff3c4;
-    --error-bg: #fdecea;
-    --error-ink: #8a1c12;
+    --display: "Michroma", "Eurostile", sans-serif;
+    /* Aurora del fondo */
+    --bg: #f1f0fb;
+    --aurora-1: rgba(124, 92, 255, 0.28);   /* violeta */
+    --aurora-2: rgba(0, 200, 230, 0.22);    /* turquesa */
+    --aurora-3: rgba(255, 70, 190, 0.18);   /* magenta */
+
+    /* Luz de cada ficha */
+    --x-light: linear-gradient(125deg, #0aa6c9, #6a48f0);
+    --o-light: linear-gradient(125deg, #e0349f, #f29a1f);
+    --x-glow: rgba(70, 120, 240, 0.35);
+    --o-glow: rgba(230, 70, 150, 0.32);
+    --aurora: linear-gradient(100deg, #0aa6c9, #6a48f0 45%, #e0349f 80%, #f29a1f);
+
+    --text: #17183a;
+    --muted: #575b80;
+    --glass: rgba(255, 255, 255, 0.6);
+    --glass-edge: rgba(40, 40, 110, 0.12);
+    --line: rgba(80, 60, 200, 0.35);
+    --field: rgba(255, 255, 255, 0.72);
+    --error-bg: #fbe7ef;
+    --error-ink: #8a1f4a;
     color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --bg: #14171f;
-        --card: #1e2230;
-        --ink: #e9ebf2;
-        --muted: #a3a9b8;
-        --line: #343a4d;
-        --accent: #8e9cff;
-        --on-accent: #14171f;
-        --x: #8e9cff;
-        --o: #ff8a7a;
-        --win: #4a4220;
-        --error-bg: #3b1d1a;
-        --error-ink: #ffb4a9;
+        --bg: #090b22;
+        --aurora-1: rgba(124, 92, 255, 0.42);
+        --aurora-2: rgba(0, 210, 240, 0.24);
+        --aurora-3: rgba(255, 70, 190, 0.26);
+        --x-light: linear-gradient(125deg, #3ff0ff, #9b7bff);
+        --o-light: linear-gradient(125deg, #ff5ec8, #ffc04d);
+        --x-glow: rgba(80, 200, 255, 0.6);
+        --o-glow: rgba(255, 90, 200, 0.55);
+        --aurora: linear-gradient(100deg, #3ff0ff, #9b7bff 45%, #ff5ec8 80%, #ffc04d);
+        --text: #eeedff;
+        --muted: #a1a6cc;
+        --glass: rgba(15, 17, 46, 0.8);
+        --glass-edge: rgba(255, 255, 255, 0.14);
+        --line: rgba(190, 180, 255, 0.45);
+        --field: rgba(255, 255, 255, 0.05);
+        --error-bg: #3b1430;
+        --error-ink: #ffd3ec;
         color-scheme: dark;
     }
 }
@@ -38,26 +63,45 @@
 
 body {
     margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.5;
+    min-height: 100vh;
+    color: var(--text);
+    font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 1.12rem;
+    line-height: 1.6;
+    background:
+        radial-gradient(48% 38% at 30% 30%, var(--aurora-1), transparent 70%),
+        radial-gradient(42% 34% at 75% 42%, var(--aurora-3), transparent 70%),
+        radial-gradient(45% 36% at 55% 78%, var(--aurora-2), transparent 70%),
+        var(--bg);
+    background-attachment: fixed;
 }
 
 .page {
-    max-width: 34rem;
+    max-width: 37rem;
     margin: 0 auto;
-    padding: 2rem 1rem 3rem;
+    padding: 3.25rem 1.25rem 3rem;
     text-align: center;
 }
 
+/* El título, todo él en luz de aurora. */
 h1 {
     margin: 0;
-    font-size: 2rem;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 6.2vw, 2.7rem);
+    line-height: 1.2;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    background: var(--aurora);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
 }
 
 .subtitle {
-    margin: 0.5rem 0 1.5rem;
+    margin: 1rem auto 2rem;
+    max-width: 27rem;
     color: var(--muted);
 }
 
@@ -72,70 +116,134 @@ h1 {
 .controls label {
     display: flex;
     flex-direction: column;
+    gap: 0.3rem;
     text-align: left;
-    font-size: 0.85rem;
     color: var(--muted);
-    gap: 0.25rem;
+    font-size: 0.95rem;
 }
 
 select,
 button {
     font: inherit;
-    font-size: 1rem;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid var(--line);
-    background: var(--card);
-    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+    color: var(--text);
 }
 
-button {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: var(--on-accent);
+select {
+    border: 1px solid var(--glass-edge);
+    background: var(--field);
+}
+
+select option {
+    background: #ffffff;
+    color: #17183a;
+}
+
+/* Botón con filo de aurora; al pasar por encima se llena de luz. */
+#new-game {
+    border: 1.5px solid transparent;
+    background:
+        linear-gradient(var(--bg), var(--bg)) padding-box,
+        var(--aurora) border-box;
+    font-weight: 700;
     cursor: pointer;
+}
+
+#new-game:hover {
+    background: var(--aurora) border-box;
+    color: #ffffff;
 }
 
 select:disabled,
 button:disabled {
-    opacity: 0.55;
+    opacity: 0.5;
     cursor: not-allowed;
+}
+
+:focus-visible {
+    outline: 2px solid #8b6cff;
+    outline-offset: 3px;
 }
 
 .bot-description {
     min-height: 1.5em;
-    margin: 0.75rem 0 0;
-    font-size: 0.9rem;
+    margin: 1rem auto 0;
+    max-width: 28rem;
     color: var(--muted);
+    font-size: 0.88rem;
 }
 
 .status {
     min-height: 1.5em;
-    margin: 1rem 0;
-    font-size: 1.15rem;
+    margin: 1.75rem 0 1.25rem;
     font-weight: 600;
+    font-size: 1.35rem;
 }
 
+/* La lámina de cristal, con el filo teñido de aurora. */
 .board {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    width: min(90vw, 22rem);
+    width: min(84vw, 21rem);
     margin: 0 auto;
+    border-radius: 26px;
+    border: 1.5px solid transparent;
+    background:
+        linear-gradient(var(--glass), var(--glass)) padding-box,
+        linear-gradient(135deg, rgba(63, 200, 255, 0.55), rgba(155, 123, 255, 0.25) 40%, rgba(255, 94, 200, 0.55)) border-box;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow:
+        0 30px 70px -18px var(--x-glow),
+        0 40px 90px -30px var(--o-glow);
+}
+
+/* Las cuatro rayas: líneas de luz que se apagan en las puntas. */
+.board::before,
+.board::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    border: 0 solid var(--line);
+}
+
+.board::before {
+    top: 9%;
+    bottom: 9%;
+    left: calc(100% / 3);
+    right: calc(100% / 3);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    -webkit-mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
+    mask-image: linear-gradient(transparent, #000 18%, #000 82%, transparent);
+}
+
+.board::after {
+    left: 9%;
+    right: 9%;
+    top: calc(100% / 3);
+    bottom: calc(100% / 3);
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
 }
 
 .cell {
+    position: relative;
     aspect-ratio: 1;
-    font-size: clamp(2.5rem, 14vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1;
     padding: 0;
-    border-radius: 0.75rem;
-    border: 2px solid var(--line);
-    background: var(--card);
-    color: var(--ink);
+    border: 0;
+    border-radius: 22px;
+    background: transparent;
+    /* La letra sigue ahí para quien la copie o la lea; se dibuja con luz. */
+    color: transparent;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.15s;
 }
 
 .cell:disabled {
@@ -144,92 +252,126 @@ button:disabled {
 }
 
 .cell:not(:disabled):hover {
-    background: var(--bg);
+    background: radial-gradient(circle, rgba(155, 123, 255, 0.22), transparent 62%);
 }
 
-.cell.x {
-    color: var(--x);
+/* X: dos trazos de luz turquesa y violeta. */
+.cell.x::before,
+.cell.x::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 58%;
+    height: clamp(7px, 2.3vw, 11px);
+    border-radius: 999px;
+    background: var(--x-light);
+    box-shadow: 0 0 14px var(--x-glow);
 }
 
-.cell.o {
-    color: var(--o);
+.cell.x::before {
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
+.cell.x::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* O: un anillo de luz magenta y ámbar (el degradado solo en el borde). */
+.cell.o::before {
+    content: "";
+    position: absolute;
+    inset: 23%;
+    border-radius: 50%;
+    border: clamp(7px, 2.3vw, 11px) solid transparent;
+    background: var(--o-light) border-box;
+    -webkit-mask:
+        linear-gradient(#000 0 0) padding-box,
+        linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+        linear-gradient(#000 0 0) padding-box exclude,
+        linear-gradient(#000 0 0);
+    filter: drop-shadow(0 0 8px var(--o-glow));
+}
+
+/* El único momento animado: la línea ganadora se enciende con su color. */
 .cell.win {
-    background: var(--win);
+    animation: encender 700ms ease-out both;
+}
+
+.cell.win.x {
+    background: radial-gradient(circle, var(--x-glow), transparent 66%);
+}
+
+.cell.win.o {
+    background: radial-gradient(circle, var(--o-glow), transparent 66%);
+}
+
+.cell.win.x::before,
+.cell.win.x::after {
+    box-shadow: 0 0 22px var(--x-glow), 0 0 4px var(--x-glow);
+}
+
+@keyframes encender {
+    from { filter: brightness(0.6); }
+    60% { filter: brightness(1.6); }
+    to { filter: brightness(1.15); }
 }
 
 .error {
     margin: 0 0 1rem;
     padding: 0.75rem 1rem;
-    border-radius: 0.5rem;
+    border-radius: 14px;
     background: var(--error-bg);
     color: var(--error-ink);
     text-align: left;
 }
 
-footer {
-    margin-top: 2.5rem;
-    font-size: 0.9rem;
-    color: var(--muted);
-}
-
-footer a {
-    color: var(--accent);
-}
-
-/* --------------------------------------------------------------------------
-   Clasificación del torneo (la dibuja leaderboard.js)
-   -------------------------------------------------------------------------- */
-
+/* Clasificación: sin cajas, líneas finas y el campeón en luz de aurora. */
 .leaderboard {
-    margin-top: 2.5rem;
+    margin-top: 4rem;
 }
 
 .leaderboard h2 {
     margin: 0;
-    font-size: 1.4rem;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 1.35rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
 .leaderboard-intro,
 .leaderboard-message,
 .leaderboard-updated {
-    margin: 0.5rem 0 0;
-    font-size: 0.9rem;
+    margin: 0.35rem 0 0;
     color: var(--muted);
+    font-size: 0.88rem;
 }
 
-/* En pantallas estrechas la tabla se desplaza dentro de su caja, no la página. */
 .table-scroll {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
     overflow-x: auto;
-    border: 1px solid var(--line);
-    border-radius: 0.75rem;
-    background: var(--card);
 }
 
 .leaderboard table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.95rem;
 }
 
 .leaderboard th,
 .leaderboard td {
-    padding: 0.5rem 0.6rem;
-    border-bottom: 1px solid var(--line);
+    padding: 0.7rem 0.55rem;
     text-align: left;
     white-space: nowrap;
-}
-
-.leaderboard tbody tr:last-child > * {
-    border-bottom: 0;
+    border-bottom: 1px solid var(--glass-edge);
 }
 
 .leaderboard thead th {
-    font-size: 0.8rem;
-    font-weight: 600;
     color: var(--muted);
+    font-weight: 500;
+    font-size: 0.78rem;
 }
 
 .leaderboard abbr {
@@ -239,7 +381,7 @@ footer a {
 
 .leaderboard .num {
     text-align: right;
-    font-variant-numeric: tabular-nums;
+    font-variant-numeric: lining-nums tabular-nums;
 }
 
 .leaderboard tbody th {
@@ -248,24 +390,58 @@ footer a {
 
 .leaderboard tbody th small {
     display: block;
-    font-size: 0.8rem;
     font-weight: 400;
+    font-size: 0.74rem;
     color: var(--muted);
     white-space: normal;
 }
 
 .leaderboard tbody td:last-child {
-    font-weight: 700;
+    font-family: var(--display);
+    font-weight: 400;
+    font-size: 0.95rem;
 }
 
-/* En el móvil, menos aire entre columnas para que quepan todas, puntos incluidos. */
+.leaderboard tbody tr:first-child {
+    background: linear-gradient(90deg, rgba(155, 123, 255, 0.14), transparent 75%);
+}
+
+.leaderboard tbody tr:first-child td:first-child {
+    box-shadow: inset 3px 0 0 #9b7bff;
+}
+
+.leaderboard tbody tr:first-child td:last-child {
+    background: var(--aurora);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 @media (max-width: 30rem) {
-    .leaderboard table {
-        font-size: 0.85rem;
+    .controls label {
+        flex: 1 1 9rem;
     }
 
     .leaderboard th,
     .leaderboard td {
-        padding: 0.45rem 0.3rem;
+        padding: 0.6rem 0.3rem;
+        font-size: 0.85rem;
+    }
+}
+
+footer {
+    margin-top: 3rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+}
+
+footer a {
+    color: var(--text);
+    text-decoration-color: #9b7bff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cell.win {
+        animation: none;
     }
 }
