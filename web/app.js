@@ -1,276 +1,199 @@
-// La interfaz: dibuja el tablero, recoge los clics y alterna los turnos con el bot.
+// La base de la página: las pestañas, la configuración, los errores y el arranque
+// de Python. Las pantallas (play.js, league.js, arena.js, leaderboard.js) usan lo
+// que se publica aquí en `window.Arena`.
 //
-// No sabe las reglas del juego: cada posición (de quién es el turno, qué
-// casillas están libres, si alguien ha ganado) se la da el motor (engine.js),
-// que se la pregunta al Python del proyecto. La página solo pregunta y dibuja.
+// La página no sabe las reglas del juego: se las pregunta al Python del proyecto
+// a través del motor (engine.js). Aquí solo se pregunta y se dibuja.
 
 "use strict";
 
-// Pausa antes de que juegue el bot, para que la partida no parezca instantánea.
-const BOT_DELAY_MS = 450;
+(function () {
+  const SCREENS = ["menu", "reglas", "bots", "jugar", "liguilla", "torneo", "ajustes"];
+  const errorBox = document.getElementById("error");
 
-const ui = {
-  error: document.getElementById("error"),
-  bot: document.getElementById("bot"),
-  side: document.getElementById("side"),
-  newGame: document.getElementById("new-game"),
-  description: document.getElementById("bot-description"),
-  status: document.getElementById("status"),
-  board: document.getElementById("board"),
-};
+  // ------------------------------------------------------------------------
+  // Utilidades
+  // ------------------------------------------------------------------------
 
-let engine = null;
-// La partida en curso:
-//   position  la última respuesta del motor (estado, turno, casillas libres…)
-//   human     la ficha de la persona: "X" u "O"
-//   phase     "human" (le toca a la persona), "bot", "busy" u "over"
-//   forfeit   si el bot perdió por abandono, el motivo
-//   failed    si la partida se interrumpió por un error inesperado
-//   botMove   la última casilla en la que jugó el bot (para anunciarla)
-//   keyboard  si la persona juega con el teclado (para no perderle el foco)
-let game = null;
-// Cada partida nueva incrementa este número. Una jugada del bot que estaba
-// pendiente de una partida anterior lo compara y se descarta.
-let generation = 0;
-
-// --------------------------------------------------------------------------
-// Errores: siempre visibles. Una web estática no tiene registro en un servidor,
-// así que un error que no se muestra es un error que nadie llega a ver.
-// --------------------------------------------------------------------------
-
-function showError(message, hint = "Prueba con «Nueva partida» o recarga la página.") {
-  const sentence = /[.!?]$/.test(message) ? message : `${message}.`;
-  ui.error.textContent = `Algo ha ido mal: ${sentence} ${hint}`.trim();
-  ui.error.hidden = false;
-}
-
-window.addEventListener("error", (event) => showError(event.message || "error desconocido"));
-window.addEventListener("unhandledrejection", (event) => {
-  const reason = event.reason;
-  showError(reason && reason.message ? reason.message : String(reason));
-});
-
-// --------------------------------------------------------------------------
-// Dibujo: el ÚNICO sitio donde se pinta el tablero, siempre a partir del estado.
-// --------------------------------------------------------------------------
-
-// Pinta en `container` el tablero de `position`. Si se pasa `onPick`, las
-// casillas libres se pueden pulsar y llaman a `onPick(casilla)`.
-function paintBoard(container, position, onPick) {
-  const cells = [];
-  const winning = new Set(position ? position.line : []);
-  for (let cell = 0; cell < 9; cell += 1) {
-    const mark = position ? position.state[cell] : ".";
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "cell";
-    button.dataset.cell = String(cell);
-    if (mark !== ".") {
-      button.textContent = mark;
-      button.classList.add(mark.toLowerCase());
+  // Crea un elemento. El texto va siempre como texto (nunca como HTML): los
+  // nombres de los bots y de los jugadores los escribe cualquiera.
+  function el(tag, attrs = {}, ...children) {
+    const node = document.createElement(tag);
+    for (const [key, value] of Object.entries(attrs)) {
+      if (value === undefined || value === null || value === false) continue;
+      if (key === "class") node.className = value;
+      else if (key === "text") node.textContent = value;
+      else if (key.startsWith("on")) node.addEventListener(key.slice(2), value);
+      else node.setAttribute(key, value === true ? "" : value);
     }
-    if (winning.has(cell)) {
-      button.classList.add("win");
+    for (const child of children) {
+      if (child !== null && child !== undefined) node.append(child);
     }
-    const playable = Boolean(onPick && position && position.legal.includes(cell));
-    button.disabled = !playable;
-    button.setAttribute(
-      "aria-label",
-      `Casilla ${cell + 1}: ${mark === "." ? "vacía" : mark}`
-    );
-    if (playable) {
-      button.addEventListener("click", (event) => onPick(cell, event));
-    }
-    cells.push(button);
+    return node;
   }
-  container.replaceChildren(...cells);
-}
 
-function botLabel() {
-  const player = engine && engine.players.find((p) => p.name === game.botName);
-  return player ? `${player.icon} ${player.name}` : "el bot";
-}
-
-function statusText() {
-  if (!game) {
-    return "Cargando…";
-  }
-  const { position, human, phase } = game;
-  // Dónde jugó el bot: imprescindible para seguir la partida con lector de pantalla.
-  const botMoved = game.botMove === null ? "" : ` (jugó en la casilla ${game.botMove + 1})`;
-  if (phase === "over") {
-    if (game.failed) {
-      return "Partida interrumpida por un error.";
-    }
-    if (game.forfeit) {
-      return `¡Has ganado! ${botLabel()} ha perdido por abandono (${game.forfeit}).`;
-    }
-    if (position.draw) {
-      return "Empate.";
-    }
-    return position.winner === human ? "¡Has ganado! 🎉" : `Gana ${botLabel()}${botMoved}.`;
-  }
-  if (phase === "human") {
-    const lead = game.botMove === null ? "" : `${botLabel()} jugó en la casilla ${game.botMove + 1}. `;
-    return `${lead}Te toca. Juegas con ${human}.`;
-  }
-  return `${botLabel()} está pensando…`;
-}
-
-function render() {
-  const humanCanPlay = game && game.phase === "human";
-  paintBoard(ui.board, game && game.position, humanCanPlay ? onHumanPick : null);
-  ui.status.textContent = statusText();
-  // Repintar sustituye las casillas y el foco se perdería. Si la persona juega
-  // con el teclado, se lo devolvemos a una casilla libre cuando le toca.
-  if (humanCanPlay && game.keyboard) {
-    const target = ui.board.querySelector(".cell:not([disabled])");
-    if (target) {
-      target.focus({ preventScroll: true });
-    }
-  }
-}
-
-// --------------------------------------------------------------------------
-// Turnos
-// --------------------------------------------------------------------------
-
-// Decide qué toca después de cada jugada y vuelve a dibujar.
-function advance() {
-  const { position, human } = game;
-  if (position.terminal) {
-    game.phase = "over";
-  } else if (position.turn === human) {
-    game.phase = "human";
-  } else {
-    game.phase = "bot";
-    scheduleBotTurn(generation);
-  }
-  render();
-}
-
-function onHumanPick(cell, event) {
-  // Doble clic, clic durante el turno del bot o con la partida terminada:
-  // no hace nada. La casilla tiene que estar libre según el motor.
-  if (!game || game.phase !== "human" || !game.position.legal.includes(cell)) {
-    return;
-  }
-  // Un «clic» lanzado con Intro o Espacio llega con detail === 0.
-  game.keyboard = Boolean(event && event.detail === 0);
-  game.phase = "busy"; // bloquea más clics hasta que el motor responda
-  try {
-    game.position = engine.play(game.position.state, cell);
-  } catch (error) {
-    game.phase = "human";
-    render();
-    showError(error.message);
-    return;
-  }
-  advance();
-}
-
-function scheduleBotTurn(myGeneration) {
-  setTimeout(() => {
-    if (myGeneration !== generation || !game || game.phase !== "bot") {
-      return; // la partida cambió mientras tanto
-    }
-    try {
-      const answer = engine.botMove(game.position.state);
-      game.position = answer;
-      if (!answer.forfeit) {
-        game.botMove = answer.move;
+  // localStorage puede no estar disponible (modo privado, bloqueado...): la página
+  // sigue funcionando, solo que sin recordar nada.
+  const storage = {
+    get(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw === null ? fallback : JSON.parse(raw);
+      } catch {
+        return fallback;
       }
-      if (answer.forfeit) {
-        game.forfeit = answer.detail;
-        game.phase = "over";
-        render();
-        return;
+    },
+    set(key, value) {
+      try {
+        localStorage.setItem(key, JSON.stringify(value));
+        return true;
+      } catch {
+        return false;
       }
-    } catch (error) {
-      game.phase = "over";
-      game.failed = true;
-      render();
-      showError(error.message);
-      return;
-    }
-    advance();
-  }, BOT_DELAY_MS);
-}
+    },
+  };
 
-function startGame() {
-  generation += 1;
-  ui.error.hidden = true;
-  const botName = ui.bot.value;
-  const seed = Math.floor(Math.random() * 2 ** 31);
-  try {
-    const position = engine.newGame(botName, seed);
-    game = {
-      position,
-      botName,
-      human: ui.side.value,
-      phase: "busy",
-      forfeit: null,
-      failed: false,
-      botMove: null,
-      keyboard: game ? game.keyboard : false,
-    };
-  } catch (error) {
-    game = null;
-    render();
-    showError(error.message);
-    return;
-  }
-  advance();
-}
+  // ------------------------------------------------------------------------
+  // Errores: siempre visibles. Una web estática no tiene registro en un servidor,
+  // así que un error que no se muestra es un error que nadie llega a ver.
+  // ------------------------------------------------------------------------
 
-function showDescription() {
-  const player = engine.players.find((p) => p.name === ui.bot.value);
-  ui.description.textContent = player
-    ? `${player.description} (de ${player.authors.join(", ")})`
-    : "";
-}
-
-// --------------------------------------------------------------------------
-// Arranque
-// --------------------------------------------------------------------------
-
-function setControlsEnabled(enabled) {
-  ui.bot.disabled = !enabled;
-  ui.side.disabled = !enabled;
-  ui.newGame.disabled = !enabled;
-}
-
-async function main() {
-  paintBoard(ui.board, null, null);
-  setControlsEnabled(false);
-  try {
-    engine = await window.bootEngine((message) => {
-      ui.status.textContent = message;
-    });
-  } catch (error) {
-    ui.status.textContent = "No se pudo cargar el juego.";
-    // Abierta con doble clic, recargar no sirve: el propio mensaje dice qué hacer.
-    const hint = location.protocol === "file:" ? "" : "Recarga la página para intentarlo de nuevo.";
-    showError(error.message, hint);
-    return;
+  function showError(message, hint = "Prueba otra vez o recarga la página.") {
+    const sentence = /[.!?]$/.test(message) ? message : `${message}.`;
+    errorBox.textContent = `Algo ha ido mal: ${sentence} ${hint}`.trim();
+    errorBox.hidden = false;
   }
 
-  for (const player of engine.players) {
-    const option = document.createElement("option");
-    option.value = player.name;
-    option.textContent = `${player.icon} ${player.name}`;
-    ui.bot.appendChild(option);
+  function clearError() {
+    errorBox.hidden = true;
   }
-  ui.bot.addEventListener("change", () => {
-    showDescription();
-    startGame();
+
+  window.addEventListener("error", (event) => showError(event.message || "error desconocido"));
+  window.addEventListener("unhandledrejection", (event) => {
+    const reason = event.reason;
+    showError(reason && reason.message ? reason.message : String(reason));
   });
-  ui.side.addEventListener("change", startGame);
-  ui.newGame.addEventListener("click", startGame);
 
-  setControlsEnabled(true);
-  showDescription();
-  startGame();
-}
+  // ------------------------------------------------------------------------
+  // Pestañas: cada una es una sección; la dirección (#jugar...) dice cuál se ve.
+  // ------------------------------------------------------------------------
 
-main();
+  const listeners = [];
+
+  function currentScreen() {
+    const name = location.hash.replace("#", "");
+    // Los enlaces antiguos a la clasificación (#leaderboard) llevan al torneo.
+    if (name === "leaderboard") return "torneo";
+    return SCREENS.includes(name) ? name : "menu";
+  }
+
+  function showScreen() {
+    const name = currentScreen();
+    for (const section of document.querySelectorAll("section.screen")) {
+      section.hidden = section.dataset.screen !== name;
+    }
+    for (const link of document.querySelectorAll(".tabs a")) {
+      if (link.dataset.screen === name) link.setAttribute("aria-current", "page");
+      else link.removeAttribute("aria-current");
+    }
+    for (const listener of listeners) listener(name);
+  }
+
+  window.addEventListener("hashchange", () => {
+    showScreen();
+    window.scrollTo(0, 0);
+  });
+
+  // ------------------------------------------------------------------------
+  // Configuración
+  // ------------------------------------------------------------------------
+
+  const settings = {
+    theme: storage.get("arena.theme", "auto"),
+    botDelay: storage.get("arena.botDelay", 450),
+  };
+
+  function applyTheme() {
+    if (settings.theme === "auto") document.documentElement.removeAttribute("data-theme");
+    else document.documentElement.setAttribute("data-theme", settings.theme);
+  }
+
+  const themeSelect = document.getElementById("setting-theme");
+  const speedSelect = document.getElementById("setting-speed");
+  themeSelect.value = settings.theme;
+  speedSelect.value = String(settings.botDelay);
+  if (!speedSelect.value) speedSelect.value = "450";
+  themeSelect.addEventListener("change", () => {
+    settings.theme = themeSelect.value;
+    storage.set("arena.theme", settings.theme);
+    applyTheme();
+  });
+  speedSelect.addEventListener("change", () => {
+    settings.botDelay = Number(speedSelect.value);
+    storage.set("arena.botDelay", settings.botDelay);
+  });
+  applyTheme();
+
+  // ------------------------------------------------------------------------
+  // Python: se arranca una vez, en segundo plano, nada más abrir la página.
+  // ------------------------------------------------------------------------
+
+  const engineStatus = document.getElementById("engine-status");
+  const enginePromise = window
+    .bootEngine((message) => {
+      engineStatus.textContent = message;
+    })
+    .then((engine) => {
+      engineStatus.hidden = true;
+      return engine;
+    })
+    .catch((error) => {
+      engineStatus.textContent = `No se pudo arrancar Python: ${error.message}`;
+      showError(error.message, "");
+      throw error;
+    });
+
+  // ------------------------------------------------------------------------
+  // Reglas: una tarjeta por modo, con las reglas que da Python.
+  // ------------------------------------------------------------------------
+
+  enginePromise
+    .then((engine) => {
+      document.getElementById("rules-list").replaceChildren(
+        ...engine.modes.map((mode) =>
+          el(
+            "article",
+            { class: "panel rule-card" },
+            el("h2", { text: `${mode.icon} ${mode.name}` }),
+            el("p", { class: "rule-summary", text: mode.summary }),
+            el("ul", {}, ...mode.rules.map((rule) => el("li", { text: rule }))),
+            el("p", {
+              class: "muted",
+              text: mode.humans_only ? "Solo para dos personas." : "Contra un bot o contra otra persona.",
+            })
+          )
+        )
+      );
+    })
+    .catch(() => {});
+
+  window.Arena = {
+    el,
+    storage,
+    settings,
+    showError,
+    clearError,
+    engine: enginePromise,
+    onScreen: (listener) => listeners.push(listener),
+  };
+
+  // Tras cargar todos los scripts, se muestra la pestaña de la dirección y se
+  // dibujan los luchadores de la pantalla «Bots».
+  window.addEventListener("DOMContentLoaded", () => {
+    for (const figure of document.querySelectorAll("#screen-bots .fighter")) {
+      const name = figure.dataset.bot;
+      window.Arena.fighters.render(figure, { kind: "bot", bot: name }, "", "");
+    }
+    showScreen();
+  });
+})();

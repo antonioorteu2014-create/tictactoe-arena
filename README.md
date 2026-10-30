@@ -5,14 +5,16 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **▶ [Juega en el navegador](https://antonioorteu2014-create.github.io/tictactoe-arena/)** ·
-**🏆 [Clasificación del torneo](https://antonioorteu2014-create.github.io/tictactoe-arena/#leaderboard)** ·
+**🏆 [Clasificación del torneo](https://antonioorteu2014-create.github.io/tictactoe-arena/#torneo)** ·
 **📖 [Documentación](https://tictactoe-arena.readthedocs.io)**
 
 El **tres en raya** como proyecto open-source. El juego es una librería de Python,
 cualquiera puede programar su propio bot y enviarlo por pull request, y un torneo
 automático enfrenta cada día a todos los bots y publica la clasificación en la web.
+En la web se juega en **cuatro modos** (clásico, inverso, tres fichas y preguntas
+de Inteligencia Artificial) y hay una liguilla de jugadores.
 
-![La web: una partida contra un bot y, debajo, la clasificación del último torneo](docs/img/web.png)
+![La web: una partida contra el minimax, con el diseño Holograma](docs/img/web.png)
 
 ## Instalación
 
@@ -39,8 +41,12 @@ pytest
 
 ## Jugar
 
-- **En el navegador**, contra un bot y sin instalar nada:
-  <https://antonioorteu2014-create.github.io/tictactoe-arena/>
+- **En el navegador**, sin instalar nada:
+  <https://antonioorteu2014-create.github.io/tictactoe-arena/>. Cuatro modos
+  (clásico, inverso, tres fichas y preguntas de la asignatura), contra
+  un bot, contra otra persona o bot contra bot, con liguilla de jugadores. Ver
+  [Modos de juego](https://tictactoe-arena.readthedocs.io/es/latest/modes/) y
+  [La web](https://tictactoe-arena.readthedocs.io/es/latest/web/).
 - **En la terminal**, entre dos personas: `tictactoe-play`
   (en Windows, si no se reconoce, `python -m tictactoe`).
 - **Desde Python**, sin ninguna interfaz:
@@ -65,7 +71,7 @@ Las reglas completas están en [Reglas del juego](https://tictactoe-arena.readth
 | 🎲 `aleatorio` | Al azar: la referencia que cualquier bot debe superar |
 
 Cada día, y cada vez que entra un cambio en `main`, todos los bots juegan contra
-todos con X y con O, y la [clasificación](https://antonioorteu2014-create.github.io/tictactoe-arena/#leaderboard)
+todos con X y con O, y la [clasificación](https://antonioorteu2014-create.github.io/tictactoe-arena/#torneo)
 se publica sola en la web. Un bot que falla, hace trampa o se cuelga pierde esa
 partida, pero no rompe el torneo.
 
@@ -92,9 +98,9 @@ y [Enviar tu bot](https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/
 
 ```
 tictactoe-arena/
-├── src/tictactoe/      # la librería: reglas, API de jugadores, partidas y torneo
+├── src/tictactoe/      # la librería: reglas, modos de juego, API de jugadores y torneo
 ├── players/            # los bots: builtin/ (del equipo) y custom/ (enviados)
-├── web/                # la web: el juego y la clasificación (GitHub Pages + Pyodide)
+├── web/                # la web: menú, jugar, liguilla y torneo (GitHub Pages + Pyodide)
 ├── scripts/            # benchmark.py (mide los bots) y build_web.py (empaqueta la web)
 ├── results/            # leaderboard.json de ejemplo (lo escribe tictactoe-tournament)
 ├── tests/              # pruebas automáticas (pytest)

@@ -132,7 +132,7 @@ def test_broken_leaderboards_are_detected(change):
 def test_the_page_has_everything_the_scoreboard_needs():
     html = (WEB / "index.html").read_text(encoding="utf-8")
     script = (WEB / "leaderboard.js").read_text(encoding="utf-8")
-    assert '<script src="leaderboard.js"></script>' in html
+    assert re.search(r'<script src="leaderboard\.js(\?v=\d+)?"></script>', html)
     # El marcador escribe las filas dentro del <tbody> de la tabla.
     assert "<tbody></tbody>" in html
     # Si alguien cambia un id en la página, el marcador dejaría de encontrarlo.

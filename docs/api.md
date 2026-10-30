@@ -20,3 +20,17 @@ Para escribir un bot basta con [`tictactoe.player`](#tictactoe.player) y
 ::: tictactoe.registry
 
 ::: tictactoe.tournament
+
+::: tictactoe.knockout
+
+::: tictactoe.modes
+
+::: tictactoe.modes.base
+
+::: tictactoe.modes.classic
+
+::: tictactoe.modes.moving
+
+::: tictactoe.modes.quiz
+
+::: tictactoe.modes.bots

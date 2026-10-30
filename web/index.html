@@ -4,74 +4,375 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tic-Tac-Toe Arena</title>
-    <meta name="description" content="Juega al tres en raya contra un bot, directamente en el navegador.">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="El tres en raya en cuatro modos, contra bots o contra otra persona, con liguilla de jugadores y torneo de bots. Python en el navegador.">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%E2%AD%95%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Michroma&display=swap">
+    <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
-    <main class="page">
-        <header>
-            <h1>Tic-Tac-Toe Arena</h1>
-            <p class="subtitle">Juega al tres en raya contra un bot. Las reglas y los bots son el
-                mismo Python del proyecto, ejecutándose en tu navegador.</p>
-        </header>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="brand" href="#menu" aria-label="Tic-Tac-Toe Arena: ir al menú">
+                <span class="brand-mark" aria-hidden="true"><span class="mark-x">✕</span><span class="mark-o">◯</span></span>
+                <span>Tic-Tac-Toe <b>Arena</b></span>
+            </a>
+            <nav class="tabs" aria-label="Secciones">
+                <a href="#menu" data-screen="menu">Menú</a>
+                <a href="#jugar" data-screen="jugar">Jugar</a>
+                <a href="#liguilla" data-screen="liguilla">Liguilla</a>
+                <a href="#torneo" data-screen="torneo">Torneo</a>
+                <a href="#ajustes" data-screen="ajustes">Configuración</a>
+            </nav>
+        </div>
+    </header>
 
-        <!-- Errores inesperados: se muestran aquí en vez de dejar la página muda. -->
-        <div id="error" class="error" role="alert" hidden></div>
+    <!-- Errores inesperados: se muestran aquí en vez de dejar la página muda. -->
+    <div id="error" class="error" role="alert" hidden></div>
 
-        <section class="controls" aria-label="Opciones de la partida">
-            <label>
-                Rival
-                <select id="bot" disabled></select>
-            </label>
-            <label>
-                Tu ficha
-                <select id="side" disabled>
-                    <option value="X">X (empiezas tú)</option>
-                    <option value="O">O (empieza el bot)</option>
-                </select>
-            </label>
-            <button id="new-game" type="button" disabled>Nueva partida</button>
+    <main>
+        <!-- ============================== MENÚ ============================== -->
+        <section id="screen-menu" class="screen" data-screen="menu" aria-labelledby="menu-title">
+            <div class="hero">
+                <h1 id="menu-title">Tic-Tac-Toe <span class="accent">Arena</span></h1>
+                <p class="hero-text">El tres en raya en cuatro modos, contra bots o contra otra persona.</p>
+            </div>
+
+            <nav class="cards" aria-label="Menú principal">
+                <a class="card" href="#jugar">
+                    <span class="card-icon" aria-hidden="true">🥊</span>
+                    <span class="card-title">Jugar</span>
+                    <span class="card-text">Elige modo y rival, y a jugar.</span>
+                </a>
+                <a class="card" href="#torneo">
+                    <span class="card-icon" aria-hidden="true">🏆</span>
+                    <span class="card-title">Torneo</span>
+                    <span class="card-text">Los bots se eliminan hasta que queda uno.</span>
+                </a>
+                <a class="card" href="#liguilla">
+                    <span class="card-icon" aria-hidden="true">📊</span>
+                    <span class="card-title">Liguilla</span>
+                    <span class="card-text">La clasificación de quienes han jugado.</span>
+                </a>
+                <a class="card" href="#reglas">
+                    <span class="card-icon" aria-hidden="true">📜</span>
+                    <span class="card-title">Reglas</span>
+                    <span class="card-text">Cómo se juega cada modo.</span>
+                </a>
+                <a class="card" href="#bots">
+                    <span class="card-icon" aria-hidden="true">🤖</span>
+                    <span class="card-title">Bots</span>
+                    <span class="card-text">Cómo piensa cada bot.</span>
+                </a>
+                <a class="card" href="#ajustes">
+                    <span class="card-icon" aria-hidden="true">⚙️</span>
+                    <span class="card-title">Configuración</span>
+                    <span class="card-text">Tema y velocidad de los bots.</span>
+                </a>
+            </nav>
         </section>
-        <p id="bot-description" class="bot-description"></p>
 
-        <p id="status" class="status" aria-live="polite">Cargando…</p>
+        <!-- ============================== REGLAS ============================ -->
+        <section id="screen-reglas" class="screen" data-screen="reglas" aria-labelledby="rules-title" hidden>
+            <h1 id="rules-title" class="screen-title">Reglas</h1>
+            <p class="screen-intro">Cómo se juega cada modo. En todos, empieza X y se juega por turnos en un tablero de 3x3.</p>
+            <div id="rules-list" class="info-grid">
+                <p class="muted">Cargando las reglas…</p>
+            </div>
+            <p><a class="button primary" href="#jugar">🥊 Ir a jugar</a></p>
+        </section>
 
-        <div id="board" class="board" role="group" aria-label="Tablero"></div>
-        
-        <!-- La clasificación del último torneo: la dibuja leaderboard.js. -->
-        <section id="leaderboard" class="leaderboard" aria-labelledby="leaderboard-title">
-            <h2 id="leaderboard-title">Clasificación</h2>
-            <p class="leaderboard-intro">Resultado del último torneo entre todos los bots, jugando con X y con O.</p>
-            <p id="leaderboard-message" class="leaderboard-message" aria-live="polite">Cargando la clasificación…</p>
-            <div id="leaderboard-table" class="table-scroll" hidden>
+        <!-- =============================== BOTS ============================= -->
+        <section id="screen-bots" class="screen" data-screen="bots" aria-labelledby="bots-title" hidden>
+            <h1 id="bots-title" class="screen-title">Bots</h1>
+            <p class="screen-intro">Los tres bots del equipo. Juegan en el clásico, en el inverso y en tres
+                fichas, siempre con la misma idea, aplicada a las reglas de cada modo.</p>
+            <div class="info-grid">
+                <article class="panel bot-card">
+                    <figure class="fighter fighter-x" data-bot="aleatorio"></figure>
+                    <div>
+                        <h2>🎲 Aleatorio</h2>
+                        <p>Elige <strong>al azar</strong> entre las casillas libres. No tiene estrategia:
+                            es la referencia que cualquier otro bot debe superar.</p>
+                        <p class="muted">Nivel: fácil.</p>
+                    </div>
+                </article>
+                <article class="panel bot-card">
+                    <figure class="fighter fighter-x" data-bot="voraz"></figure>
+                    <div>
+                        <h2>🦈 Voraz</h2>
+                        <p>Mira <strong>solo la jugada siguiente</strong>: si puede ganar, gana; si el
+                            rival va a ganar, bloquea; y si no, elige la casilla con más líneas abiertas.
+                            No ve trampas de más de una jugada, como una doble amenaza.</p>
+                        <p class="muted">Nivel: medio. Gana al aleatorio más del 80 % de las veces.</p>
+                    </div>
+                </article>
+                <article class="panel bot-card">
+                    <figure class="fighter fighter-x" data-bot="minimax"></figure>
+                    <div>
+                        <h2>🧠 Minimax</h2>
+                        <p>Imagina <strong>todas las jugadas futuras</strong> suponiendo que los dos juegan
+                            lo mejor posible: él busca el máximo y el rival el mínimo. La <strong>poda
+                            alfa-beta</strong> descarta las ramas que no pueden cambiar la decisión, y una
+                            memoria evita repetir posiciones ya calculadas.</p>
+                        <p class="muted">Nivel: difícil. En el clásico y en el inverso nunca pierde. En tres
+                            fichas mira 7 jugadas hacia delante, porque la partida no tiene final fijo.</p>
+                    </div>
+                </article>
+                <article class="panel bot-card">
+                    <figure class="fighter fighter-x" data-bot="__otro__"></figure>
+                    <div>
+                        <h2>🤖 Bots de los compañeros</h2>
+                        <p>Cualquiera puede escribir un bot para el modo clásico y enviarlo por pull
+                            request. Las pruebas automáticas lo revisan y, al aceptarlo, aparece en
+                            «Jugar» y entra en el torneo.
+                            <a href="https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/player-api/">Cómo escribir uno</a>.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ============================== JUGAR ============================= -->
+        <section id="screen-jugar" class="screen" data-screen="jugar" aria-labelledby="play-title" hidden>
+            <h1 id="play-title" class="screen-title">Jugar</h1>
+            <p id="engine-status" class="engine-status" aria-live="polite">Preparando Python en el navegador…</p>
+
+            <div class="play-layout">
+                <form id="setup" class="panel setup" aria-label="Preparar la partida">
+                    <h2>Partida</h2>
+                    <label for="mode">Modo</label>
+                    <select id="mode" disabled></select>
+
+                    <fieldset class="seat">
+                        <legend><span class="mark-x">X</span> · empieza</legend>
+                        <label for="seat-x">Juega</label>
+                        <select id="seat-x" disabled></select>
+                        <label for="name-x" class="name-label">Nombre (para la liguilla)</label>
+                        <input id="name-x" type="text" maxlength="24" autocomplete="off" placeholder="Tu nombre">
+                        <p id="seat-x-info" class="seat-info"></p>
+                    </fieldset>
+
+                    <fieldset class="seat">
+                        <legend><span class="mark-o">O</span> · segundo</legend>
+                        <label for="seat-o">Juega</label>
+                        <select id="seat-o" disabled></select>
+                        <label for="name-o" class="name-label">Nombre (para la liguilla)</label>
+                        <input id="name-o" type="text" maxlength="24" autocomplete="off" placeholder="Nombre">
+                        <p id="seat-o-info" class="seat-info"></p>
+                    </fieldset>
+
+                    <button id="new-game" class="button primary" type="submit" disabled>Nueva partida</button>
+                </form>
+
+                <div class="panel table-area">
+                    <p id="status" class="status" aria-live="polite">Elige modo y jugadores, y pulsa «Nueva partida».</p>
+                    <div id="board" class="board" role="group" aria-label="Tablero"></div>
+                    <p id="board-hint" class="board-hint"></p>
+                    <div class="table-actions">
+                        <button id="pause" class="button small" type="button" hidden>⏸ Pausar</button>
+                        <button id="rematch" class="button small" type="button" hidden>↻ Revancha</button>
+                    </div>
+                </div>
+
+                <aside class="panel log" aria-labelledby="log-title">
+                    <h2 id="log-title">Jugadas</h2>
+                    <p id="move-log-empty" class="muted">Todavía no se ha jugado nada.</p>
+                    <ol id="move-log" class="move-log"></ol>
+                </aside>
+            </div>
+
+            <!-- La pregunta del modo «Preguntas IA». -->
+            <dialog id="quiz" class="quiz" aria-labelledby="quiz-question">
+                <p id="quiz-who" class="quiz-who"></p>
+                <p id="quiz-topic" class="quiz-topic"></p>
+                <h2 id="quiz-question" class="quiz-question"></h2>
+                <p id="quiz-note" class="quiz-note" hidden></p>
+                <div id="quiz-options" class="quiz-options" role="group" aria-label="Respuestas"></div>
+                <div id="quiz-result" class="quiz-result" aria-live="assertive" hidden></div>
+                <div class="quiz-actions">
+                    <button id="quiz-continue" class="button primary small" type="button" hidden>Continuar</button>
+                </div>
+            </dialog>
+        </section>
+
+        <!-- ============================= LIGUILLA =========================== -->
+        <section id="screen-liguilla" class="screen" data-screen="liguilla" aria-labelledby="league-title" hidden>
+            <h1 id="league-title" class="screen-title">Liguilla</h1>
+
+            <section class="panel bot-ranking" aria-labelledby="bot-ranking-title">
+                <h2 id="bot-ranking-title">Ranking de bots</h2>
+                <p class="muted">El último torneo oficial: todos contra todos, con X y con O. Victoria 1
+                    punto, empate ½ y derrota 0. Entran los bots del equipo y los que envían los compañeros.</p>
+                <p id="bot-ranking-message" class="muted" aria-live="polite">Cargando el ranking…</p>
+                <div id="podium" class="podium" hidden></div>
+                <div id="bot-bars" class="bot-bars" hidden></div>
+                <p id="bot-legend" class="bot-legend" hidden>
+                    <span class="key won"></span> Ganadas
+                    <span class="key drawn"></span> Empatadas
+                    <span class="key lost"></span> Perdidas
+                </p>
+            </section>
+
+            <h2 class="section-title">Liguilla de personas</h2>
+            <p class="screen-intro">Cada partida que termina en «Jugar» suma aquí a las personas que
+                la han jugado, por su nombre. Los resultados se guardan <strong>en este navegador</strong>:
+                es la liguilla de este ordenador.</p>
+
+            <div class="filters">
+                <label>Modo <select id="league-mode"></select></label>
+                <label>Rival
+                    <select id="league-rival">
+                        <option value="all">Todos</option>
+                        <option value="human">Solo contra personas</option>
+                        <option value="bot">Solo contra bots</option>
+                    </select>
+                </label>
+            </div>
+
+            <p id="league-empty" class="empty">Todavía no hay partidas con estos filtros. Juega una en
+                <a href="#jugar">Jugar</a> poniendo tu nombre.</p>
+            <div id="league-table" class="table-scroll panel" hidden>
                 <table>
                     <thead>
                         <tr>
-                            <th scope="col" class="num"><abbr title="Posición">#</abbr></th>
-                            <th scope="col">Bot</th>
+                            <th scope="col" class="num">#</th>
+                            <th scope="col">Jugador</th>
                             <th scope="col" class="num"><abbr title="Partidas jugadas">PJ</abbr></th>
                             <th scope="col" class="num"><abbr title="Ganadas">G</abbr></th>
                             <th scope="col" class="num"><abbr title="Empatadas">E</abbr></th>
                             <th scope="col" class="num"><abbr title="Perdidas">P</abbr></th>
-                            <th scope="col" class="num"><abbr title="Perdidas por abandono: error, trampa o tiempo agotado">Ab.</abbr></th>
+                            <th scope="col" class="num"><abbr title="Porcentaje de partidas ganadas">% G</abbr></th>
                             <th scope="col" class="num"><abbr title="Puntos">Pts</abbr></th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody id="league-rows"></tbody>
                 </table>
             </div>
-            <p id="leaderboard-updated" class="leaderboard-updated" hidden></p>
+
+            <h2 class="section-title">Últimas partidas</h2>
+            <p id="league-recent-empty" class="muted">Ninguna todavía.</p>
+            <ol id="league-recent" class="recent"></ol>
+
+            <div class="danger-zone">
+                <button id="league-clear" class="button small" type="button">Borrar la liguilla</button>
+                <span id="league-confirm" hidden>
+                    ¿Seguro? Se borran todas las partidas guardadas en este navegador.
+                    <button id="league-clear-yes" class="button small danger" type="button">Sí, borrar</button>
+                    <button id="league-clear-no" class="button small" type="button">Cancelar</button>
+                </span>
+            </div>
         </section>
 
-        <footer>
-            <a href="https://tictactoe-arena.readthedocs.io">Documentación</a> ·
-            <a href="https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/player-api/">Escribe tu propio bot</a> ·
-            <a href="https://github.com/antonioorteu2014-create/tictactoe-arena">Código en GitHub</a>
-        </footer>
+        <!-- ============================== TORNEO ============================ -->
+        <section id="screen-torneo" class="screen" data-screen="torneo" aria-labelledby="tournament-title" hidden>
+            <h1 id="tournament-title" class="screen-title">Torneo de bots</h1>
+            <p class="screen-intro">Los bots del modo clásico: los del equipo y los que nos envían
+                los compañeros por pull request
+                (<a href="https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/submit-a-player/">cómo enviar el tuyo</a>).
+                Un bot que falla o hace trampa pierde la partida, pero no rompe el torneo.</p>
+
+            <section class="panel arena" aria-labelledby="arena-title">
+                <h2 id="arena-title">Torneo por eliminatorias</h2>
+                <p class="muted">Elige los bots y se sortea el cuadro. Cada eliminatoria son dos
+                    partidas, una con cada ficha; si empatan, muerte súbita; y si siguen, sorteo.
+                    El que pierde, se va a casa.</p>
+                <form id="arena-form">
+                    <fieldset>
+                        <legend>Bots</legend>
+                        <div id="arena-bots" class="arena-bots"><p class="muted">Esperando a Python…</p></div>
+                    </fieldset>
+                    <div class="arena-row">
+                        <button id="arena-start" class="button primary" type="submit" disabled>🎲 Sortear y empezar</button>
+                        <button id="arena-pause" class="button" type="button" hidden>⏸ Pausar</button>
+                        <button id="arena-fast" class="button" type="button" hidden>⏩ Sin animación</button>
+                    </div>
+                </form>
+
+                <div id="arena-live" class="arena-live" hidden>
+                    <p id="live-title" class="live-title"></p>
+                    <div class="ring small">
+                        <figure id="live-X" class="fighter fighter-x"></figure>
+                        <div id="live-board" class="board mini" aria-label="Partida en juego"></div>
+                        <figure id="live-O" class="fighter fighter-o"></figure>
+                    </div>
+                    <p id="live-result" class="live-result" aria-live="polite"></p>
+                </div>
+
+                <div id="champion" class="champion" hidden>
+                    <figure id="champion-fighter" class="fighter winner"></figure>
+                    <div>
+                        <p class="champion-label">🏆 Campeón</p>
+                        <p id="champion-name" class="champion-name"></p>
+                    </div>
+                </div>
+
+                <div id="bracket" class="bracket" aria-label="Cuadro del torneo"></div>
+            </section>
+            <!-- La clasificación del último torneo oficial: la dibuja leaderboard.js. -->
+            <section id="leaderboard" class="leaderboard panel" aria-labelledby="leaderboard-title">
+                <h2 id="leaderboard-title">Clasificación oficial</h2>
+                <p class="leaderboard-intro">Una liguilla (todos contra todos, con X y con O) que juega GitHub cada día y cada vez que entra un bot nuevo.</p>
+                <p id="leaderboard-message" class="leaderboard-message" aria-live="polite">Cargando la clasificación…</p>
+                <div id="leaderboard-table" class="table-scroll" hidden>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col" class="num"><abbr title="Posición">#</abbr></th>
+                                <th scope="col">Bot</th>
+                                <th scope="col" class="num"><abbr title="Partidas jugadas">PJ</abbr></th>
+                                <th scope="col" class="num"><abbr title="Ganadas">G</abbr></th>
+                                <th scope="col" class="num"><abbr title="Empatadas">E</abbr></th>
+                                <th scope="col" class="num"><abbr title="Perdidas">P</abbr></th>
+                                <th scope="col" class="num"><abbr title="Perdidas por abandono: error, trampa o tiempo agotado">Ab.</abbr></th>
+                                <th scope="col" class="num"><abbr title="Puntos">Pts</abbr></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+                <p id="leaderboard-updated" class="leaderboard-updated" hidden></p>
+            </section>
+
+        </section>
+
+        <!-- =========================== CONFIGURACIÓN ======================== -->
+        <section id="screen-ajustes" class="screen" data-screen="ajustes" aria-labelledby="settings-title" hidden>
+            <h1 id="settings-title" class="screen-title">Configuración</h1>
+            <p class="screen-intro">Se guarda en este navegador. Más opciones, próximamente.</p>
+            <div class="panel settings">
+                <label for="setting-theme">Tema</label>
+                <select id="setting-theme">
+                    <option value="auto">Automático (el del sistema)</option>
+                    <option value="light">Claro</option>
+                    <option value="dark">Oscuro</option>
+                </select>
+                <label for="setting-speed">Velocidad de los bots</label>
+                <select id="setting-speed">
+                    <option value="900">Lenta</option>
+                    <option value="450">Normal</option>
+                    <option value="120">Rápida</option>
+                </select>
+            </div>
+        </section>
     </main>
 
-    <script src="engine.js"></script>
-    <script src="app.js"></script>
-    <script src="leaderboard.js"></script>
+    <footer class="footer">
+        <a href="https://tictactoe-arena.readthedocs.io">Documentación</a> ·
+        <a href="https://tictactoe-arena.readthedocs.io/es/latest/upload-a-bot/player-api/">Escribe tu propio bot</a> ·
+        <a href="https://github.com/antonioorteu2014-create/tictactoe-arena">Código en GitHub</a>
+        <span class="footer-note">Antonio Orteu, Álvaro Domingo y María Sanz · CUNEF</span>
+    </footer>
+
+    <!-- El «?v=3» obliga al navegador a descargar la versión nueva de cada
+         archivo en vez de usar una copia vieja guardada. Súbelo al cambiarlos. -->
+    <script src="engine.js?v=3"></script>
+    <script src="app.js?v=3"></script>
+    <script src="fighters.js?v=3"></script>
+    <script src="play.js?v=3"></script>
+    <script src="league.js?v=3"></script>
+    <script src="botrank.js?v=3"></script>
+    <script src="arena.js?v=3"></script>
+    <script src="leaderboard.js?v=3"></script>
 </body>
 </html>

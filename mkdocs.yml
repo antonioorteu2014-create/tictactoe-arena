@@ -34,6 +34,8 @@ nav:
   - Inicio: index.md
   - Reglas del juego: rules.md
   - Nuestros bots: bots.md
+  - Modos de juego: modes.md
+  - La web: web.md
   - El torneo: tournament.md
   - Subir un bot:
       - 1. El API de jugador: upload-a-bot/player-api.md
