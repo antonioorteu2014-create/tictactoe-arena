@@ -109,16 +109,31 @@ async function bootEngine(onStatus = () => {}) {
     throw new Error("no hay ningún bot admitido");
   }
 
-  // La interfaz pública que usa app.js (y que se puede probar desde la consola
-  // del navegador: por ejemplo, `Engine.legalMoves("X........")`).
+  // La interfaz pública que usan las pantallas (y que se puede probar desde la
+  // consola del navegador: por ejemplo, `Engine.legalMoves("X........")`).
   const engine = {
     pyodide, // acceso directo a Python, para depurar desde la consola
     players,
+    modes: parse(glue.modes_json()).modes,
+    // Modo clásico contra un bot (la primera versión de la web).
     newGame: (botName, seed) => parse(glue.new_game(botName, seed)),
     play: (state, move) => parse(glue.play(JSON.stringify(state), JSON.stringify(move))),
     botMove: (state) => parse(glue.bot_move(JSON.stringify(state))),
     status: (state) => parse(glue.status(JSON.stringify(state))),
     legalMoves: (state) => parse(glue.legal_moves(JSON.stringify(state))),
+    // Pantalla «Jugar»: cualquier modo, cualquier combinación de personas y bots.
+    modeNewGame: (mode, seats, seed) =>
+      parse(glue.mode_new_game(mode, JSON.stringify(seats), seed)),
+    modePlay: (state, move) =>
+      parse(glue.mode_play(JSON.stringify(state), JSON.stringify(move))),
+    modeBotMove: (state) => parse(glue.mode_bot_move(JSON.stringify(state))),
+    // Modo «Preguntas IA».
+    quizQuestion: (seed, used) => parse(glue.quiz_question(seed, JSON.stringify(used))).question,
+    quizAnswer: (state, cell, questionId, choice) =>
+      parse(glue.quiz_answer(JSON.stringify(state), cell, questionId, choice)),
+    // Pantalla «Torneo»: un torneo por eliminatorias jugado en el navegador.
+    knockoutStart: (names, seed) => parse(glue.knockout_start(JSON.stringify(names), seed)),
+    knockoutStep: () => parse(glue.knockout_step()),
   };
   window.Engine = engine;
   return engine;

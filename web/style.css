@@ -1,42 +1,82 @@
-/* Tic-Tac-Toe Arena · diseño «Holograma»
-   El tablero es una lámina de cristal que flota sobre una aurora de color.
-   Las rayas son líneas de luz que se desvanecen en los extremos y las fichas
-   son trazos de luz: las X en turquesa y violeta, las O en magenta y ámbar.
-   Letras: Michroma (títulos, en mayúsculas) y Barlow Condensed (texto),
-   cargadas desde Google Fonts en index.html.
+/* Tic-Tac-Toe Arena · diseño «Holograma» (el de María, PR #17), aplicado a
+   todas las pantallas: Menú, Jugar, Liguilla, Torneo, Reglas, Bots y
+   Configuración. Una aurora de color de fondo, paneles de cristal con el filo
+   teñido de aurora, y las fichas dibujadas con luz: las X en turquesa y
+   violeta, las O en magenta y ámbar. Letras: Michroma (títulos, en mayúsculas)
+   y Barlow Condensed (texto), cargadas desde Google Fonts en index.html.
 
-   Solo cambia el aspecto: los id y las clases que usan app.js y
-   leaderboard.js (cell, x, o, win, leaderboard…) son los mismos de siempre. */
+   Los colores son variables: tema claro por defecto, oscuro si el sistema lo
+   pide o si se elige en Configuración (que pone data-theme en <html>). */
 
 :root {
     --display: "Michroma", "Eurostile", sans-serif;
-    /* Aurora del fondo */
-    --bg: #f1f0fb;
-    --aurora-1: rgba(124, 92, 255, 0.28);   /* violeta */
-    --aurora-2: rgba(0, 200, 230, 0.22);    /* turquesa */
-    --aurora-3: rgba(255, 70, 190, 0.18);   /* magenta */
-
-    /* Luz de cada ficha */
+    --font: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", Menlo, Consolas, monospace;
+    --felt: #f1f0fb;
+    --felt-2: rgba(124, 92, 255, 0.08);
+    --felt-dark: rgba(255, 255, 255, 0.72);
+    --on-felt: #17183a;
+    --on-felt-muted: #575b80;
+    --gold: #8b6cff;
+    --gold-soft: rgba(155, 123, 255, 0.16);
+    --card: rgba(255, 255, 255, 0.6);
+    --card-2: rgba(124, 92, 255, 0.07);
+    --cell: rgba(255, 255, 255, 0.72);
+    --ink: #17183a;
+    --muted: #575b80;
+    --line: rgba(40, 40, 110, 0.12);
+    --link: #6a48f0;
+    --x: #0a8fb0;
+    --o: #d42a93;
+    --win: rgba(155, 123, 255, 0.16);
+    --good: #0aa6c9;
+    --good-soft: rgba(10, 166, 201, 0.12);
+    --bad: #e0349f;
+    --bad-soft: rgba(224, 52, 159, 0.1);
+    --on-gold: #ffffff;
+    --error-bg: #fbe7ef;
+    --error-ink: #8a1f4a;
+    --aurora-1: rgba(124, 92, 255, 0.28);
+    --aurora-2: rgba(0, 200, 230, 0.22);
+    --aurora-3: rgba(255, 70, 190, 0.18);
     --x-light: linear-gradient(125deg, #0aa6c9, #6a48f0);
     --o-light: linear-gradient(125deg, #e0349f, #f29a1f);
     --x-glow: rgba(70, 120, 240, 0.35);
     --o-glow: rgba(230, 70, 150, 0.32);
     --aurora: linear-gradient(100deg, #0aa6c9, #6a48f0 45%, #e0349f 80%, #f29a1f);
-
-    --text: #17183a;
-    --muted: #575b80;
-    --glass: rgba(255, 255, 255, 0.6);
-    --glass-edge: rgba(40, 40, 110, 0.12);
-    --line: rgba(80, 60, 200, 0.35);
-    --field: rgba(255, 255, 255, 0.72);
-    --error-bg: #fbe7ef;
-    --error-ink: #8a1f4a;
+    --aurora-edge: linear-gradient(135deg, rgba(63, 200, 255, 0.55), rgba(155, 123, 255, 0.25) 40%, rgba(255, 94, 200, 0.55));
+    --menu-bg: #ffffff;
+    --shadow: 0 24px 60px -28px var(--x-glow), 0 30px 70px -40px var(--o-glow);
+    --radius: 22px;
     color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #090b22;
+    :root:not([data-theme="light"]) {
+        --felt: #090b22;
+        --felt-2: rgba(124, 92, 255, 0.14);
+        --felt-dark: rgba(9, 11, 34, 0.72);
+        --on-felt: #eeedff;
+        --on-felt-muted: #a1a6cc;
+        --gold: #9b7bff;
+        --gold-soft: rgba(155, 123, 255, 0.2);
+        --card: rgba(15, 17, 46, 0.8);
+        --card-2: rgba(255, 255, 255, 0.06);
+        --cell: rgba(255, 255, 255, 0.05);
+        --ink: #eeedff;
+        --muted: #a1a6cc;
+        --line: rgba(255, 255, 255, 0.14);
+        --link: #b7a4ff;
+        --x: #3ff0ff;
+        --o: #ff5ec8;
+        --win: rgba(155, 123, 255, 0.22);
+        --good: #3ff0ff;
+        --good-soft: rgba(63, 240, 255, 0.12);
+        --bad: #ff5ec8;
+        --bad-soft: rgba(255, 94, 200, 0.14);
+        --on-gold: #ffffff;
+        --error-bg: #3b1430;
+        --error-ink: #ffd3ec;
         --aurora-1: rgba(124, 92, 255, 0.42);
         --aurora-2: rgba(0, 210, 240, 0.24);
         --aurora-3: rgba(255, 70, 190, 0.26);
@@ -45,16 +85,46 @@
         --x-glow: rgba(80, 200, 255, 0.6);
         --o-glow: rgba(255, 90, 200, 0.55);
         --aurora: linear-gradient(100deg, #3ff0ff, #9b7bff 45%, #ff5ec8 80%, #ffc04d);
-        --text: #eeedff;
-        --muted: #a1a6cc;
-        --glass: rgba(15, 17, 46, 0.8);
-        --glass-edge: rgba(255, 255, 255, 0.14);
-        --line: rgba(190, 180, 255, 0.45);
-        --field: rgba(255, 255, 255, 0.05);
-        --error-bg: #3b1430;
-        --error-ink: #ffd3ec;
+        --menu-bg: #14163a;
         color-scheme: dark;
     }
+}
+
+:root[data-theme="dark"] {
+    --felt: #090b22;
+    --felt-2: rgba(124, 92, 255, 0.14);
+    --felt-dark: rgba(9, 11, 34, 0.72);
+    --on-felt: #eeedff;
+    --on-felt-muted: #a1a6cc;
+    --gold: #9b7bff;
+    --gold-soft: rgba(155, 123, 255, 0.2);
+    --card: rgba(15, 17, 46, 0.8);
+    --card-2: rgba(255, 255, 255, 0.06);
+    --cell: rgba(255, 255, 255, 0.05);
+    --ink: #eeedff;
+    --muted: #a1a6cc;
+    --line: rgba(255, 255, 255, 0.14);
+    --link: #b7a4ff;
+    --x: #3ff0ff;
+    --o: #ff5ec8;
+    --win: rgba(155, 123, 255, 0.22);
+    --good: #3ff0ff;
+    --good-soft: rgba(63, 240, 255, 0.12);
+    --bad: #ff5ec8;
+    --bad-soft: rgba(255, 94, 200, 0.14);
+    --on-gold: #ffffff;
+    --error-bg: #3b1430;
+    --error-ink: #ffd3ec;
+    --aurora-1: rgba(124, 92, 255, 0.42);
+    --aurora-2: rgba(0, 210, 240, 0.24);
+    --aurora-3: rgba(255, 70, 190, 0.26);
+    --x-light: linear-gradient(125deg, #3ff0ff, #9b7bff);
+    --o-light: linear-gradient(125deg, #ff5ec8, #ffc04d);
+    --x-glow: rgba(80, 200, 255, 0.6);
+    --o-glow: rgba(255, 90, 200, 0.55);
+    --aurora: linear-gradient(100deg, #3ff0ff, #9b7bff 45%, #ff5ec8 80%, #ffc04d);
+    --menu-bg: #14163a;
+    color-scheme: dark;
 }
 
 * {
@@ -64,151 +134,1669 @@
 body {
     margin: 0;
     min-height: 100vh;
-    color: var(--text);
-    font-family: "Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+    color: var(--on-felt);
+    font-family: var(--font);
     font-weight: 500;
-    font-size: 1.12rem;
-    line-height: 1.6;
+    font-size: 1.08rem;
+    line-height: 1.55;
     background:
         radial-gradient(48% 38% at 30% 30%, var(--aurora-1), transparent 70%),
         radial-gradient(42% 34% at 75% 42%, var(--aurora-3), transparent 70%),
         radial-gradient(45% 36% at 55% 78%, var(--aurora-2), transparent 70%),
-        var(--bg);
+        var(--felt);
     background-attachment: fixed;
 }
 
-.page {
-    max-width: 37rem;
+a {
+    color: var(--gold);
+}
+
+code {
+    font-family: var(--mono);
+    font-size: 0.9em;
+    background: var(--card-2);
+    padding: 0.05em 0.35em;
+    border-radius: 4px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.mark-x {
+    color: var(--x);
+    font-weight: 800;
+}
+
+.mark-o {
+    color: var(--o);
+    font-weight: 800;
+}
+
+.muted {
+    color: var(--on-felt-muted);
+}
+
+/* Lo que va sobre las «cartas» (paneles crema) usa la tinta oscura. */
+.panel,
+.card,
+.quiz {
+    color: var(--ink);
+}
+
+.panel .muted,
+.card .muted,
+.quiz .muted {
+    color: var(--muted);
+}
+
+.panel a,
+.quiz a {
+    color: var(--link);
+}
+
+/* ---------------------------------------------------------------- barra */
+
+.topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--felt-dark);
+    border-bottom: 2px solid var(--gold);
+}
+
+.topbar-inner {
+    max-width: 76rem;
     margin: 0 auto;
-    padding: 3.25rem 1.25rem 3rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--on-felt);
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.brand b {
+    color: var(--gold);
+}
+
+.brand-mark .mark-x {
+    color: var(--on-felt);
+}
+
+.brand-mark .mark-o {
+    color: var(--gold);
+}
+
+.tabs {
+    display: flex;
+    gap: 0.25rem;
+    overflow-x: auto;
+}
+
+.tabs a {
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    color: var(--on-felt-muted);
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tabs a:hover {
+    color: var(--on-felt);
+    background: var(--felt-2);
+}
+
+.tabs a[aria-current="page"] {
+    color: var(--on-gold);
+    background: var(--gold);
+}
+
+/* -------------------------------------------------------------- pantallas */
+
+main {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 3rem;
+}
+
+.screen-title {
+    margin: 0 0 0.25rem;
+    font-size: 1.8rem;
+}
+
+.screen-intro {
+    max-width: 48rem;
+    margin: 0 0 1.5rem;
+    color: var(--on-felt-muted);
+}
+
+.section-title {
+    margin: 2.25rem 0 0.9rem;
+    font-size: 1.3rem;
+}
+
+.panel {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 1.1rem 1.2rem;
+    min-width: 0;
+}
+
+.panel h2 {
+    margin: 0 0 0.75rem;
+    font-size: 1.15rem;
+}
+
+.error {
+    max-width: 76rem;
+    margin: 1rem auto 0;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: var(--error-bg);
+    color: var(--error-ink);
+}
+
+/* ---------------------------------------------------------------- botones */
+
+.button,
+select,
+input[type="text"] {
+    font: inherit;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: var(--cell);
+    color: var(--ink);
+    padding: 0.5rem 0.8rem;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.button:hover {
+    background: var(--card-2);
+}
+
+.button.primary {
+    background: var(--gold);
+    border-color: #a27a0d;
+    color: var(--on-gold);
+    box-shadow: 0 2px 0 #8a6400;
+}
+
+.button.primary:hover {
+    filter: brightness(1.06);
+}
+
+.button.small {
+    font-size: 0.9rem;
+    padding: 0.35rem 0.7rem;
+}
+
+.button.danger {
+    background: var(--bad);
+    border-color: var(--bad);
+    color: #fff;
+}
+
+.button:disabled,
+select:disabled,
+input:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* ------------------------------------------------------------------- menú */
+
+.hero {
+    text-align: center;
+    padding: 2rem 0 2rem;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(2.4rem, 8vw, 4rem);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+}
+
+.accent {
+    color: var(--gold);
+}
+
+.hero-text {
+    margin: 0.75rem auto 0;
+    color: var(--on-felt-muted);
+    font-size: 1.15rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+    gap: 1.1rem;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.5rem 1.3rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--line);
+    background: var(--card);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+    transform: translateY(-4px) rotate(-0.5deg);
+    box-shadow: 0 2px 0 var(--gold), 0 14px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+}
+
+.card-title {
+    font-weight: 800;
+    font-size: 1.3rem;
+}
+
+.card-text {
+    color: var(--muted);
+}
+
+.tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+    background: var(--card-2);
+    color: var(--muted);
+}
+
+.tag.team {
+    background: var(--gold-soft);
+    color: var(--ink);
+}
+
+.tag.sent {
+    background: var(--good-soft);
+    color: var(--good);
+}
+
+/* ------------------------------------------------------------------ jugar */
+
+.engine-status {
+    margin: 0 0 1rem;
+    color: var(--on-felt-muted);
+}
+
+.play-layout {
+    display: grid;
+    grid-template-columns: 16rem minmax(0, 1fr) 14rem;
+    gap: 1rem;
+    align-items: start;
+}
+
+@media (max-width: 1060px) {
+    .play-layout {
+        grid-template-columns: 16rem minmax(0, 1fr);
+    }
+
+    .log {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 760px) {
+    .play-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* En pantallas estrechas, el tablero primero y las opciones debajo. */
+    .table-area {
+        order: -1;
+    }
+}
+
+.setup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.setup label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.3rem;
+}
+
+.setup select,
+.setup input {
+    width: 100%;
+}
+
+.setup .button {
+    margin-top: 0.8rem;
+}
+
+.seat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin: 0.6rem 0 0;
+    padding: 0.6rem 0.75rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+.seat legend {
+    font-weight: 700;
+    padding: 0 0.3rem;
+}
+
+.seat-info {
+    margin: 0.2rem 0 0;
+    font-size: 0.85rem;
+    color: var(--muted);
+}
+
+.table-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.status {
+    margin: 0;
+    min-height: 1.6em;
+    font-size: 1.15rem;
+    font-weight: 700;
     text-align: center;
 }
 
-/* El título, todo él en luz de aurora. */
-h1 {
+.board-hint {
     margin: 0;
+    min-height: 1.4em;
+    color: var(--muted);
+    font-size: 0.92rem;
+    text-align: center;
+}
+
+.table-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* El ring: luchador de X, tablero y luchador de O */
+.ring {
+    display: grid;
+    grid-template-columns: 8.5rem minmax(0, 1fr) 8.5rem;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.ring > .board {
+    justify-self: center;
+}
+
+@media (max-width: 560px) {
+    .ring {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "fx fo" "board board";
+    }
+
+    .ring > .fighter-x {
+        grid-area: fx;
+    }
+
+    .ring > .fighter-o {
+        grid-area: fo;
+    }
+
+    .ring > .board {
+        grid-area: board;
+    }
+
+    .fighter {
+        max-width: 6.5rem;
+        justify-self: center;
+    }
+}
+
+/* El tablero de 3x3 */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.5rem;
+    width: min(100%, 21rem);
+    padding: 0.5rem;
+    border-radius: 14px;
+    background: var(--felt);
+}
+
+.cell {
+    aspect-ratio: 1;
+    min-width: 0;
+    max-width: 100%;
+    font: 800 clamp(2.2rem, 10vw, 4.2rem) / 1 var(--font);
+    padding: 0;
+    border-radius: 10px;
+    border: 0;
+    background: var(--cell);
+    color: var(--ink);
+    cursor: pointer;
+    position: relative;
+    display: grid;
+    place-items: center;
+    transition: background-color 0.12s, transform 0.12s;
+}
+
+.cell:disabled {
+    cursor: default;
+}
+
+.cell:not(:disabled):hover {
+    background: var(--gold-soft);
+    transform: scale(1.03);
+}
+
+.cell.x {
+    color: var(--x);
+}
+
+.cell.o {
+    color: var(--o);
+}
+
+.cell.win {
+    background: var(--win);
+}
+
+.cell.last {
+    box-shadow: inset 0 0 0 3px var(--gold);
+}
+
+/* Preguntas IA: una casilla con una pregunta que alguien falló */
+.cell.pending {
+    color: var(--gold);
+    background: var(--gold-soft);
+    font-size: clamp(1.4rem, 6vw, 2.4rem);
+}
+
+/* Tres fichas: la ficha que desaparecerá al siguiente movimiento */
+.cell.vanishing {
+    opacity: 0.45;
+    outline: 2px dashed var(--muted);
+    outline-offset: -6px;
+}
+
+
+/* Registro de jugadas */
+.move-log {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.35rem;
+    max-height: 26rem;
+    overflow-y: auto;
+    counter-reset: jugada;
+}
+
+.move-log li {
+    counter-increment: jugada;
+    padding: 0.35rem 0.6rem;
+    border-radius: 8px;
+    background: var(--card-2);
+    border-left: 3px solid var(--line);
+    font-size: 0.9rem;
+}
+
+.move-log li::before {
+    content: counter(jugada) ". ";
+    color: var(--muted);
+}
+
+.move-log li.x {
+    border-left-color: var(--x);
+}
+
+.move-log li.o {
+    border-left-color: var(--o);
+}
+
+.move-log li.fail {
+    color: var(--muted);
+}
+
+/* ------------------------------------------------------------ luchadores */
+
+.fighter {
+    position: relative;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    min-width: 0;
+}
+
+.fighter-art {
+    width: 100%;
+    max-width: 8.5rem;
+    animation: bob 1.8s ease-in-out infinite;
+    transform-origin: 50% 90%;
+}
+
+.fighter-art svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+/* El de O mira hacia la izquierda: cara a cara. */
+.fighter-o .fighter-art svg {
+    transform: scaleX(-1);
+}
+
+.fighter figcaption {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    max-width: 100%;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.fighter-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.fighter-mark {
+    flex: none;
+    display: inline-grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 6px;
+    background: var(--card-2);
+}
+
+.fighter-bubble {
+    position: absolute;
+    top: -0.4rem;
+    z-index: 1;
+    padding: 0.1rem 0.55rem;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--on-gold);
+    font-size: 0.75rem;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.fighter .glove .g {
+    transform-box: fill-box;
+    transform-origin: center;
+}
+
+.fighter .body {
+    transform-box: fill-box;
+    transform-origin: 50% 100%;
+}
+
+/* Le toca: lanza golpes */
+.fighter.turn .fighter-art,
+.fighter.thinking .fighter-art {
+    animation-duration: 0.9s;
+}
+
+.fighter.turn .glove.front .g {
+    animation: jab 0.9s ease-in-out infinite;
+}
+
+.fighter.thinking .glove.front .g {
+    animation: jab 0.45s ease-in-out infinite;
+}
+
+.fighter.thinking .glove.back .g {
+    animation: jab 0.45s ease-in-out infinite 0.22s;
+}
+
+/* Gana: salta con los guantes en alto */
+.fighter.winner .fighter-art {
+    animation: hop 0.7s ease-in-out infinite;
+}
+
+.fighter.winner .glove .g {
+    transform: translate(0, -38px) rotate(-20deg);
+}
+
+.fighter.winner .fighter-bubble {
+    background: var(--good);
+    color: #fff;
+}
+
+/* Pierde: K.O. */
+.fighter.loser .fighter-art {
+    animation: none;
+    transform: rotate(-16deg) translateY(10px);
+    filter: grayscale(0.7);
+    opacity: 0.75;
+}
+
+.fighter.loser .fighter-bubble {
+    background: var(--bad);
+    color: #fff;
+}
+
+.fighter.draw .fighter-art {
+    animation: sway 1.6s ease-in-out infinite;
+}
+
+@keyframes bob {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes jab {
+    0%,
+    55%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(16px) scale(1.12);
+    }
+}
+
+@keyframes hop {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-16px);
+    }
+}
+
+@keyframes sway {
+    0%,
+    100% {
+        transform: rotate(-4deg);
+    }
+
+    50% {
+        transform: rotate(4deg);
+    }
+}
+
+/* ------------------------------------------------------------ la pregunta */
+
+.quiz {
+    width: min(36rem, calc(100vw - 2rem));
+    border: 2px solid var(--gold);
+    border-radius: var(--radius);
+    background: var(--card);
+    padding: 1.3rem 1.4rem;
+}
+
+.quiz::backdrop {
+    background: rgba(4, 20, 14, 0.7);
+}
+
+.quiz-who {
+    margin: 0;
+    font-weight: 700;
+}
+
+.quiz-topic {
+    margin: 0.2rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.quiz-question {
+    margin: 0.7rem 0 1rem;
+    font-size: 1.2rem;
+    line-height: 1.35;
+}
+
+.quiz-note {
+    margin: -0.4rem 0 0.8rem;
+    color: var(--bad);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.quiz-options .button {
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: 500;
+    padding: 0.65rem 0.85rem;
+}
+
+.quiz-options .letter {
+    font-weight: 800;
+    color: var(--link);
+    min-width: 1.2rem;
+}
+
+.quiz-options .button.crossed {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
+
+.quiz-options .button.correct {
+    background: var(--good-soft);
+    border-color: var(--good);
+    opacity: 1;
+}
+
+.quiz-options .button.wrong {
+    background: var(--bad-soft);
+    border-color: var(--bad);
+    opacity: 1;
+}
+
+.quiz-result {
+    margin-top: 1rem;
+    padding: 0.7rem 0.9rem;
+    border-radius: 8px;
+}
+
+.quiz-result.good {
+    background: var(--good-soft);
+}
+
+.quiz-result.bad {
+    background: var(--bad-soft);
+}
+
+.quiz-result p {
+    margin: 0.25rem 0 0;
+}
+
+.quiz-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------- tablas */
+
+.table-scroll {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.97rem;
+}
+
+th,
+td {
+    padding: 0.55rem 0.6rem;
+    text-align: left;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+}
+
+thead th {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+tbody tr:last-child th,
+tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+tbody tr:first-child td:first-child::before {
+    content: "🥇 ";
+}
+
+.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+td.num:last-child {
+    font-weight: 700;
+}
+
+tbody th small {
+    display: block;
+    font-weight: 400;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+abbr {
+    text-decoration: none;
+}
+
+/* ------------------------------------------------------------ liguilla */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.filters label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--on-felt-muted);
+}
+
+.empty {
+    padding: 1.2rem;
+    border: 1px dashed rgba(246, 241, 228, 0.4);
+    border-radius: var(--radius);
+    color: var(--on-felt-muted);
+}
+
+.recent {
+    margin: 0;
+    padding-left: 1.3rem;
+    display: grid;
+    gap: 0.3rem;
+}
+
+.recent .when {
+    color: var(--on-felt-muted);
+    font-size: 0.85rem;
+}
+
+.danger-zone {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* -------------------------------------------------------------- torneo */
+
+.leaderboard {
+    margin-top: 1.5rem;
+}
+
+.leaderboard-intro,
+.leaderboard-updated {
+    margin: 0 0 0.75rem;
+    color: var(--muted);
+}
+
+.leaderboard-updated {
+    margin: 0.75rem 0 0;
+    font-size: 0.9rem;
+}
+
+.leaderboard-message {
+    margin: 0;
+}
+
+.arena form {
+    display: grid;
+    gap: 0.8rem;
+}
+
+.arena fieldset {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 0.5rem 0.8rem 0.8rem;
+    margin: 0;
+}
+
+.arena legend {
+    font-weight: 700;
+    padding: 0 0.3rem;
+}
+
+.arena-bots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.2rem;
+}
+
+.arena-bots label {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.arena-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* La partida en directo */
+.arena-live {
+    margin-top: 1.2rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: var(--felt);
+    color: var(--on-felt);
+}
+
+.live-title {
+    margin: 0 0 0.75rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.live-result {
+    margin: 0.75rem 0 0;
+    min-height: 1.5em;
+    text-align: center;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+.ring.small {
+    grid-template-columns: 7.5rem minmax(0, 13rem) 7.5rem;
+    justify-content: center;
+}
+
+.ring.small .fighter figcaption {
+    color: var(--on-felt);
+}
+
+.board.mini {
+    width: 100%;
+    max-width: 13rem;
+    gap: 0.3rem;
+    padding: 0.3rem;
+    background: var(--felt-dark);
+}
+
+.board.mini .cell {
+    font-size: clamp(1.4rem, 6vw, 2.4rem);
+    cursor: default;
+}
+
+/* El campeón */
+.champion {
+    margin-top: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.2rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--gold-soft), var(--card));
+    border: 2px solid var(--gold);
+}
+
+.champion .fighter {
+    width: 8rem;
+}
+
+.champion-label {
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--link);
+}
+
+.champion-name {
+    margin: 0.2rem 0 0;
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+/* El cuadro: una columna por ronda, de izquierda a derecha */
+.bracket {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 1.6rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+}
+
+.bracket:empty {
+    display: none;
+}
+
+.bracket-round {
+    display: flex;
+    flex-direction: column;
+    min-width: 12.5rem;
+}
+
+.bracket-round h3 {
+    margin: 0 0 0.6rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-align: center;
+}
+
+.bracket-ties {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 0.8rem;
+}
+
+.tie {
+    position: relative;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--cell);
+    overflow: visible;
+}
+
+/* La línea que lleva al ganador a la ronda siguiente */
+.bracket-round:not(:last-child) .tie::after {
+    content: "";
+    position: absolute;
+    right: -1.6rem;
+    top: 50%;
+    width: 1.6rem;
+    border-top: 2px solid var(--line);
+}
+
+.tie.done:not(:only-child)::after,
+.tie.done::after {
+    border-top-color: var(--gold);
+}
+
+.tie.current {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px var(--gold-soft);
+    animation: pulse 1.2s ease-in-out infinite;
+}
+
+.tie-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding: 0.45rem 0.7rem;
+}
+
+.tie-row + .tie-row {
+    border-top: 1px solid var(--line);
+}
+
+.tie-row.empty {
+    color: var(--muted);
+    font-style: italic;
+}
+
+.tie-row.won {
+    font-weight: 800;
+    background: var(--gold-soft);
+}
+
+.tie-row.won .tie-name::after {
+    content: " ✓";
+    color: var(--good);
+}
+
+.tie-row.out {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.tie-score {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+}
+
+.tie-note {
+    position: absolute;
+    right: 0.4rem;
+    bottom: -0.65rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0 0.4rem;
+    border-radius: 999px;
+    background: var(--gold);
+    color: var(--on-gold);
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        box-shadow: 0 0 0 2px var(--gold-soft);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px var(--gold-soft);
+    }
+}
+
+/* ---------------------------------------------------- reglas y bots */
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.rule-card h2,
+.bot-card h2 {
+    margin: 0 0 0.4rem;
+    font-size: 1.2rem;
+}
+
+.rule-summary {
+    margin: 0 0 0.6rem;
+    font-weight: 600;
+}
+
+.rule-card ul {
+    margin: 0 0 0.6rem;
+    padding-left: 1.2rem;
+    display: grid;
+    gap: 0.3rem;
+}
+
+.rule-card p,
+.bot-card p {
+    margin: 0 0 0.5rem;
+}
+
+.bot-card {
+    display: grid;
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+}
+
+@media (max-width: 480px) {
+    .bot-card {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .bot-card .fighter {
+        max-width: 7rem;
+    }
+}
+
+.tie.champ {
+    border-color: var(--gold);
+}
+
+/* ------------------------------------------------- ranking de bots */
+
+.bot-ranking {
+    margin-bottom: 1rem;
+}
+
+.podium {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.podium-place {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: min(11rem, 30%);
+    text-align: center;
+}
+
+.podium-place .fighter {
+    width: 100%;
+    max-width: 8rem;
+}
+
+.podium-name {
+    margin: 0.3rem 0 0;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.podium-points {
+    margin: 0 0 0.4rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+}
+
+.podium-step {
+    width: 100%;
+    display: grid;
+    place-items: center;
+    border-radius: 10px 10px 0 0;
+    background: var(--felt);
+    border-top: 4px solid var(--gold);
+    font-size: 1.8rem;
+}
+
+.place-1 .podium-step {
+    height: 6.5rem;
+}
+
+.place-2 .podium-step {
+    height: 4.5rem;
+    border-top-color: #b8c0c4;
+}
+
+.place-3 .podium-step {
+    height: 3rem;
+    border-top-color: #c27c3a;
+}
+
+.bot-bars {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(7rem, 11rem) minmax(0, 1fr) 3rem;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.bar-rank {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+}
+
+.bar-name {
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bar {
+    display: flex;
+    height: 1.8rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--card-2);
+}
+
+.bar-part {
+    width: 0;
+    display: grid;
+    place-items: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #fff;
+    transition: width 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: default;
+}
+
+.bar-part:hover {
+    filter: brightness(1.15);
+}
+
+.bar-part.won {
+    background: var(--good);
+}
+
+.bar-part.drawn {
+    background: #8b9590;
+}
+
+.bar-part.lost {
+    background: var(--bad);
+}
+
+.bar-points {
+    font-weight: 800;
+    font-size: 1.1rem;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+}
+
+.bot-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.9rem;
+    margin: 0.9rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.bot-legend .key {
+    display: inline-block;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 3px;
+    margin-right: -0.5rem;
+    vertical-align: -0.1rem;
+}
+
+.key.won {
+    background: var(--good);
+}
+
+.key.drawn {
+    background: #8b9590;
+}
+
+.key.lost {
+    background: var(--bad);
+}
+
+@media (max-width: 520px) {
+    .bar-row {
+        grid-template-columns: 1.2rem minmax(0, 1fr) 2.6rem;
+    }
+
+    .bar-row .bar {
+        grid-column: 2 / 4;
+        grid-row: 2;
+    }
+}
+
+/* ------------------------------------------------------------ ajustes */
+
+.settings {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 18rem);
+    gap: 0.8rem 1.2rem;
+    align-items: center;
+    max-width: 34rem;
+}
+
+@media (max-width: 520px) {
+    .settings {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ------------------------------------------------------------- pie */
+
+.footer {
+    max-width: 76rem;
+    margin: 0 auto;
+    padding: 1.5rem 1rem 2.5rem;
+    border-top: 1px solid rgba(246, 241, 228, 0.2);
+    color: var(--on-felt-muted);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer-note {
+    display: block;
+    margin-top: 0.4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+
+/* ===================================================================== */
+/* Holograma: cristal, aurora y fichas de luz                              */
+/* ===================================================================== */
+
+/* Títulos en Michroma, en mayúsculas; el gran título, en luz de aurora. */
+.hero h1,
+.screen-title,
+.section-title,
+.panel h2,
+.bracket-round h3,
+.champion-name,
+.card-title,
+.live-title {
     font-family: var(--display);
     font-weight: 400;
-    font-size: clamp(1.5rem, 6.2vw, 2.7rem);
-    line-height: 1.2;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(1.6rem, 6vw, 3rem);
+    line-height: 1.2;
+}
+
+.hero h1,
+.hero h1 .accent {
     background: var(--aurora);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
-.subtitle {
-    margin: 1rem auto 2rem;
-    max-width: 27rem;
-    color: var(--muted);
+.screen-title {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
 }
 
-.controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
-    align-items: end;
+.section-title,
+.panel h2 {
+    font-size: 1.05rem;
 }
 
-.controls label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    text-align: left;
-    color: var(--muted);
-    font-size: 0.95rem;
+.card-title {
+    font-size: 1rem;
 }
 
-select,
-button {
-    font: inherit;
-    font-weight: 500;
-    font-size: 0.95rem;
-    padding: 0.55rem 1rem;
+.live-title {
+    font-size: 0.85rem;
+}
+
+.accent,
+.brand b {
+    background: var(--aurora);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* La barra de arriba: cristal, con una línea de aurora debajo. */
+.topbar {
+    background: var(--felt-dark);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 0;
+    box-shadow: 0 1px 0 var(--line);
+}
+
+.topbar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: var(--aurora);
+    opacity: 0.7;
+}
+
+.brand {
+    font-family: var(--display);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.brand-mark .mark-x {
+    color: var(--x);
+}
+
+.brand-mark .mark-o {
+    color: var(--o);
+}
+
+.tabs a {
     border-radius: 999px;
-    color: var(--text);
+    color: var(--on-felt-muted);
 }
 
-select {
-    border: 1px solid var(--glass-edge);
-    background: var(--field);
+.tabs a:hover {
+    background: var(--gold-soft);
+    color: var(--on-felt);
 }
 
-select option {
-    background: #ffffff;
-    color: #17183a;
-}
-
-/* Botón con filo de aurora; al pasar por encima se llena de luz. */
-#new-game {
-    border: 1.5px solid transparent;
-    background:
-        linear-gradient(var(--bg), var(--bg)) padding-box,
-        var(--aurora) border-box;
-    font-weight: 700;
-    cursor: pointer;
-}
-
-#new-game:hover {
-    background: var(--aurora) border-box;
+.tabs a[aria-current="page"] {
+    background: var(--aurora);
     color: #ffffff;
 }
 
-select:disabled,
-button:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+/* Paneles y tarjetas: láminas de cristal con el filo de aurora. */
+.panel,
+.card,
+.quiz,
+.tie,
+.champion {
+    border: 1.5px solid transparent;
+    background:
+        linear-gradient(var(--card), var(--card)) padding-box,
+        var(--aurora-edge) border-box;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    box-shadow: var(--shadow);
 }
 
-:focus-visible {
-    outline: 2px solid #8b6cff;
-    outline-offset: 3px;
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 28px 60px -24px var(--x-glow), 0 34px 70px -34px var(--o-glow);
 }
 
-.bot-description {
-    min-height: 1.5em;
-    margin: 1rem auto 0;
-    max-width: 28rem;
-    color: var(--muted);
-    font-size: 0.88rem;
+.quiz {
+    background:
+        linear-gradient(var(--menu-bg), var(--menu-bg)) padding-box,
+        var(--aurora-edge) border-box;
 }
 
-.status {
-    min-height: 1.5em;
-    margin: 1.75rem 0 1.25rem;
-    font-weight: 600;
-    font-size: 1.35rem;
+.quiz::backdrop {
+    background: rgba(9, 11, 34, 0.55);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
 }
 
-/* La lámina de cristal, con el filo teñido de aurora. */
+/* Botones y campos: píldoras. El principal tiene filo de aurora y se llena de luz. */
+.button,
+select,
+input[type="text"] {
+    border-radius: 999px;
+    border-color: var(--line);
+    background: var(--cell);
+    color: var(--ink);
+}
+
+select option {
+    background: var(--menu-bg);
+    color: var(--ink);
+}
+
+.button.primary {
+    border: 1.5px solid transparent;
+    background:
+        linear-gradient(var(--menu-bg), var(--menu-bg)) padding-box,
+        var(--aurora) border-box;
+    color: var(--ink);
+    box-shadow: none;
+    font-weight: 700;
+}
+
+.button.primary:hover {
+    background: var(--aurora) border-box;
+    color: #ffffff;
+    filter: none;
+}
+
+.quiz-options .button,
+.seat,
+.arena fieldset {
+    border-radius: 16px;
+}
+
+/* El tablero: la lámina de cristal de María, con rayas de luz. */
 .board {
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: min(84vw, 21rem);
-    margin: 0 auto;
+    gap: 0;
+    padding: 0;
     border-radius: 26px;
     border: 1.5px solid transparent;
     background:
-        linear-gradient(var(--glass), var(--glass)) padding-box,
-        linear-gradient(135deg, rgba(63, 200, 255, 0.55), rgba(155, 123, 255, 0.25) 40%, rgba(255, 94, 200, 0.55)) border-box;
+        linear-gradient(var(--card), var(--card)) padding-box,
+        var(--aurora-edge) border-box;
     -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
-    box-shadow:
-        0 30px 70px -18px var(--x-glow),
-        0 40px 90px -30px var(--o-glow);
+    box-shadow: 0 30px 70px -18px var(--x-glow), 0 40px 90px -30px var(--o-glow);
 }
 
-/* Las cuatro rayas: líneas de luz que se apagan en las puntas. */
 .board::before,
 .board::after {
     content: "";
     position: absolute;
     pointer-events: none;
-    border: 0 solid var(--line);
+    border: 0 solid var(--gold);
+    opacity: 0.55;
 }
 
 .board::before {
@@ -233,26 +1821,25 @@ button:disabled {
     mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
 }
 
-.cell {
+.cell,
+.board.mini .cell {
     position: relative;
-    aspect-ratio: 1;
-    padding: 0;
-    border: 0;
     border-radius: 22px;
     background: transparent;
-    /* La letra sigue ahí para quien la copie o la lea; se dibuja con luz. */
+    /* La letra sigue ahí para quien la lea en voz alta; se dibuja con luz. */
     color: transparent;
     font-size: 1rem;
-    cursor: pointer;
-}
-
-.cell:disabled {
-    opacity: 1;
-    cursor: default;
 }
 
 .cell:not(:disabled):hover {
-    background: radial-gradient(circle, rgba(155, 123, 255, 0.22), transparent 62%);
+    background: radial-gradient(circle, var(--gold-soft), transparent 62%);
+    transform: none;
+}
+
+/* La letra de la ficha no se ve: la dibuja la luz. */
+.cell.x,
+.cell.o {
+    color: transparent;
 }
 
 /* X: dos trazos de luz turquesa y violeta. */
@@ -263,7 +1850,7 @@ button:disabled {
     left: 50%;
     top: 50%;
     width: 58%;
-    height: clamp(7px, 2.3vw, 11px);
+    height: clamp(6px, 2.1vw, 11px);
     border-radius: 999px;
     background: var(--x-light);
     box-shadow: 0 0 14px var(--x-glow);
@@ -277,13 +1864,13 @@ button:disabled {
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* O: un anillo de luz magenta y ámbar (el degradado solo en el borde). */
+/* O: un anillo de luz magenta y ámbar. */
 .cell.o::before {
     content: "";
     position: absolute;
     inset: 23%;
     border-radius: 50%;
-    border: clamp(7px, 2.3vw, 11px) solid transparent;
+    border: clamp(6px, 2.1vw, 11px) solid transparent;
     background: var(--o-light) border-box;
     -webkit-mask:
         linear-gradient(#000 0 0) padding-box,
@@ -295,8 +1882,9 @@ button:disabled {
     filter: drop-shadow(0 0 8px var(--o-glow));
 }
 
-/* El único momento animado: la línea ganadora se enciende con su color. */
+/* La línea ganadora se enciende con su color. */
 .cell.win {
+    background: transparent;
     animation: encender 700ms ease-out both;
 }
 
@@ -314,129 +1902,153 @@ button:disabled {
 }
 
 @keyframes encender {
-    from { filter: brightness(0.6); }
-    60% { filter: brightness(1.6); }
-    to { filter: brightness(1.15); }
+    from {
+        filter: brightness(0.6);
+    }
+
+    60% {
+        filter: brightness(1.6);
+    }
+
+    to {
+        filter: brightness(1.15);
+    }
 }
 
-.error {
-    margin: 0 0 1rem;
-    padding: 0.75rem 1rem;
-    border-radius: 14px;
-    background: var(--error-bg);
-    color: var(--error-ink);
-    text-align: left;
+/* La última jugada: un halo suave. */
+.cell.last {
+    box-shadow: inset 0 0 0 2px var(--gold-soft);
 }
 
-/* Clasificación: sin cajas, líneas finas y el campeón en luz de aurora. */
-.leaderboard {
-    margin-top: 4rem;
-}
-
-.leaderboard h2 {
-    margin: 0;
+/* Preguntas IA: la casilla con una pregunta pendiente enseña su «?». */
+.cell.pending {
+    background: radial-gradient(circle, var(--gold-soft), transparent 70%);
+    color: var(--gold);
     font-family: var(--display);
-    font-weight: 400;
-    font-size: 1.35rem;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
+    font-size: clamp(1.2rem, 5vw, 2rem);
 }
 
-.leaderboard-intro,
-.leaderboard-message,
-.leaderboard-updated {
-    margin: 0.35rem 0 0;
-    color: var(--muted);
-    font-size: 0.88rem;
+/* Tres fichas: la ficha que se va, apagándose. */
+.cell.vanishing {
+    opacity: 0.35;
+    outline: 1.5px dashed var(--muted);
+    outline-offset: -10px;
 }
 
-.table-scroll {
-    margin-top: 1.25rem;
-    overflow-x: auto;
+/* El tablero pequeño del torneo en directo. */
+.board.mini {
+    max-width: 12rem;
 }
 
-.leaderboard table {
-    width: 100%;
-    border-collapse: collapse;
+.arena-live {
+    border: 1px solid var(--line);
+    background: var(--card-2);
+    color: var(--ink);
 }
 
-.leaderboard th,
-.leaderboard td {
-    padding: 0.7rem 0.55rem;
-    text-align: left;
-    white-space: nowrap;
-    border-bottom: 1px solid var(--glass-edge);
+.ring.small .fighter figcaption {
+    color: var(--ink);
 }
 
-.leaderboard thead th {
-    color: var(--muted);
+.live-result {
+    color: var(--link);
+}
+
+/* Registro de jugadas, tablas y cuadro: líneas finas, sin cajas pesadas. */
+.move-log li {
+    border-radius: 12px;
+}
+
+thead th {
     font-weight: 500;
-    font-size: 0.78rem;
 }
 
-.leaderboard abbr {
-    text-decoration: none;
-    cursor: help;
-}
-
-.leaderboard .num {
-    text-align: right;
-    font-variant-numeric: lining-nums tabular-nums;
-}
-
-.leaderboard tbody th {
-    font-weight: 600;
-}
-
-.leaderboard tbody th small {
-    display: block;
-    font-weight: 400;
-    font-size: 0.74rem;
-    color: var(--muted);
-    white-space: normal;
-}
-
-.leaderboard tbody td:last-child {
+td.num:last-child {
     font-family: var(--display);
     font-weight: 400;
-    font-size: 0.95rem;
+    font-size: 0.92rem;
 }
 
-.leaderboard tbody tr:first-child {
-    background: linear-gradient(90deg, rgba(155, 123, 255, 0.14), transparent 75%);
+.tie-row.won {
+    background: var(--gold-soft);
 }
 
-.leaderboard tbody tr:first-child td:first-child {
-    box-shadow: inset 3px 0 0 #9b7bff;
+.tie.current {
+    box-shadow: 0 0 0 3px var(--gold-soft), var(--shadow);
 }
 
-.leaderboard tbody tr:first-child td:last-child {
+.tie-note,
+.fighter-bubble {
     background: var(--aurora);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #ffffff;
 }
 
-@media (max-width: 30rem) {
-    .controls label {
-        flex: 1 1 9rem;
-    }
-
-    .leaderboard th,
-    .leaderboard td {
-        padding: 0.6rem 0.3rem;
-        font-size: 0.85rem;
-    }
+.fighter.winner .fighter-bubble {
+    background: var(--x-light);
 }
 
-footer {
-    margin-top: 3rem;
-    color: var(--muted);
-    font-size: 0.88rem;
+.fighter.loser .fighter-bubble {
+    background: var(--o-light);
 }
 
-footer a {
-    color: var(--text);
+/* Ranking de bots: barras de luz. */
+.bar {
+    border-radius: 999px;
+}
+
+.bar-part.won,
+.key.won {
+    background: var(--x-light);
+}
+
+.bar-part.lost,
+.key.lost {
+    background: var(--o-light);
+}
+
+.bar-part.drawn,
+.key.drawn {
+    background: rgba(140, 135, 190, 0.6);
+}
+
+.podium-step {
+    background:
+        linear-gradient(var(--card), var(--card)) padding-box,
+        var(--aurora-edge) border-box;
+    border: 1.5px solid transparent;
+    border-bottom: 0;
+}
+
+.place-1 .podium-step {
+    box-shadow: 0 -2px 0 #9b7bff inset, 0 20px 40px -20px var(--x-glow);
+}
+
+.champion {
+    background:
+        linear-gradient(var(--gold-soft), var(--gold-soft)) padding-box,
+        linear-gradient(var(--menu-bg), var(--menu-bg)) padding-box,
+        var(--aurora) border-box;
+}
+
+/* El nombre lleva emoji: en color liso, para que el degradado no lo tape. */
+.champion-name {
+    color: var(--link);
+}
+
+.champion-label {
+    color: var(--link);
+}
+
+.empty {
+    border-color: var(--line);
+}
+
+.footer {
+    border-top-color: var(--line);
+}
+
+.footer a {
+    color: var(--on-felt);
     text-decoration-color: #9b7bff;
 }
 
@@ -444,4 +2056,11 @@ footer a {
     .cell.win {
         animation: none;
     }
+}
+
+
+/* Jugar: el tablero grande en el centro del panel. */
+.table-area > .board {
+    width: min(100%, 22rem);
+    margin: 0.25rem 0;
 }

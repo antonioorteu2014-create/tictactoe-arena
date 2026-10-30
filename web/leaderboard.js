@@ -76,6 +76,10 @@
       if (Array.isArray(row.authors) && row.authors.length > 0) {
         bot.append(cell("small", row.authors.join(", ")));
       }
+      if (row.origin === "custom") {
+        // Los bots enviados por otros equipos, para distinguirlos de los nuestros.
+        bot.append(cell("span", "enviado por compañeros", "tag sent"));
+      }
       line.append(bot);
 
       for (const key of NUMBERS) {

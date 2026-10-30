@@ -1,0 +1,2602 @@
+[
+ {
+  "id": "01-01-01",
+  "tema": "Introducción",
+  "pregunta": "Según los apuntes, ¿qué es LA Inteligencia Artificial, entendida como disciplina?",
+  "opciones": [
+   "La disciplina que busca crear sistemas que imiten la inteligencia humana",
+   "Un sistema concreto que reconoce la voz o toma decisiones con algoritmos",
+   "La capacidad de comprender, razonar y adaptarse en entornos cambiantes",
+   "Un conjunto de robots humanoides capaces de sentir emociones humanas"
+  ],
+  "correcta": 0,
+  "explicacion": "LA IA es la disciplina que busca crear sistemas que imiten la inteligencia humana mediante algoritmos y datos; un sistema concreto sería UNA IA."
+ },
+ {
+  "id": "01-01-02",
+  "tema": "Introducción",
+  "pregunta": "Según los apuntes, ¿qué es UNA Inteligencia Artificial?",
+  "opciones": [
+   "La disciplina que busca resolver problemas de forma autónoma",
+   "Un sistema específico diseñado para realizar tareas inteligentes",
+   "La capacidad general de alcanzar ciertas metas u objetivos",
+   "El conjunto de todos los algoritmos de aprendizaje automático"
+  ],
+  "correcta": 1,
+  "explicacion": "UNA IA es un sistema individual y específico (p. ej. de reconocimiento de voz) que sigue la definición de IA."
+ },
+ {
+  "id": "01-01-03",
+  "tema": "Introducción",
+  "pregunta": "Un programa concreto de reconocimiento de voz es, según la distinción de los apuntes, un ejemplo de...",
+  "opciones": [
+   "La IA entendida como disciplina científica",
+   "La inteligencia entendida como capacidad general",
+   "Una IA: un sistema específico para tareas inteligentes",
+   "Un algoritmo de búsqueda con adversario"
+  ],
+  "correcta": 2,
+  "explicacion": "Los apuntes citan el reconocimiento de voz como ejemplo de UNA IA: un sistema específico que realiza tareas inteligentes."
+ },
+ {
+  "id": "01-01-04",
+  "tema": "Introducción",
+  "pregunta": "Según el diagrama de los apuntes, ¿cuál es la relación correcta entre estos campos?",
+  "opciones": [
+   "Machine Learning ⊂ Deep Learning ⊂ Redes neuronales ⊂ IA",
+   "IA ⊂ Machine Learning ⊂ Redes neuronales ⊂ Deep Learning",
+   "Redes neuronales ⊂ Deep Learning ⊂ IA ⊂ Machine Learning",
+   "Deep Learning ⊂ Redes neuronales ⊂ Machine Learning ⊂ IA"
+  ],
+  "correcta": 3,
+  "explicacion": "Son círculos anidados: el Deep Learning está dentro de las redes neuronales, estas dentro del Machine Learning y este dentro de la IA."
+ },
+ {
+  "id": "01-01-05",
+  "tema": "Introducción",
+  "pregunta": "Según el diagrama de los apuntes, ¿qué caracteriza al Machine Learning?",
+  "opciones": [
+   "Aprende de ejemplos sin ser programado explícitamente",
+   "Sigue reglas escritas a mano por un experto del dominio",
+   "Usa siempre redes neuronales profundas con muchas capas",
+   "Replica físicamente la estructura del cerebro humano"
+  ],
+  "correcta": 0,
+  "explicacion": "El Machine Learning son algoritmos que permiten a los ordenadores aprender de ejemplos sin ser programados explícitamente."
+ },
+ {
+  "id": "01-01-06",
+  "tema": "Introducción",
+  "pregunta": "Los apuntes resumen todas las búsquedas, y en general la asignatura, en una sola palabra. ¿Cuál?",
+  "opciones": [
+   "Aprendizaje",
+   "Optimización",
+   "Probabilidad",
+   "Programación"
+  ],
+  "correcta": 1,
+  "explicacion": "Tras listar los 4 tipos de búsqueda, los apuntes dicen que todo, y en general la asignatura, se resume en: OPTIMIZACIÓN."
+ },
+ {
+  "id": "01-01-07",
+  "tema": "Introducción",
+  "pregunta": "Un ejercicio en el que dos jugadores se enfrentan, como el Nim o el Conecta 4, encaja en la categoría de...",
+  "opciones": [
+   "Búsqueda óptima",
+   "Búsqueda con incertidumbre",
+   "Búsqueda con adversario",
+   "Búsqueda por optimización"
+  ],
+  "correcta": 2,
+  "explicacion": "Los apuntes agrupan Hex, Nim, Connect 4 y ajedrez como búsqueda con adversario: hay un rival que también toma decisiones."
+ },
+ {
+  "id": "01-01-08",
+  "tema": "Introducción",
+  "pregunta": "Los apuntes proponen el Sliding Puzzle y el cubo de Rubik para practicar...",
+  "opciones": [
+   "Búsqueda con adversario",
+   "Optimización",
+   "Razonamiento con incertidumbre",
+   "Path Finding"
+  ],
+  "correcta": 3,
+  "explicacion": "En la lista de juegos, el Sliding Puzzle, el cubo de Rubik y los juegos de lógica aparecen en el apartado Path Finding."
+ },
+ {
+  "id": "01-01-09",
+  "tema": "Introducción",
+  "pregunta": "¿En qué grupo colocan los apuntes juegos como Mastermind o Light bot?",
+  "opciones": [
+   "Optimización",
+   "Búsqueda con adversario",
+   "Path Finding",
+   "Sistemas expertos"
+  ],
+  "correcta": 0,
+  "explicacion": "Light bot y Mastermind aparecen en el apartado de juegos de Optimización."
+ },
+ {
+  "id": "01-01-10",
+  "tema": "Introducción",
+  "pregunta": "Según los apuntes, ¿qué juegos sirven para entrenar las habilidades de resolución de problemas de la asignatura?",
+  "opciones": [
+   "Solo los juegos de tablero clásicos, como el ajedrez",
+   "Cualquier juego que no consista puramente en azar",
+   "Únicamente los juegos online enlazados en los apuntes",
+   "Sobre todo los juegos de azar puro, como la ruleta"
+  ],
+  "correcta": 1,
+  "explicacion": "Cualquier juego de mesa, de cartas o videojuego que no sea puro azar ayuda a entrenar la mente (ajedrez, póker, Catan...)."
+ },
+ {
+  "id": "01-02-01",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "¿A quién se le atribuye el término «Inteligencia Artificial» según los apuntes?",
+  "opciones": [
+   "Alan Turing",
+   "John McCarthy",
+   "Claude Shannon",
+   "Marvin Minsky"
+  ],
+  "correcta": 1,
+  "explicacion": "Los apuntes atribuyen el término IA a John McCarthy; Turing es el padre de la computación y Shannon, de la teoría de la información."
+ },
+ {
+  "id": "01-02-02",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "Según la frase de Turing citada en los apuntes, un ordenador merecería llamarse inteligente si...",
+  "opciones": [
+   "resolviera cualquier problema matemático sin errores",
+   "sintiera emociones iguales a las de un ser humano",
+   "lograra engañar a un humano haciéndole creer que es humano",
+   "ganara a un campeón mundial en un juego de estrategia"
+  ],
+  "correcta": 2,
+  "explicacion": "Turing: «A computer would deserve to be called intelligent if it could deceive a human into believing that it was human»."
+ },
+ {
+  "id": "01-02-03",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "Según los apuntes, el razonamiento simbólico se basa en...",
+  "opciones": [
+   "Símbolos y reglas de inferencia",
+   "Datos y conexiones matemáticas entre ellos",
+   "Aprender patrones que el humano desconoce",
+   "Ajustar pesos mediante descenso de gradiente"
+  ],
+  "correcta": 0,
+  "explicacion": "El simbólico se basa en símbolos (conceptos) y reglas de inferencia que los conectan; datos y conexiones son propios del conexionista."
+ },
+ {
+  "id": "01-02-04",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "Un sistema debe encontrar relaciones en datos donde ningún humano conoce el patrón. ¿Qué razonamiento encaja mejor?",
+  "opciones": [
+   "Razonamiento simbólico",
+   "Reglas de un experto",
+   "Inferencia lógica pura",
+   "Razonamiento conexionista"
+  ],
+  "correcta": 3,
+  "explicacion": "El conexionista aprende patrones de los datos y sirve para cualquier conjunto de datos, incluidos aquellos donde el humano no conoce el patrón."
+ },
+ {
+  "id": "01-02-05",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "En el razonamiento simbólico de los apuntes, ¿qué es «perro» respecto a «animal»?",
+  "opciones": [
+   "Un concepto o clase más general que animal",
+   "Un objeto o instancia del concepto animal",
+   "Una regla de inferencia que conecta conceptos",
+   "Un patrón aprendido a partir de los datos"
+  ],
+  "correcta": 1,
+  "explicacion": "Los apuntes distinguen Concepto/Clase (animal, número, país) de Objeto/Instancia (perro, 3, España)."
+ },
+ {
+  "id": "01-02-06",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "¿Qué dice la Ley de Moore, según los apuntes?",
+  "opciones": [
+   "Cada 2 años se duplica el número de transistores en un chip",
+   "Cada año se duplica la velocidad de reloj de las GPU",
+   "Cada 2 años se reduce a la mitad el precio de la memoria",
+   "Cada década se multiplica por diez el consumo de un chip"
+  ],
+  "correcta": 0,
+  "explicacion": "La Ley de Moore dice que cada 2 años se duplica el número de transistores en un chip."
+ },
+ {
+  "id": "01-02-07",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "¿Por qué se usan masivamente las GPU en Deep Learning, según los apuntes?",
+  "opciones": [
+   "Procesan instrucciones generales mejor que una CPU",
+   "Consumen mucha menos energía que cualquier CPU",
+   "Almacenan más datos de entrenamiento que un disco",
+   "Son más eficientes que la CPU en operaciones matriciales"
+  ],
+  "correcta": 3,
+  "explicacion": "La GPU es más eficiente que la CPU en operaciones matriciales; por eso se usa masivamente para Deep Learning."
+ },
+ {
+  "id": "01-02-08",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "Según los apuntes, ¿qué aproximación de IA usa razonamiento conexionista?",
+  "opciones": [
+   "Sistemas expertos",
+   "Algoritmos de búsqueda",
+   "Machine Learning",
+   "Sistemas basados en reglas"
+  ],
+  "correcta": 2,
+  "explicacion": "La búsqueda y los sistemas expertos (basados en reglas) usan razonamiento simbólico; el Machine Learning usa razonamiento conexionista."
+ },
+ {
+  "id": "01-02-09",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "Al ajustar una función, ¿qué ventaja tiene la búsqueda aleatoria frente al descenso de gradiente?",
+  "opciones": [
+   "Puede tomar caminos aleatorios para evitar mínimos locales",
+   "Conoce de antemano la función que mejor ajusta los datos",
+   "Sigue siempre la dirección de menor crecimiento",
+   "No necesita ninguna función que minimizar"
+  ],
+  "correcta": 0,
+  "explicacion": "La búsqueda aleatoria es similar al descenso de gradiente, pero puede tomar caminos aleatorios para evitar mínimos locales."
+ },
+ {
+  "id": "01-02-10",
+  "tema": "¿Qué es la IA?",
+  "pregunta": "En la gráfica del valle inquietante, ¿qué pasa con la familiaridad cuando algo se parece casi, pero no del todo, a un humano?",
+  "opciones": [
+   "Alcanza su valor máximo",
+   "Se mantiene constante",
+   "Crece de forma lineal",
+   "Cae bruscamente"
+  ],
+  "correcta": 3,
+  "explicacion": "Cerca del 100 % de parecido humano la familiaridad se desploma (cadáver, muerto viviente): ese hueco es el valle inquietante."
+ },
+ {
+  "id": "01-03-01",
+  "tema": "La IA hoy",
+  "pregunta": "Según los apuntes, ¿qué aprende un modelo generativo?",
+  "opciones": [
+   "P(x): devuelve un dato nuevo y verosímil",
+   "P(y|x): dado un dato, devuelve su clase",
+   "Reglas de inferencia escritas por expertos",
+   "El camino más corto entre dos nodos"
+  ],
+  "correcta": 0,
+  "explicacion": "El modelo generativo aprende P(x) y crea datos nuevos verosímiles; el discriminativo aprende P(y|x) y clasifica."
+ },
+ {
+  "id": "01-03-02",
+  "tema": "La IA hoy",
+  "pregunta": "«¿Este pez es salmón o trucha?» es, según los apuntes, la tarea típica de...",
+  "opciones": [
+   "un modelo generativo",
+   "un modelo discriminativo",
+   "un agente autónomo",
+   "un modelo de difusión"
+  ],
+  "correcta": 1,
+  "explicacion": "Un modelo discriminativo aprende P(y|x): dado un dato (el pez), devuelve su clase (salmón o trucha)."
+ },
+ {
+  "id": "01-03-03",
+  "tema": "La IA hoy",
+  "pregunta": "AlphaGo se entrenó solo para jugar al Go y no transfiere lo aprendido. ¿Qué tipo de IA es?",
+  "opciones": [
+   "General AI (AGI)",
+   "Super AI (ASI)",
+   "Narrow AI (ANI)",
+   "IA multimodal"
+  ],
+  "correcta": 2,
+  "explicacion": "La Narrow AI resuelve una tarea concreta, se entrena para ella y no transfiere lo aprendido; AlphaGo es el ejemplo de los apuntes."
+ },
+ {
+  "id": "01-03-04",
+  "tema": "La IA hoy",
+  "pregunta": "Según los apuntes, ¿cuál es la única tarea de un transformer?",
+  "opciones": [
+   "Clasificar imágenes en categorías",
+   "Quitar ruido a una imagen paso a paso",
+   "Buscar documentos para el contexto",
+   "Predecir el siguiente token"
+  ],
+  "correcta": 3,
+  "explicacion": "El transformer es un tipo de red neuronal para secuencias cuya única tarea es predecir el siguiente token."
+ },
+ {
+  "id": "01-03-05",
+  "tema": "La IA hoy",
+  "pregunta": "¿Qué afirmación sobre los modelos de pesos abiertos es correcta según los apuntes?",
+  "opciones": [
+   "Son open source: publican datos, código y pesos",
+   "Solo se usan por web o API, pagando por uso",
+   "Sus pesos son públicos, pero casi nunca sus datos",
+   "No pueden ser reentrenados por otras personas"
+  ],
+  "correcta": 2,
+  "explicacion": "Pesos abiertos no es open source: los pesos son públicos, pero casi nunca se publican los datos ni el código de entrenamiento."
+ },
+ {
+  "id": "01-03-06",
+  "tema": "La IA hoy",
+  "pregunta": "Según los apuntes, un agente es...",
+  "opciones": [
+   "modelo + herramientas + bucle",
+   "modelo + prompt + contexto",
+   "chatbot + cadena de pensamiento",
+   "modelo + RAG + benchmark"
+  ],
+  "correcta": 0,
+  "explicacion": "Un agente es modelo + herramientas + bucle: no se limita a contestar, actúa hasta terminar la tarea."
+ },
+ {
+  "id": "01-03-07",
+  "tema": "La IA hoy",
+  "pregunta": "La principal limitación de los chatbots según los apuntes es la alucinación, que consiste en...",
+  "opciones": [
+   "tardar más en responder por pensar antes",
+   "no poder usar herramientas como internet",
+   "olvidar las instrucciones del usuario",
+   "inventar datos falsos con total seguridad"
+  ],
+  "correcta": 3,
+  "explicacion": "Alucinar es inventar datos falsos con total seguridad; los apuntes lo señalan como la limitación principal de los chatbots."
+ },
+ {
+  "id": "01-03-08",
+  "tema": "La IA hoy",
+  "pregunta": "Según los apuntes, ¿qué es RAG (Retrieval Augmented Generation)?",
+  "opciones": [
+   "Generar pasos intermedios antes de responder",
+   "Buscar documentos y meterlos en el contexto",
+   "Partir de ruido y limpiarlo paso a paso",
+   "Entrenar el modelo con más parámetros"
+  ],
+  "correcta": 1,
+  "explicacion": "RAG consiste en buscar documentos y meterlos en el contexto antes de responder."
+ },
+ {
+  "id": "01-03-09",
+  "tema": "La IA hoy",
+  "pregunta": "Un benchmark cuyas preguntas ya aparecían en los datos de entrenamiento del modelo sufre de...",
+  "opciones": [
+   "Saturación",
+   "Contaminación",
+   "Efecto Goodhart",
+   "Alucinación"
+  ],
+  "correcta": 1,
+  "explicacion": "Contaminación: el examen estaba en los datos de entrenamiento. Saturación es que todos sacan ~99 %; Goodhart, optimizar el examen."
+ },
+ {
+  "id": "01-03-10",
+  "tema": "La IA hoy",
+  "pregunta": "Según los apuntes, ¿qué precio se paga con los modelos de razonamiento frente a los anteriores?",
+  "opciones": [
+   "Fallan en problemas de varios pasos",
+   "No pueden revisar ni corregir sus pasos",
+   "Solo funcionan con imágenes y vídeo",
+   "Respuestas más lentas y más caras"
+  ],
+  "correcta": 3,
+  "explicacion": "Piensan antes de responder (cadena de pensamiento), se revisan y exploran caminos, pero sus respuestas son más lentas y más caras."
+ },
+ {
+  "id": "02-01-01",
+  "tema": "Grafos",
+  "pregunta": "Según los apuntes, ¿qué es un grafo?",
+  "opciones": [
+   "Un conjunto de nodos o vértices conectados por aristas",
+   "Una tabla de datos con filas y columnas numéricas",
+   "Un árbol en el que cada nodo tiene dos hijos como máximo",
+   "Una función con millones de parámetros ajustables"
+  ],
+  "correcta": 0,
+  "explicacion": "Un grafo es un conjunto de nodos (vértices) conectados por aristas (edges), que pueden ser dirigidas o no y tener pesos."
+ },
+ {
+  "id": "02-01-02",
+  "tema": "Grafos",
+  "pregunta": "En un grafo, ¿cómo se interpreta una arista no dirigida según los apuntes?",
+  "opciones": [
+   "Solo puede recorrerse en un sentido",
+   "Se considera que va en ambos sentidos",
+   "Indica que su peso es siempre cero",
+   "Une un nodo consigo mismo"
+  ],
+  "correcta": 1,
+  "explicacion": "Las aristas no dirigidas se considera que van en ambos sentidos (↔)."
+ },
+ {
+  "id": "02-01-03",
+  "tema": "Grafos",
+  "pregunta": "En una matriz de adyacencia como la de los apuntes, ¿qué indica «inf» en la fila B, columna A?",
+  "opciones": [
+   "Que la arista de B a A tiene peso 0",
+   "Que B y A son el mismo nodo",
+   "Que no hay arista directa de B a A",
+   "Que de B a A hay infinitas aristas"
+  ],
+  "correcta": 2,
+  "explicacion": "En el ejemplo B no tiene arista hacia A, así que (B, A) vale inf; el 0 aparece en la diagonal (ir de un nodo a sí mismo)."
+ },
+ {
+  "id": "02-01-04",
+  "tema": "Grafos",
+  "pregunta": "Al modelar el problema de las jarras como sistema de estados, ¿qué representa cada acción (p. ej. llenar una jarra)?",
+  "opciones": [
+   "Un nodo del grafo",
+   "Una arista no dirigida",
+   "El peso de un nodo",
+   "Una arista dirigida"
+  ],
+  "correcta": 3,
+  "explicacion": "Cada estado es un nodo y cada acción es una arista dirigida del estado de partida al nuevo estado."
+ },
+ {
+  "id": "02-01-05",
+  "tema": "Grafos",
+  "pregunta": "En un árbol, ¿cómo se llaman los nodos que no tienen hijos?",
+  "opciones": [
+   "Raíces",
+   "Ramas",
+   "Hojas",
+   "Aristas"
+  ],
+  "correcta": 2,
+  "explicacion": "La raíz es el nodo inicial, las aristas se llaman ramas y los nodos sin hijos se denominan hojas."
+ },
+ {
+  "id": "02-01-06",
+  "tema": "Grafos",
+  "pregunta": "Según la definición de árbol de los apuntes, ¿cuántas aristas entrantes tiene cada nodo distinto de la raíz?",
+  "opciones": [
+   "Ninguna",
+   "Exactamente una",
+   "Al menos dos",
+   "Una por cada hijo"
+  ],
+  "correcta": 1,
+  "explicacion": "La raíz no tiene ninguna arista entrante; todos los demás nodos tienen exactamente una."
+ },
+ {
+  "id": "02-01-07",
+  "tema": "Grafos",
+  "pregunta": "Un grafo tiene 4 nodos con un número impar de aristas (como Königsberg). ¿Tiene camino de Euler?",
+  "opciones": [
+   "No: debe tener 0 o 2 nodos de grado impar",
+   "Sí, pero no tiene circuito de Euler",
+   "Sí, y además tiene circuito de Euler",
+   "Solo si todas las aristas tienen peso"
+  ],
+  "correcta": 0,
+  "explicacion": "Teorema: hay camino de Euler si y solo si hay 0 o 2 nodos con un número impar de aristas. Con 4 no es posible."
+ },
+ {
+  "id": "02-01-08",
+  "tema": "Grafos",
+  "pregunta": "Un grafo conexo tiene nodos con 3, 3, 4, 4 y 2 aristas. Según los teoremas de los apuntes...",
+  "opciones": [
+   "Tiene circuito de Euler pero no camino",
+   "No tiene ni camino ni circuito de Euler",
+   "Tiene camino y también circuito de Euler",
+   "Tiene camino de Euler pero no circuito"
+  ],
+  "correcta": 3,
+  "explicacion": "Hay exactamente 2 nodos de grado impar: existe camino de Euler, pero no circuito (exige que todos los grados sean pares)."
+ },
+ {
+  "id": "02-01-09",
+  "tema": "Grafos",
+  "pregunta": "En el grafo no dirigido del ejemplo (A-B=1, A-C=2, A-D=3, B-D=1, C-D=3), ¿cuál es el camino Hamiltoniano más corto?",
+  "opciones": [
+   "A-B-D-C, con coste 5",
+   "B-A-C-D, con coste 6",
+   "C-D-B-A, con coste 5",
+   "C-A-B-D, con coste 4"
+  ],
+  "correcta": 3,
+  "explicacion": "C-A-B-D cuesta 2+1+1 = 4 y pasa por todos los nodos; es la solución que dan los apuntes."
+ },
+ {
+  "id": "02-01-10",
+  "tema": "Grafos",
+  "pregunta": "Según los apuntes, la toma de decisiones en el 3 en raya es un ejemplo típico de...",
+  "opciones": [
+   "Árbol de dependencia",
+   "Árbol de búsqueda",
+   "Árbol de decisión",
+   "Circuito de Euler"
+  ],
+  "correcta": 2,
+  "explicacion": "En un árbol de decisión la raíz es el estado inicial, cada rama una decisión y las hojas los estados finales: el 3 en raya."
+ },
+ {
+  "id": "02-02-01",
+  "tema": "Sistemas expertos",
+  "pregunta": "Sabemos que «si llueve, el suelo se moja» y que llueve. Concluir que el suelo está mojado es un caso de...",
+  "opciones": [
+   "Modus Tollens",
+   "Modus Ponens",
+   "Regla de la cadena",
+   "Sustitución"
+  ],
+  "correcta": 1,
+  "explicacion": "Modus Ponens: si A ⇒ B y se cumple A, entonces B."
+ },
+ {
+  "id": "02-02-02",
+  "tema": "Sistemas expertos",
+  "pregunta": "Sabemos que «si llueve, el suelo se moja» y que el suelo NO está mojado. Deducir que no llueve es un caso de...",
+  "opciones": [
+   "Modus Ponens",
+   "Regla de la cadena",
+   "Sustitución",
+   "Modus Tollens"
+  ],
+  "correcta": 3,
+  "explicacion": "Modus Tollens: si A ⇒ B y ¬B, entonces ¬A."
+ },
+ {
+  "id": "02-02-03",
+  "tema": "Sistemas expertos",
+  "pregunta": "Según la tabla de verdad de los apuntes, ¿en qué único caso es falsa la implicación A ⇒ B?",
+  "opciones": [
+   "A falso y B verdadero",
+   "A falso y B falso",
+   "A verdadero y B falso",
+   "A verdadero y B verdadero"
+  ],
+  "correcta": 2,
+  "explicacion": "A ⇒ B solo es falsa cuando A es verdadero y B es falso; en el resto de casos es verdadera."
+ },
+ {
+  "id": "02-02-04",
+  "tema": "Sistemas expertos",
+  "pregunta": "Según las tablas de verdad de los apuntes, ¿cuándo es verdadero A XOR B?",
+  "opciones": [
+   "Cuando exactamente uno de los dos es verdadero",
+   "Cuando ambos son verdaderos a la vez",
+   "Cuando al menos uno de los dos es verdadero",
+   "Cuando ambos tienen el mismo valor de verdad"
+  ],
+  "correcta": 0,
+  "explicacion": "XOR es V solo con (V,F) o (F,V). «Al menos uno» es OR y «mismo valor» es la doble implicación ⇔."
+ },
+ {
+  "id": "02-02-05",
+  "tema": "Sistemas expertos",
+  "pregunta": "Según los apuntes, ¿con qué otro nombre se conoce a un sistema de producción?",
+  "opciones": [
+   "Red neuronal",
+   "Sistema basado en reglas",
+   "Modelo generativo",
+   "Árbol de dependencia"
+  ],
+  "correcta": 1,
+  "explicacion": "Un sistema de producción se puede denominar también sistema basado en reglas."
+ },
+ {
+  "id": "02-02-06",
+  "tema": "Sistemas expertos",
+  "pregunta": "¿Qué componente de un sistema de producción deduce nuevos hechos a partir de la base de conocimiento?",
+  "opciones": [
+   "La base de hechos",
+   "La interfaz de usuario",
+   "El motor de inferencia",
+   "La base de reglas"
+  ],
+  "correcta": 2,
+  "explicacion": "El motor de inferencia es el mecanismo que permite deducir nuevos hechos a partir de la base de conocimiento."
+ },
+ {
+  "id": "02-02-07",
+  "tema": "Sistemas expertos",
+  "pregunta": "Según los apuntes, ¿de qué se compone la base de conocimiento de un sistema de producción?",
+  "opciones": [
+   "De datos de entrenamiento y pesos",
+   "Del motor de inferencia y usuarios",
+   "De nodos y aristas con pesos",
+   "De hechos y reglas"
+  ],
+  "correcta": 3,
+  "explicacion": "La base de conocimiento contiene reglas (permiten hacer inferencias) y hechos (lo que se considera cierto)."
+ },
+ {
+  "id": "02-02-08",
+  "tema": "Sistemas expertos",
+  "pregunta": "Según los apuntes, ¿qué distingue a un sistema experto dentro de los sistemas de producción?",
+  "opciones": [
+   "Usa conocimiento obtenido de un experto en la materia",
+   "Aprende patrones de los datos sin reglas explícitas",
+   "Genera datos nuevos y verosímiles a partir de P(x)",
+   "Funciona en cualquier dominio sin necesidad de acotarlo"
+  ],
+  "correcta": 0,
+  "explicacion": "Un sistema experto es un sistema de producción que usa conocimiento obtenido por un experto, en un dominio muy acotado."
+ },
+ {
+  "id": "02-02-09",
+  "tema": "Sistemas expertos",
+  "pregunta": "Con las reglas del ejemplo médico de los apuntes, si el paciente tiene fiebre y tose, ¿qué deduce el sistema experto?",
+  "opciones": [
+   "Resfriado",
+   "Gripe",
+   "Neumonía",
+   "Resfriado y gripe"
+  ],
+  "correcta": 2,
+  "explicacion": "La regla «si el paciente tiene fiebre y tose, entonces tiene neumonía» se activa con esos hechos."
+ },
+ {
+  "id": "02-02-10",
+  "tema": "Sistemas expertos",
+  "pregunta": "En el problema de las 3 cajas (solo un mensaje es verdadero), ¿qué se puede inferir?",
+  "opciones": [
+   "La caja 1 dice la verdad y el premio está en la 1",
+   "La caja 3 dice la verdad y el premio está en la 2",
+   "La caja 2 dice la verdad y el premio está en la 3",
+   "La caja 3 dice la verdad y el premio está en la 3"
+  ],
+  "correcta": 1,
+  "explicacion": "Suponer que dice la verdad la caja 1 o la 2 lleva a contradicción; solo «caja 3 verdadera, premio en la 2» cumple todas las reglas."
+ },
+ {
+  "id": "02-03-01",
+  "tema": "Prolog",
+  "pregunta": "Según los apuntes, ¿qué tipo de lenguaje es Prolog?",
+  "opciones": [
+   "De programación lógica, basado en reglas",
+   "Imperativo, orientado a objetos",
+   "Funcional, basado en funciones lambda",
+   "De scripting para análisis de datos"
+  ],
+  "correcta": 0,
+  "explicacion": "Prolog es un lenguaje de programación lógica basado en reglas, usado para crear sistemas de inferencia como los sistemas expertos."
+ },
+ {
+  "id": "02-03-02",
+  "tema": "Prolog",
+  "pregunta": "En Prolog, ¿cómo comienza el nombre de una variable?",
+  "opciones": [
+   "Por letra minúscula",
+   "Por letra mayúscula",
+   "Por un dígito numérico",
+   "Por el símbolo $"
+  ],
+  "correcta": 1,
+  "explicacion": "Las variables comienzan por letra mayúscula y se pueden unificar con átomos; los átomos (constantes) empiezan por minúscula."
+ },
+ {
+  "id": "02-03-03",
+  "tema": "Prolog",
+  "pregunta": "En una cláusula de Prolog, ¿qué función cumple el símbolo «:-»?",
+  "opciones": [
+   "Termina la cláusula",
+   "Equivale a un AND lógico",
+   "Separa la cabeza del cuerpo",
+   "Representa la lista vacía"
+  ],
+  "correcta": 2,
+  "explicacion": "«:-» separa cabeza y cuerpo en una regla (cabeza :- cuerpo.). El punto termina la cláusula, la coma es AND y [] es la lista vacía."
+ },
+ {
+  "id": "02-03-04",
+  "tema": "Prolog",
+  "pregunta": "Con father_of(ned,jon). father_of(rickard,ned). y grandfather_of(X,Y) :- father_of(X,Z), father_of(Z,Y). ¿Qué da ?- grandfather_of(X,Y).?",
+  "opciones": [
+   "X = ned, Y = jon",
+   "X = jon, Y = rickard",
+   "X = rickard, Y = ned",
+   "X = rickard, Y = jon"
+  ],
+  "correcta": 3,
+  "explicacion": "Hace falta un Z con father_of(X,Z) y father_of(Z,Y): Z = ned une rickard→ned→jon, así que X = rickard e Y = jon."
+ },
+ {
+  "id": "02-03-05",
+  "tema": "Prolog",
+  "pregunta": "Si la lista [a, b, c] se divide en cabeza y cola, ¿cuál es la cola?",
+  "opciones": [
+   "[b, c]",
+   "c",
+   "[c]",
+   "b"
+  ],
+  "correcta": 0,
+  "explicacion": "La cabeza es el primer elemento (a) y la cola es una lista con el resto de elementos: [b, c]."
+ },
+ {
+  "id": "02-03-06",
+  "tema": "Prolog",
+  "pregunta": "¿Qué representa el símbolo «_» en Prolog?",
+  "opciones": [
+   "La lista vacía",
+   "Una variable anónima",
+   "El operador lógico AND",
+   "El fin de una cláusula"
+  ],
+  "correcta": 1,
+  "explicacion": "Según la tabla de puntuación de los apuntes, «_» es la variable anónima."
+ },
+ {
+  "id": "02-03-07",
+  "tema": "Prolog",
+  "pregunta": "¿Cuál es el mecanismo de ejecución de Prolog que, según los apuntes, puede resultar costoso?",
+  "opciones": [
+   "Compilación a bytecode",
+   "Descenso por gradiente",
+   "Backtracking con unificación",
+   "Búsqueda en anchura con cola"
+  ],
+  "correcta": 2,
+  "explicacion": "Los apuntes indican que su mecanismo de ejecución, backtracking con unificación, puede ser costoso y difícil para quien viene de lenguajes imperativos."
+ },
+ {
+  "id": "02-03-08",
+  "tema": "Prolog",
+  "pregunta": "Al crear un sistema experto en Prolog, ¿de qué debe preocuparse el experto?",
+  "opciones": [
+   "De programar el motor de inferencia",
+   "De entrenar el sistema con datos",
+   "De fijar el orden de ejecución",
+   "Solo de definir reglas y hechos"
+  ],
+  "correcta": 3,
+  "explicacion": "La complejidad queda oculta en el sistema de inferencia de Prolog, así que el experto solo tiene que definir las reglas y los hechos."
+ },
+ {
+  "id": "02-03-09",
+  "tema": "Prolog",
+  "pregunta": "Con parent(alice,bob). parent(alice,carol). y sibling(X,Y) :- parent(Z,X), parent(Z,Y), X \\= Y. ¿Qué responde ?- sibling(bob,carol).?",
+  "opciones": [
+   "false",
+   "true",
+   "Z = carol",
+   "Error de sintaxis"
+  ],
+  "correcta": 1,
+  "explicacion": "Con Z = alice se cumplen parent(alice,bob) y parent(alice,carol), y además bob \\= carol, así que la consulta es cierta."
+ },
+ {
+  "id": "02-03-10",
+  "tema": "Prolog",
+  "pregunta": "¿Qué expresa la regla contains([_|T], X) :- contains(T, X).?",
+  "opciones": [
+   "Que X es la cabeza de la lista",
+   "Que la cola T está vacía",
+   "Que X no aparece en la lista",
+   "Que X está si está en la cola T"
+  ],
+  "correcta": 3,
+  "explicacion": "Si la cabeza no es X, la lista puede contener X si su cola T lo contiene; es el caso recursivo de contains."
+ },
+ {
+  "id": "02-04-01",
+  "tema": "Aprendizaje automático",
+  "pregunta": "Según los apuntes, ¿qué es un modelo?",
+  "opciones": [
+   "Un algoritmo entrenado sobre datos",
+   "Un conjunto de datos sin etiquetar",
+   "Un vector de derivadas parciales",
+   "Un conjunto de reglas escritas a mano"
+  ],
+  "correcta": 0,
+  "explicacion": "Un modelo es un sistema matemático que intenta describir una realidad: Modelo = Algoritmo entrenado sobre Datos."
+ },
+ {
+  "id": "02-04-02",
+  "tema": "Aprendizaje automático",
+  "pregunta": "¿Qué indica el gradiente de una función multivariable?",
+  "opciones": [
+   "El mínimo de la función en un entorno",
+   "La dirección de mayor crecimiento",
+   "La dirección de menor crecimiento",
+   "El valor máximo global alcanzable"
+  ],
+  "correcta": 1,
+  "explicacion": "El gradiente es el vector de derivadas parciales y apunta en la dirección de mayor crecimiento de la función."
+ },
+ {
+  "id": "02-04-03",
+  "tema": "Aprendizaje automático",
+  "pregunta": "Los sistemas de Aprendizaje Automático se basan mayoritariamente en razonamiento…",
+  "opciones": [
+   "simbólico, basado en reglas",
+   "deductivo, basado en lógica",
+   "conexionista, basado en datos",
+   "heurístico, basado en búsqueda"
+  ],
+  "correcta": 2,
+  "explicacion": "El razonamiento conexionista se basa en datos y patrones; los apuntes destacan que el ML se basa mayoritariamente en él."
+ },
+ {
+  "id": "02-04-04",
+  "tema": "Aprendizaje automático",
+  "pregunta": "Predecir el precio en euros de una vivienda a partir de sus características es un problema de…",
+  "opciones": [
+   "Clasificación",
+   "Clustering",
+   "Generación",
+   "Regresión"
+  ],
+  "correcta": 3,
+  "explicacion": "La regresión predice un valor numérico continuo de un dato; la clasificación predice una clase."
+ },
+ {
+  "id": "02-04-05",
+  "tema": "Aprendizaje automático",
+  "pregunta": "Agrupar clientes parecidos entre sí sin conocer ninguna etiqueta previa es un problema de…",
+  "opciones": [
+   "Clustering",
+   "Regresión",
+   "Clasificación",
+   "Generación"
+  ],
+  "correcta": 0,
+  "explicacion": "El clustering agrupa los datos en conjuntos de elementos similares sin conocer las etiquetas."
+ },
+ {
+  "id": "02-04-06",
+  "tema": "Aprendizaje automático",
+  "pregunta": "Si los datos de entrenamiento incluyen la respuesta esperada, ¿qué tipo de aprendizaje es?",
+  "opciones": [
+   "No supervisado",
+   "Supervisado",
+   "Por refuerzo",
+   "Conexionista"
+  ],
+  "correcta": 1,
+  "explicacion": "En el aprendizaje supervisado los datos de entrenamiento tienen incluida la respuesta esperada."
+ },
+ {
+  "id": "02-04-07",
+  "tema": "Aprendizaje automático",
+  "pregunta": "¿Qué es el overfitting?",
+  "opciones": [
+   "Predecir datos no vistos en el entrenamiento",
+   "Agrupar datos parecidos sin conocer etiquetas",
+   "Ajustarse demasiado al entrenamiento",
+   "Aprender a base de acciones y recompensas"
+  ],
+  "correcta": 2,
+  "explicacion": "Overfitting: el algoritmo se ajusta demasiado a los datos de entrenamiento y no generaliza bien."
+ },
+ {
+  "id": "02-04-08",
+  "tema": "Aprendizaje automático",
+  "pregunta": "Según la clasificación de los apuntes, Random Forest es un algoritmo basado en…",
+  "opciones": [
+   "similitud entre datos",
+   "búsqueda de una función",
+   "reglas simbólicas",
+   "división de datos"
+  ],
+  "correcta": 3,
+  "explicacion": "Decision Trees, Random Forest y Gradient Boosting aparecen como algoritmos basados en división de datos."
+ },
+ {
+  "id": "02-04-09",
+  "tema": "Aprendizaje automático",
+  "pregunta": "¿Cuál de estos sistemas de IA NO se engloba en el Aprendizaje Automático según los apuntes?",
+  "opciones": [
+   "Reconocimiento de voz",
+   "Algoritmos de path finding",
+   "Generación de imágenes",
+   "Análisis de sentimiento"
+  ],
+  "correcta": 1,
+  "explicacion": "Entre la IA sin ML los apuntes citan la navegación (path finding), los sistemas expertos basados en reglas y algunos NLP basados en reglas."
+ },
+ {
+  "id": "02-04-10",
+  "tema": "Aprendizaje automático",
+  "pregunta": "En Machine Learning, ¿a qué se llama inferencia?",
+  "opciones": [
+   "Al proceso de aprender a partir de datos",
+   "A ajustarse demasiado a los datos",
+   "A agrupar datos similares sin etiquetas",
+   "A predecir valores de datos no entrenados"
+  ],
+  "correcta": 3,
+  "explicacion": "La inferencia es predecir valores para datos sobre los que no se ha entrenado; el entrenamiento es el proceso de aprendizaje."
+ },
+ {
+  "id": "02-05-01",
+  "tema": "Agentes",
+  "pregunta": "Según los apuntes, ¿qué es un agente?",
+  "opciones": [
+   "Un sistema que percibe su entorno y actúa en él",
+   "Un modelo que solo responde a preguntas",
+   "Una base de conocimiento de reglas y hechos",
+   "Una función que predice valores numéricos"
+  ],
+  "correcta": 0,
+  "explicacion": "Un agente es un sistema que percibe su entorno y actúa en él, tomando decisiones basadas en esa percepción."
+ },
+ {
+  "id": "02-05-02",
+  "tema": "Agentes",
+  "pregunta": "Según los apuntes, los sistemas de IA Generativa son…",
+  "opciones": [
+   "agentes que optimizan durante la inferencia",
+   "modelos; su optimización está en el entrenamiento",
+   "sistemas multiagente de tipo cooperativo",
+   "árboles de comportamiento entrenados"
+  ],
+  "correcta": 1,
+  "explicacion": "La IA Generativa son modelos, no agentes: la optimización ocurre en la fase de entrenamiento, no en la de inferencia."
+ },
+ {
+  "id": "02-05-03",
+  "tema": "Agentes",
+  "pregunta": "¿Qué es un objetivo instrumental de un agente?",
+  "opciones": [
+   "La meta final que se intenta alcanzar",
+   "Un objetivo final que siempre es malo",
+   "Una meta parcial para alcanzar otra meta",
+   "La función que mide la bondad del estado"
+  ],
+  "correcta": 2,
+  "explicacion": "El objetivo instrumental es una meta parcial usada para alcanzar otra; el final o intrínseco es LA meta. No existen malos objetivos finales."
+ },
+ {
+  "id": "02-05-04",
+  "tema": "Agentes",
+  "pregunta": "Goal: «¿Cuánto es 4+4?». Agente: «Es igual que 2+6». ¿Qué tipo de misalignment muestra?",
+  "opciones": [
+   "Inner misalignment",
+   "Deceptive misalignment",
+   "Reward misalignment",
+   "Outer misalignment"
+  ],
+  "correcta": 3,
+  "explicacion": "Es outer: el sistema optimiza la función correcta (la respuesta no es falsa), pero el resultado no es el esperado."
+ },
+ {
+  "id": "02-05-05",
+  "tema": "Agentes",
+  "pregunta": "Goal: «Trae la pelota». El agente vuelve sin la pelota. ¿Qué tipo de misalignment es?",
+  "opciones": [
+   "Inner misalignment",
+   "Outer misalignment",
+   "Deceptive misalignment",
+   "Reward misalignment"
+  ],
+  "correcta": 0,
+  "explicacion": "Inner misalignment: el sistema ha optimizado una función incorrecta o no la ha optimizado bien; es el ejemplo de los apuntes."
+ },
+ {
+  "id": "02-05-06",
+  "tema": "Agentes",
+  "pregunta": "¿Cuándo se habla de deceptive misalignment?",
+  "opciones": [
+   "Optimiza la función correcta con mal resultado",
+   "Optimiza una función errónea y finge la correcta",
+   "No optimiza ninguna función por falta de datos",
+   "Varios agentes tienen metas contradictorias"
+  ],
+  "correcta": 1,
+  "explicacion": "En el deceptive misalignment el sistema optimiza una función incorrecta pero es capaz de fingir que ha optimizado la correcta."
+ },
+ {
+  "id": "02-05-07",
+  "tema": "Agentes",
+  "pregunta": "Un nodo Sequence tiene 3 hijos. En un tick el 1º devuelve SUCCESS y el 2º RUNNING. ¿Qué devuelve el Sequence?",
+  "opciones": [
+   "SUCCESS",
+   "FAILURE",
+   "RUNNING",
+   "Lo que devuelva el 3º hijo"
+  ],
+  "correcta": 2,
+  "explicacion": "Sequence ejecuta en orden hasta que un hijo falla o queda RUNNING; si un hijo está RUNNING, devuelve RUNNING."
+ },
+ {
+  "id": "02-05-08",
+  "tema": "Agentes",
+  "pregunta": "Un Selector tiene 3 hijos. En un tick el 1º devuelve FAILURE y el 2º SUCCESS. ¿Qué ocurre?",
+  "opciones": [
+   "Devuelve FAILURE sin probar el 3º",
+   "Prueba el 3º y devuelve su resultado",
+   "Devuelve RUNNING hasta probar el 3º",
+   "Devuelve SUCCESS sin ejecutar el 3º"
+  ],
+  "correcta": 3,
+  "explicacion": "El Selector prueba hijos en orden hasta que uno tiene éxito o queda RUNNING; al tener éxito el 2º, devuelve SUCCESS."
+ },
+ {
+  "id": "02-05-09",
+  "tema": "Agentes",
+  "pregunta": "En un Behavior Tree, ¿qué caracteriza a un nodo Condición?",
+  "opciones": [
+   "No altera el mundo y devuelve SUCCESS/FAILURE",
+   "Puede devolver RUNNING durante varios ticks",
+   "Combina varios nodos hijos en orden",
+   "Es el punto de entrada del árbol"
+  ],
+  "correcta": 0,
+  "explicacion": "La Condición chequea un predicado, no debe alterar el mundo y devuelve SUCCESS o FAILURE; RUNNING es propio de las acciones."
+ },
+ {
+  "id": "02-05-10",
+  "tema": "Agentes",
+  "pregunta": "En un sistema multiagente, según sus objetivos, los agentes pueden ser…",
+  "opciones": [
+   "solo cooperativos, nunca rivales",
+   "siempre independientes entre sí",
+   "cooperativos, competitivos o independientes",
+   "solo competitivos, como en los juegos"
+  ],
+  "correcta": 2,
+  "explicacion": "Los apuntes indican que los agentes pueden ser cooperativos, competitivos o independientes según los objetivos que tengan."
+ },
+ {
+  "id": "03-01-01",
+  "tema": "Búsqueda",
+  "pregunta": "¿Qué estructura de datos usa la búsqueda en anchura (BFS) para guardar los nodos a visitar?",
+  "opciones": [
+   "Una pila (LIFO)",
+   "Una cola (FIFO)",
+   "Un árbol binario ordenado",
+   "Una cola de prioridad por coste"
+  ],
+  "correcta": 1,
+  "explicacion": "BFS guarda en una cola FIFO tuplas de nodo y arista; así visita primero los nodos más cercanos al origen."
+ },
+ {
+  "id": "03-01-02",
+  "tema": "Búsqueda",
+  "pregunta": "Según los apuntes, ¿qué diferencia la búsqueda en profundidad con backtracking por pila de la búsqueda en anchura?",
+  "opciones": [
+   "Solo cambia la cola por una pila",
+   "Ordena los nodos por coste de arista",
+   "No construye árbol de búsqueda",
+   "Revisita nodos ya añadidos al árbol"
+  ],
+  "correcta": 0,
+  "explicacion": "El algoritmo es exactamente igual que la búsqueda en anchura; solo cambia la estructura de nodos a visitar: de cola a pila."
+ },
+ {
+  "id": "03-01-03",
+  "tema": "Búsqueda",
+  "pregunta": "¿Por qué es sencillo reconstruir el camino una vez el árbol de búsqueda contiene el destino?",
+  "opciones": [
+   "El árbol guarda todos los caminos",
+   "Los nodos están ordenados por coste",
+   "Cada nodo tiene un único padre",
+   "El destino es siempre la raíz"
+  ],
+  "correcta": 2,
+  "explicacion": "En un árbol cada nodo tiene un único padre, así que basta ir de padre en padre desde el destino hasta la raíz."
+ },
+ {
+  "id": "03-01-04",
+  "tema": "Búsqueda",
+  "pregunta": "Cuadrícula A-B-C / D-E-F / G-H-I de los apuntes. BFS desde A: tras sacar A y después B, ¿cómo queda la cola?",
+  "opciones": [
+   "[C(b), E(b), D(a)]",
+   "[D(a), E(b)]",
+   "[C(b), E(b)]",
+   "[D(a), C(b), E(b)]"
+  ],
+  "correcta": 3,
+  "explicacion": "Tras A la cola es [B(a), D(a)]. Al sacar B se añaden al final sus vecinos no visitados C y E: [D(a), C(b), E(b)]."
+ },
+ {
+  "id": "03-01-05",
+  "tema": "Búsqueda",
+  "pregunta": "Según la tabla de resultados, ¿qué ventaja tiene la búsqueda en anchura?",
+  "opciones": [
+   "Encuentra el camino con menos aristas",
+   "Encuentra el de menor coste con pesos",
+   "Usa muy poca memoria en grafos densos",
+   "Suele encontrar solución antes que DFS"
+  ],
+  "correcta": 0,
+  "explicacion": "BFS encuentra el camino con menos aristas (óptimo si todas cuestan igual); pero puede ser costosa en grafos densos y suele ser lenta."
+ },
+ {
+  "id": "03-01-06",
+  "tema": "Búsqueda",
+  "pregunta": "En la búsqueda en profundidad básica (sin backtracking), ¿qué ocurre si el nodo actual no tiene vecinos sin visitar?",
+  "opciones": [
+   "Vuelve solo al nodo anterior",
+   "Salta a un nodo aleatorio",
+   "Reinicia desde el nodo origen",
+   "Se detiene sin encontrar solución"
+  ],
+  "correcta": 3,
+  "explicacion": "Llega a un punto muerto («Dead end») y el algoritmo se detiene sin solución; para evitarlo se usa backtracking."
+ },
+ {
+  "id": "03-01-07",
+  "tema": "Búsqueda",
+  "pregunta": "En la búsqueda aleatoria, ¿qué arista puede elegirse en cada iteración?",
+  "opciones": [
+   "Cualquier arista del grafo",
+   "Una del árbol a un nodo fuera de él",
+   "Una que llegue a un nodo del árbol",
+   "La más cercana al nodo destino"
+  ],
+  "correcta": 1,
+  "explicacion": "Se elige al azar una arista que salga de un nodo del árbol y llegue a un nodo fuera del árbol, y se añade al árbol."
+ },
+ {
+  "id": "03-01-08",
+  "tema": "Búsqueda",
+  "pregunta": "En una búsqueda interactiva, como salir de un laberinto físico desconocido, ¿qué afirman los apuntes?",
+  "opciones": [
+   "Tiene sentido la búsqueda en anchura",
+   "Solo puede resolverse con fuerza bruta",
+   "Tiene sentido la búsqueda en profundidad",
+   "No se resuelve sin conocer el grafo"
+  ],
+  "correcta": 2,
+  "explicacion": "Se puede resolver con profundidad; anchura no tendría sentido porque obligaría a volver al inicio continuamente para avanzar un paso."
+ },
+ {
+  "id": "03-01-09",
+  "tema": "Búsqueda",
+  "pregunta": "¿Cómo proponen los apuntes resolver un problema de búsqueda con múltiples orígenes?",
+  "opciones": [
+   "Lanzar BFS desde cada origen por separado",
+   "Elegir uno de los orígenes al azar",
+   "Unir todos los orígenes en un ciclo",
+   "Nodo ficticio unido con peso 0"
+  ],
+  "correcta": 3,
+  "explicacion": "Se crea un nodo ficticio de origen conectado a los nodos origen con peso 0 de forma unidireccional."
+ },
+ {
+  "id": "03-01-10",
+  "tema": "Búsqueda",
+  "pregunta": "Para hallar un camino que pase por varios destinos de forma consecutiva, ¿qué indican los apuntes?",
+  "opciones": [
+   "Usar el algoritmo de forma iterativa",
+   "Buscar solo el último destino",
+   "Unir los destinos en un nodo ficticio",
+   "No se puede con estos algoritmos"
+  ],
+  "correcta": 0,
+  "explicacion": "Se busca un camino al primer destino; después se usa ese destino como origen hacia el segundo, y así sucesivamente."
+ },
+ {
+  "id": "03-02-01",
+  "tema": "Búsqueda óptima",
+  "pregunta": "Según los apuntes, ¿cómo se calcula el coste de un camino?",
+  "opciones": [
+   "Suma del coste de sus aristas",
+   "Número de nodos que recorre",
+   "Coste de su arista más cara",
+   "Media del coste de sus aristas"
+  ],
+  "correcta": 0,
+  "explicacion": "El coste de un camino es la suma del coste de las aristas que lo conforman; el óptimo es el de menor coste."
+ },
+ {
+  "id": "03-02-02",
+  "tema": "Búsqueda óptima",
+  "pregunta": "Con aristas A-B = 2, B-E = 8, E-H = 1 y H-I = 2, ¿cuál es el coste del camino A-B-E-H-I?",
+  "opciones": [
+   "11",
+   "13",
+   "12",
+   "15"
+  ],
+  "correcta": 1,
+  "explicacion": "El coste es la suma de sus aristas: 2 + 8 + 1 + 2 = 13."
+ },
+ {
+  "id": "03-02-03",
+  "tema": "Búsqueda óptima",
+  "pregunta": "La búsqueda en anchura garantiza encontrar el camino óptimo cuando…",
+  "opciones": [
+   "el grafo no tiene ciclos",
+   "no hay aristas con coste negativo",
+   "todas las aristas tienen el mismo coste",
+   "se aplica poda al explorar"
+  ],
+  "correcta": 2,
+  "explicacion": "BFS halla el camino con menos aristas; solo coincide con el óptimo si todas las aristas tienen el mismo coste."
+ },
+ {
+  "id": "03-02-04",
+  "tema": "Búsqueda óptima",
+  "pregunta": "En el peor caso, ¿cómo crece el número de caminos simples entre dos nodos que explora la búsqueda exhaustiva?",
+  "opciones": [
+   "O(V)",
+   "O(V²)",
+   "O(log V)",
+   "O(V!)"
+  ],
+  "correcta": 3,
+  "explicacion": "La búsqueda exhaustiva garantiza el óptimo pero con coste muy elevado: el número de caminos simples crece como O(V!)."
+ },
+ {
+  "id": "03-02-05",
+  "tema": "Búsqueda óptima",
+  "pregunta": "¿Qué diferencia la fuerza bruta del back tracking como búsquedas exhaustivas?",
+  "opciones": [
+   "FB calcula todo a priori; BT, recursivamente",
+   "FB poda caminos; BT los explora todos",
+   "FB no garantiza el óptimo; BT sí",
+   "FB usa una cola; BT usa costes negativos"
+  ],
+  "correcta": 0,
+  "explicacion": "Fuerza bruta calcula a priori todos los caminos y elige el menor; back tracking los calcula recursivamente sin conocer antes cuántos hay."
+ },
+ {
+  "id": "03-02-06",
+  "tema": "Búsqueda óptima",
+  "pregunta": "En back tracking con poda, ¿cuándo se deja de explorar un camino parcial?",
+  "opciones": [
+   "Si tiene más aristas que el mejor camino",
+   "Si su coste supera al del mejor completo",
+   "Si su coste supera la media de caminos",
+   "Si pasa por un nodo ya visitado antes"
+  ],
+  "correcta": 1,
+  "explicacion": "Si el coste acumulado del camino parcial ya supera al del mejor camino completo encontrado, nunca podrá mejorarlo y se poda."
+ },
+ {
+  "id": "03-02-07",
+  "tema": "Búsqueda óptima",
+  "pregunta": "El mejor camino hallado cuesta 15. El camino parcial A-B-C-F-E cuesta 9 y la arista E-D cuesta 11. ¿Qué hace la poda al ir a D?",
+  "opciones": [
+   "Lo explora: aún no ha llegado a I",
+   "Actualiza el mejor coste a 20",
+   "Lo poda: ya cuesta 20, más que 15",
+   "Lo poda: tiene más nodos que el mejor"
+  ],
+  "correcta": 2,
+  "explicacion": "9 + 11 = 20 > 15: el camino parcial ya supera al mejor completo, así que no puede mejorarlo y se deja de explorar."
+ },
+ {
+  "id": "03-02-08",
+  "tema": "Búsqueda óptima",
+  "pregunta": "¿Por qué un ciclo de coste negativo es un problema para la búsqueda del camino óptimo?",
+  "opciones": [
+   "Impide construir el árbol de búsqueda",
+   "Hace que BFS deje de ser determinista",
+   "Obliga a usar siempre una pila",
+   "Deja indefinido el coste mínimo"
+  ],
+  "correcta": 3,
+  "explicacion": "Se podría recorrer el ciclo negativo infinitas veces para reducir el coste, así que el coste mínimo quedaría indefinido."
+ },
+ {
+  "id": "03-02-09",
+  "tema": "Búsqueda óptima",
+  "pregunta": "Según los apuntes, ¿qué se puede afirmar del camino óptimo entre dos nodos?",
+  "opciones": [
+   "Siempre es único",
+   "Puede no ser único",
+   "Es el de menos aristas",
+   "Es el que halla DFS"
+  ],
+  "correcta": 1,
+  "explicacion": "Los apuntes lo destacan: el camino óptimo puede no ser único, ya que varios caminos pueden empatar con el menor coste."
+ },
+ {
+  "id": "03-02-10",
+  "tema": "Búsqueda óptima",
+  "pregunta": "¿Qué garantiza el back tracking de los apuntes al buscar el camino óptimo?",
+  "opciones": [
+   "El óptimo explorando un solo camino",
+   "El óptimo aunque haya ciclos negativos",
+   "El óptimo entre los caminos simples",
+   "El óptimo sin calcular costes"
+  ],
+  "correcta": 2,
+  "explicacion": "Explora todos los caminos simples (sin repetir nodos); con costes no negativos el óptimo es siempre uno de ellos."
+ },
+ {
+  "id": "03-03-01",
+  "tema": "Dijkstra",
+  "pregunta": "Según los apuntes, ¿en qué grafos garantiza Dijkstra encontrar el camino óptimo (si existe camino)?",
+  "opciones": [
+   "Solo si todas las aristas cuestan lo mismo",
+   "En grafos con costes no negativos (≥ 0)",
+   "Solo si todas las aristas cuestan más de 1",
+   "Solo en grafos dirigidos y acíclicos"
+  ],
+  "correcta": 1,
+  "explicacion": "Dijkstra solo funciona con grafos de costes no negativos: todas las aristas con coste mayor o igual que 0."
+ },
+ {
+  "id": "03-03-02",
+  "tema": "Dijkstra",
+  "pregunta": "En el algoritmo de Dijkstra, ¿qué nodo se explora en cada paso?",
+  "opciones": [
+   "El que la heurística estima más cercano al final",
+   "El último nodo que se ha añadido a Q",
+   "El vecino unido por la arista más barata",
+   "El nodo de Q con menor coste acumulado"
+  ],
+  "correcta": 3,
+  "explicacion": "Dijkstra es una búsqueda en anchura donde el nodo a expandir es siempre el de menor coste acumulado desde el inicio."
+ },
+ {
+  "id": "03-03-03",
+  "tema": "Dijkstra",
+  "pregunta": "En Dijkstra, ¿qué diferencia hay entre los costes guardados en Q y los guardados en T?",
+  "opciones": [
+   "Los de Q son temporales y los de T definitivos",
+   "Los de Q son definitivos y los de T temporales",
+   "Ambos pueden cambiar hasta el final",
+   "T guarda costes estimados por heurística"
+  ],
+  "correcta": 0,
+  "explicacion": "Los costes en Q pueden no ser aún los mínimos (temporales); los que se añaden a T ya no cambiarán (definitivos)."
+ },
+ {
+  "id": "03-03-04",
+  "tema": "Dijkstra",
+  "pregunta": "¿En qué momento puede terminar Dijkstra con la garantía de tener el camino óptimo al nodo final?",
+  "opciones": [
+   "Cuando el nodo final entra en Q por primera vez",
+   "Cuando en Q queda un solo nodo",
+   "Cuando el nodo final se añade a T",
+   "Cuando se exploran todos los vecinos del inicio"
+  ],
+  "correcta": 2,
+  "explicacion": "Estar en Q no basta: puede haber caminos más cortos. Solo al añadir el nodo final a T su coste es definitivo."
+ },
+ {
+  "id": "03-03-05",
+  "tema": "Dijkstra",
+  "pregunta": "Grafo no dirigido: A-B=4, A-C=1, C-B=2, B-D=1, C-D=6. ¿Qué coste mínimo de A a D devuelve Dijkstra?",
+  "opciones": [
+   "5",
+   "7",
+   "4",
+   "3"
+  ],
+  "correcta": 2,
+  "explicacion": "A-C-B-D cuesta 1+2+1 = 4, menos que A-B-D (5) o A-C-D (7)."
+ },
+ {
+  "id": "03-03-06",
+  "tema": "Dijkstra",
+  "pregunta": "¿Qué ocurre con Dijkstra si alguna arista del grafo tiene coste negativo?",
+  "opciones": [
+   "Deja de asegurar el camino óptimo",
+   "Sigue siendo óptimo, pero más lento",
+   "Entra siempre en un bucle infinito",
+   "Solo falla si el grafo es dirigido"
+  ],
+  "correcta": 0,
+  "explicacion": "Con costes negativos T deja de ser definitiva: puede aparecer un camino más barato desde nodos que aún no están en T."
+ },
+ {
+  "id": "03-03-07",
+  "tema": "Dijkstra",
+  "pregunta": "¿Qué complejidad tiene Dijkstra si Q es una cola de prioridad ordenada por coste acumulado?",
+  "opciones": [
+   "O(V · E)",
+   "O(V · E · log V)",
+   "O(b^d)",
+   "O((V + E) log V)"
+  ],
+  "correcta": 3,
+  "explicacion": "Con cola de prioridad la complejidad se reduce a O((V + E) log V), con V nodos y E aristas."
+ },
+ {
+  "id": "03-03-08",
+  "tema": "Dijkstra",
+  "pregunta": "Si dos nodos de Q empatan en coste acumulado, ¿qué hace Dijkstra según los apuntes?",
+  "opciones": [
+   "Explora los dos nodos a la vez en paralelo",
+   "Elige uno al azar y sigue siendo óptimo",
+   "Elige el de menor valor heurístico estimado",
+   "Descarta ambos y recalcula sus costes"
+  ],
+  "correcta": 1,
+  "explicacion": "El orden en caso de empate es arbitrario (no es estrictamente determinista), pero sigue asegurando el camino óptimo."
+ },
+ {
+  "id": "03-03-09",
+  "tema": "Dijkstra",
+  "pregunta": "El pseudocódigo básico de Dijkstra solo devuelve el coste. ¿Cómo se puede recuperar el camino?",
+  "opciones": [
+   "Guardando para cada nodo su nodo anterior",
+   "Repitiendo Dijkstra desde el nodo final",
+   "Ordenando T por coste al terminar",
+   "Usando una heurística que reconstruya la ruta"
+  ],
+  "correcta": 0,
+  "explicacion": "Lo más sencillo es guardar en Q y T el nodo que produce el coste acumulado, es decir, el nodo anterior en el camino."
+ },
+ {
+  "id": "03-03-10",
+  "tema": "Dijkstra",
+  "pregunta": "Dijkstra puede verse como una búsqueda en anchura sobre un grafo G' en el que…",
+  "opciones": [
+   "se eliminan las aristas de mayor coste del grafo",
+   "todas las aristas pasan a tener coste 0",
+   "cada arista se parte en aristas de coste c_min",
+   "se añade una arista entre cada par de nodos"
+  ],
+  "correcta": 2,
+  "explicacion": "Cada arista de coste x se convierte en x/c_min aristas de coste c_min; con costes iguales, la anchura da el óptimo."
+ },
+ {
+  "id": "03-04-01",
+  "tema": "Heurísticas",
+  "pregunta": "Según los apuntes, ¿qué es una heurística?",
+  "opciones": [
+   "Un algoritmo que garantiza el camino óptimo",
+   "El coste real acumulado desde el inicio",
+   "Una función que estima la distancia al objetivo",
+   "Una lista ordenada de nodos por explorar"
+  ],
+  "correcta": 2,
+  "explicacion": "Una heurística es una función h(n) que estima la distancia entre un nodo y el objetivo; al ser estimación, puede equivocarse."
+ },
+ {
+  "id": "03-04-02",
+  "tema": "Heurísticas",
+  "pregunta": "Una heurística es admisible (u optimista) si…",
+  "opciones": [
+   "nunca sobrestima la distancia real al objetivo",
+   "nunca subestima la distancia real al objetivo",
+   "da el mismo valor a todos los nodos",
+   "es exacta en todos los nodos del grafo"
+  ],
+  "correcta": 0,
+  "explicacion": "Admisible significa h(n) ≤ h*(n): nunca sobrestima la distancia real al objetivo."
+ },
+ {
+  "id": "03-04-03",
+  "tema": "Heurísticas",
+  "pregunta": "¿Qué condición define a una heurística consistente (o monótona)?",
+  "opciones": [
+   "h(n) ≤ h*(n) para todo nodo n",
+   "h(n) = C(n, o) para todo nodo n",
+   "h(n) ≥ c(n,n') + h(n') para todo sucesor",
+   "h(n) ≤ c(n,n') + h(n') y h(objetivo) = 0"
+  ],
+  "correcta": 3,
+  "explicacion": "Consistente: para todo sucesor n', h(n) ≤ c(n,n') + h(n'), y además h vale 0 en el nodo objetivo."
+ },
+ {
+  "id": "03-04-04",
+  "tema": "Heurísticas",
+  "pregunta": "¿Qué relación entre consistencia y admisibilidad establece el teorema de los apuntes?",
+  "opciones": [
+   "Toda heurística admisible es consistente",
+   "Toda heurística consistente es admisible",
+   "Son propiedades equivalentes",
+   "Son propiedades incompatibles"
+  ],
+  "correcta": 1,
+  "explicacion": "El teorema dice: consistente(h) ⇒ admisible(h). La implicación contraria no se afirma (ej.: penalizar paredes)."
+ },
+ {
+  "id": "03-04-05",
+  "tema": "Heurísticas",
+  "pregunta": "Un nodo está en (1, 2) y el objetivo en (4, 6). ¿Cuánto vale su distancia Manhattan al objetivo?",
+  "opciones": [
+   "7",
+   "5",
+   "3",
+   "4"
+  ],
+  "correcta": 0,
+  "explicacion": "Manhattan = |4−1| + |6−2| = 3 + 4 = 7. (5 sería la euclídea y 3 solo la distancia horizontal.)"
+ },
+ {
+  "id": "03-04-06",
+  "tema": "Heurísticas",
+  "pregunta": "Si h1 y h2 son admisibles, ¿qué combinación es también admisible según el teorema de los apuntes?",
+  "opciones": [
+   "h1(n) + h2(n)",
+   "h1(n) · h2(n)",
+   "2 · max(h1(n), h2(n))",
+   "max(h1(n), h2(n))"
+  ],
+  "correcta": 3,
+  "explicacion": "El teorema afirma que el máximo de heurísticas admisibles también es admisible."
+ },
+ {
+  "id": "03-04-07",
+  "tema": "Heurísticas",
+  "pregunta": "¿Cuál es un buen método general para encontrar una heurística para un problema?",
+  "opciones": [
+   "Quitar aristas del grafo para simplificarlo",
+   "Relajar el problema: quitar restricciones",
+   "Poner coste negativo a algunas aristas",
+   "Aumentar el coste de todas las aristas"
+  ],
+  "correcta": 1,
+  "explicacion": "Relajar el problema (reducir costes, añadir aristas) da buenas heurísticas. Quitar aristas lo complica y los costes negativos crean ciclos."
+ },
+ {
+  "id": "03-04-08",
+  "tema": "Heurísticas",
+  "pregunta": "En el ejercicio del robot, ¿cómo se clasifica la heurística trivial h(n) = 1?",
+  "opciones": [
+   "Admisible y consistente",
+   "Admisible pero no consistente",
+   "No admisible",
+   "Óptima"
+  ],
+  "correcta": 2,
+  "explicacion": "Es no admisible: en el propio objetivo estima 1 cuando la distancia real es 0, así que sobrestima."
+ },
+ {
+  "id": "03-04-09",
+  "tema": "Heurísticas",
+  "pregunta": "¿Qué es la heurística óptima h*(n)?",
+  "opciones": [
+   "La más rápida de calcular de todas",
+   "La que da exactamente el coste óptimo real",
+   "La que vale 0 en todos los nodos",
+   "La que sobrestima el coste lo mínimo posible"
+  ],
+  "correcta": 1,
+  "explicacion": "h*(n) = C(n, o): estima de forma exacta el coste óptimo real de ir de n al objetivo."
+ },
+ {
+  "id": "03-04-10",
+  "tema": "Heurísticas",
+  "pregunta": "Al relajar un problema, ¿por qué nunca se debe reducir el coste de una arista a un valor negativo?",
+  "opciones": [
+   "Pueden aparecer ciclos de coste negativo",
+   "La heurística dejaría de ser rápida",
+   "El grafo dejaría de ser conexo",
+   "La heurística pasaría a ser óptima"
+  ],
+  "correcta": 0,
+  "explicacion": "Con costes negativos podrían aparecer ciclos de coste negativo y el coste mínimo dejaría de estar definido."
+ },
+ {
+  "id": "03-05-01",
+  "tema": "Búsqueda heurística",
+  "pregunta": "¿Qué función f(n) usa A* para ordenar los nodos a explorar?",
+  "opciones": [
+   "f(n) = g(n)",
+   "f(n) = h(n)",
+   "f(n) = g(n) · h(n)",
+   "f(n) = g(n) + h(n)"
+  ],
+  "correcta": 3,
+  "explicacion": "A* combina coste recorrido y estimado: f(n) = g(n) + h(n). Dijkstra usa g(n) y Greedy usa h(n)."
+ },
+ {
+  "id": "03-05-02",
+  "tema": "Búsqueda heurística",
+  "pregunta": "¿Qué nodo expande en cada paso el algoritmo Greedy (voraz)?",
+  "opciones": [
+   "El de menor coste acumulado desde el inicio",
+   "El que se estima más cercano al objetivo",
+   "El de menor valor de g(n) + h(n)",
+   "El último nodo añadido a la cola"
+  ],
+  "correcta": 1,
+  "explicacion": "Greedy usa solo f(n) = h(n): expande el nodo que la heurística estima más cercano al objetivo."
+ },
+ {
+  "id": "03-05-03",
+  "tema": "Búsqueda heurística",
+  "pregunta": "Según los apuntes, ¿cuándo se conocen los valores g(n) y h(n)?",
+  "opciones": [
+   "g a posteriori (al explorar); h a priori",
+   "g a priori; h a posteriori (al explorar)",
+   "Ambos solo a posteriori",
+   "Ambos antes de empezar la búsqueda"
+  ],
+  "correcta": 0,
+  "explicacion": "g(n) se conoce a posteriori, una vez explorado el nodo; h(n) se conoce a priori, sin más información previa."
+ },
+ {
+  "id": "03-05-04",
+  "tema": "Búsqueda heurística",
+  "pregunta": "Según el teorema de los apuntes, ¿cuándo encuentra A* el camino óptimo?",
+  "opciones": [
+   "Siempre, con cualquier heurística",
+   "Cuando h(n) vale 1 en todos los nodos",
+   "Cuando la heurística es consistente",
+   "Solo si todas las aristas valen 1"
+  ],
+  "correcta": 2,
+  "explicacion": "Teorema: si la heurística es consistente, A* encuentra el camino óptimo."
+ },
+ {
+  "id": "03-05-05",
+  "tema": "Búsqueda heurística",
+  "pregunta": "En A*, el nodo X tiene g = 6 y h = 4; el nodo Y tiene g = 3 y h = 8. ¿Cuál se expande antes?",
+  "opciones": [
+   "Y, porque tiene menor g",
+   "X, porque tiene menor f (10)",
+   "Y, porque tiene menor f (11)",
+   "Ninguno: empatan en f"
+  ],
+  "correcta": 1,
+  "explicacion": "f(X) = 6 + 4 = 10 y f(Y) = 3 + 8 = 11. A* expande primero el de menor f: X."
+ },
+ {
+  "id": "03-05-06",
+  "tema": "Búsqueda heurística",
+  "pregunta": "En A* ponderado, f(n) = g(n) + ω·h(n). ¿A qué algoritmo equivale tomar ω = 0?",
+  "opciones": [
+   "Greedy",
+   "A* estándar",
+   "Búsqueda en profundidad",
+   "Dijkstra"
+  ],
+  "correcta": 3,
+  "explicacion": "Con ω = 0 la heurística desaparece y f(n) = g(n), que es Dijkstra. ω → ∞ sería Greedy y ω = 1, A*."
+ },
+ {
+  "id": "03-05-07",
+  "tema": "Búsqueda heurística",
+  "pregunta": "¿Qué efecto tiene usar ω > 1 en A* ponderado?",
+  "opciones": [
+   "Más peso a h: más rápido, puede no ser óptimo",
+   "Más peso a g: más lento, más probable el óptimo",
+   "Se comporta exactamente como Dijkstra",
+   "Garantiza siempre el camino óptimo"
+  ],
+  "correcta": 0,
+  "explicacion": "ω > 1 da más peso a la heurística: probablemente encuentre un camino no óptimo en menos tiempo."
+ },
+ {
+  "id": "03-05-08",
+  "tema": "Búsqueda heurística",
+  "pregunta": "Según los apuntes, ¿qué se puede afirmar del algoritmo Greedy?",
+  "opciones": [
+   "Encuentra siempre el camino más corto",
+   "Es óptimo si la heurística es consistente",
+   "Encuentra un camino rápido, pero no el más corto",
+   "Da el mismo resultado que Dijkstra, más rápido"
+  ],
+  "correcta": 2,
+  "explicacion": "Greedy encuentra un camino en poco tiempo pero no garantiza el más corto (en el ejemplo dio coste 15 frente al óptimo 12)."
+ },
+ {
+  "id": "03-05-09",
+  "tema": "Búsqueda heurística",
+  "pregunta": "Necesitas el camino óptimo pero no conoces ninguna heurística consistente. ¿Qué algoritmo recomiendan los apuntes?",
+  "opciones": [
+   "A*",
+   "Greedy",
+   "A* ponderado",
+   "Dijkstra"
+  ],
+  "correcta": 3,
+  "explicacion": "Camino óptimo con heurística consistente: A*. Sin heurística consistente: Dijkstra."
+ },
+ {
+  "id": "03-05-10",
+  "tema": "Búsqueda heurística",
+  "pregunta": "Según los apuntes, una solución sub-óptima…",
+  "opciones": [
+   "nunca puede ser una solución óptima",
+   "puede ser también una solución óptima",
+   "es siempre peor que la de Greedy",
+   "es la que encuentra siempre Dijkstra"
+  ],
+  "correcta": 1,
+  "explicacion": "Sub-óptima es la que puede o no ser óptima; el término se usa por consenso (sería más preciso quasi-óptima)."
+ },
+ {
+  "id": "04-01-01",
+  "tema": "Incertidumbre",
+  "pregunta": "La incertidumbre epistémica se refiere a…",
+  "opciones": [
+   "la falta de información",
+   "la variabilidad de los resultados",
+   "los errores de medición y el ruido",
+   "lo que ni siquiera sabemos que existe"
+  ],
+  "correcta": 0,
+  "explicacion": "Epistémica = falta de información. La aleatoria es la variabilidad de resultados; el ruido es incertidumbre en los datos."
+ },
+ {
+  "id": "04-01-02",
+  "tema": "Incertidumbre",
+  "pregunta": "Según los apuntes, ¿qué es lo contrario de un sistema con incertidumbre?",
+  "opciones": [
+   "Un sistema aleatorio",
+   "Un sistema estocástico",
+   "Un sistema determinista",
+   "Un sistema bayesiano"
+  ],
+  "correcta": 2,
+  "explicacion": "Los apuntes indican que lo contrario de un sistema con incertidumbre es un sistema determinista."
+ },
+ {
+  "id": "04-01-03",
+  "tema": "Incertidumbre",
+  "pregunta": "Si los eventos A y B son excluyentes, ¿qué se cumple siempre?",
+  "opciones": [
+   "P(A ∩ B) = P(A)·P(B)",
+   "P(A ∩ B) = 0",
+   "P(A ∪ B) = 1",
+   "P(A|B) = P(A)"
+  ],
+  "correcta": 1,
+  "explicacion": "Excluyentes: no pueden ocurrir a la vez, así que P(A ∩ B) = 0. P(A ∪ B) = 1 solo si además son complementarios."
+ },
+ {
+  "id": "04-01-04",
+  "tema": "Incertidumbre",
+  "pregunta": "En el teorema de Bayes P(A|B) = P(B|A)P(A)/P(B), ¿cómo se llama P(B|A)?",
+  "opciones": [
+   "A priori",
+   "A posteriori",
+   "Evidencia",
+   "Verosimilitud"
+  ],
+  "correcta": 3,
+  "explicacion": "P(A) es la a priori, P(B) la evidencia, P(A|B) la a posteriori y P(B|A) la condicional o verosimilitud."
+ },
+ {
+  "id": "04-01-05",
+  "tema": "Incertidumbre",
+  "pregunta": "Si P(A) = 0.5, P(B) = 0.4 y P(A ∩ B) = 0.2, ¿cuánto vale P(A ∪ B)?",
+  "opciones": [
+   "0.9",
+   "0.2",
+   "0.7",
+   "0.5"
+  ],
+  "correcta": 2,
+  "explicacion": "P(A ∪ B) = P(A) + P(B) − P(A ∩ B) = 0.5 + 0.4 − 0.2 = 0.7."
+ },
+ {
+  "id": "04-01-06",
+  "tema": "Incertidumbre",
+  "pregunta": "A y B son independientes, con P(A) = 0.3 y P(B) = 0.5. ¿Cuánto vale P(A, B)?",
+  "opciones": [
+   "0.15",
+   "0.8",
+   "0.3",
+   "0.65"
+  ],
+  "correcta": 0,
+  "explicacion": "Si son independientes, P(A, B) = P(A)·P(B) = 0.3 · 0.5 = 0.15."
+ },
+ {
+  "id": "04-01-07",
+  "tema": "Incertidumbre",
+  "pregunta": "En el problema de Monty Hall, ¿qué probabilidad de ganar tiene el concursante si cambia de puerta?",
+  "opciones": [
+   "1/3",
+   "1/2",
+   "1",
+   "2/3"
+  ],
+  "correcta": 3,
+  "explicacion": "Acertar a la primera es 1/3, así que el premio está en las otras dos con 2/3; el presentador abre siempre una sin premio."
+ },
+ {
+  "id": "04-01-08",
+  "tema": "Incertidumbre",
+  "pregunta": "Según los apuntes, ¿qué estructura tiene una red bayesiana?",
+  "opciones": [
+   "Un árbol: cada nodo tiene un único padre",
+   "Un grafo dirigido acíclico",
+   "Un grafo no dirigido con ciclos",
+   "Una tabla única con todas las combinaciones"
+  ],
+  "correcta": 1,
+  "explicacion": "Es un grafo dirigido acíclico; a diferencia de un árbol, un nodo puede tener varios padres."
+ },
+ {
+  "id": "04-01-09",
+  "tema": "Incertidumbre",
+  "pregunta": "Si P(B) = 0.4, P(A|B) = 0.5 y P(A|¬B) = 0.25, ¿cuánto vale P(A) por la probabilidad total?",
+  "opciones": [
+   "0.35",
+   "0.75",
+   "0.375",
+   "0.2"
+  ],
+  "correcta": 0,
+  "explicacion": "P(A) = P(A|B)P(B) + P(A|¬B)P(¬B) = 0.5·0.4 + 0.25·0.6 = 0.2 + 0.15 = 0.35."
+ },
+ {
+  "id": "04-01-10",
+  "tema": "Incertidumbre",
+  "pregunta": "Paradoja del cumpleaños: ¿con cuántas personas se supera el 50% de que dos cumplan años el mismo día?",
+  "opciones": [
+   "183",
+   "365",
+   "50",
+   "23"
+  ],
+  "correcta": 3,
+  "explicacion": "Los apuntes indican que con 23 personas la probabilidad de coincidencia ya supera el 50%."
+ },
+ {
+  "id": "04-02-01",
+  "tema": "Árboles de decisión",
+  "pregunta": "¿Qué busca la estrategia Maximin (o pesimista)?",
+  "opciones": [
+   "Maximizar la mejor utilidad posible",
+   "Maximizar la peor utilidad de una acción",
+   "Maximizar la utilidad esperada (media)",
+   "Minimizar la utilidad media del rival"
+  ],
+  "correcta": 1,
+  "explicacion": "Maximin elige la acción cuya peor utilidad posible sea la mayor (maximiza la ganancia mínima)."
+ },
+ {
+  "id": "04-02-02",
+  "tema": "Árboles de decisión",
+  "pregunta": "En un árbol de decisión, ¿qué representan los nodos de probabilidad?",
+  "opciones": [
+   "La incertidumbre sobre lo que ocurrirá",
+   "Las decisiones que debemos tomar",
+   "El resultado final que se obtiene",
+   "El estado inicial del problema"
+  ],
+  "correcta": 0,
+  "explicacion": "Nodos de decisión: decisiones; nodos de probabilidad: incertidumbre; nodos de utilidad: resultado final."
+ },
+ {
+  "id": "04-02-03",
+  "tema": "Árboles de decisión",
+  "pregunta": "Una acción da +30 con probabilidad 0.2 y −5 con probabilidad 0.8. ¿Cuál es su utilidad esperada?",
+  "opciones": [
+   "25",
+   "12.5",
+   "−5",
+   "2"
+  ],
+  "correcta": 3,
+  "explicacion": "E = 30·0.2 + (−5)·0.8 = 6 − 4 = 2. (12.5 sería la media sin ponderar por probabilidad.)"
+ },
+ {
+  "id": "04-02-04",
+  "tema": "Árboles de decisión",
+  "pregunta": "Acción X: 50% de +10 y 50% de −2. Acción Y: 100% de +1. ¿Qué elegirían Maximin y MEU?",
+  "opciones": [
+   "Maximin X; MEU X",
+   "Maximin Y; MEU Y",
+   "Maximin Y; MEU X",
+   "Maximin X; MEU Y"
+  ],
+  "correcta": 2,
+  "explicacion": "Maximin: peor caso X = −2, Y = +1, elige Y. MEU: E(X) = 5 − 1 = 4 > E(Y) = 1, elige X."
+ },
+ {
+  "id": "04-02-05",
+  "tema": "Árboles de decisión",
+  "pregunta": "Según los apuntes, ¿por qué se dice que «la banca siempre gana»?",
+  "opciones": [
+   "Porque los casinos aplican la estrategia Maximax",
+   "Porque los jugadores aplican siempre Maximin",
+   "Porque ganar una mano tiene probabilidad 0",
+   "Porque su MEU para el jugador es negativo"
+  ],
+  "correcta": 3,
+  "explicacion": "El MEU de todos los juegos de casino (y loterías) es negativo: a largo plazo el jugador siempre pierde dinero."
+ },
+ {
+  "id": "04-02-06",
+  "tema": "Árboles de decisión",
+  "pregunta": "Preferir una ganancia segura antes que una apuesta con la misma esperanza se denomina…",
+  "opciones": [
+   "propensión al riesgo",
+   "aversión al riesgo",
+   "equilibrio de Nash",
+   "amenaza no creíble"
+  ],
+  "correcta": 1,
+  "explicacion": "Es la aversión al riesgo; la propensión al riesgo es lo contrario (p. ej. jugar a la lotería con MEU negativo)."
+ },
+ {
+  "id": "04-02-07",
+  "tema": "Árboles de decisión",
+  "pregunta": "En el dilema del prisionero, ¿en qué situación se da el equilibrio de Nash?",
+  "opciones": [
+   "Ambos cooperan (se callan)",
+   "Uno coopera y el otro traiciona",
+   "Ambos traicionan",
+   "No existe equilibrio de Nash"
+  ],
+  "correcta": 2,
+  "explicacion": "Cuando ambos traicionan ninguno mejora cambiando solo su acción, aunque cooperar sería mejor para los dos."
+ },
+ {
+  "id": "04-02-08",
+  "tema": "Árboles de decisión",
+  "pregunta": "¿Qué describe un equilibrio de Nash?",
+  "opciones": [
+   "Nadie mejora cambiando solo su estrategia",
+   "Todos logran la máxima utilidad global",
+   "La suma de utilidades de todos es 0",
+   "Todos obtienen exactamente la misma utilidad"
+  ],
+  "correcta": 0,
+  "explicacion": "Es un estado donde ningún jugador puede mejorar su utilidad cambiando su estrategia, conocidas las de los demás."
+ },
+ {
+  "id": "04-02-09",
+  "tema": "Árboles de decisión",
+  "pregunta": "¿Qué caracteriza a la paradoja de San Petersburgo?",
+  "opciones": [
+   "Una mediana mayor que la media",
+   "Una utilidad negativa en todos los casos",
+   "Una esperanza matemática infinita",
+   "Un equilibrio de Nash ineficiente"
+  ],
+  "correcta": 2,
+  "explicacion": "Ganar 2^N con probabilidad 1/2^N da una esperanza Σ1 = ∞, por lo que MEU llevaría a pagar cualquier cantidad."
+ },
+ {
+  "id": "04-02-10",
+  "tema": "Árboles de decisión",
+  "pregunta": "Según los apuntes, ¿de qué estrategia es una extensión el algoritmo Minimax?",
+  "opciones": [
+   "Maximax",
+   "Maximin",
+   "MEU",
+   "Minimax regret"
+  ],
+  "correcta": 1,
+  "explicacion": "Minimax extiende Maximin: asume que el rival siempre elige la rama de menor utilidad para nosotros (con 100%)."
+ },
+ {
+  "id": "04-03-01",
+  "tema": "Minimax",
+  "pregunta": "¿En qué tipo de juegos garantiza Minimax encontrar la estrategia óptima?",
+  "opciones": [
+   "En cualquier juego de 2 o más jugadores",
+   "En juegos de azar con información oculta",
+   "Suma 0, información perfecta y 2 jugadores",
+   "En juegos de no suma cero de 2 jugadores"
+  ],
+  "correcta": 2,
+  "explicacion": "El teorema garantiza la estrategia óptima en juegos de suma 0, información perfecta y 2 jugadores (sin truncar)."
+ },
+ {
+  "id": "04-03-02",
+  "tema": "Minimax",
+  "pregunta": "A (max) elige fila y luego B (min) columna. A1: 4, 1, 6. A2: 3, 5, 2. A3: 7, 0, 9. ¿Valor minimax para A?",
+  "opciones": [
+   "9",
+   "1",
+   "7",
+   "2"
+  ],
+  "correcta": 3,
+  "explicacion": "B minimiza cada fila: A1 → 1, A2 → 2, A3 → 0. A maximiza esos mínimos: elige A2 con valor 2."
+ },
+ {
+  "id": "04-03-03",
+  "tema": "Minimax",
+  "pregunta": "Con factor de ramificación b y profundidad d, ¿cuántos nodos evalúa Minimax?",
+  "opciones": [
+   "O(b · d)",
+   "O(b^d)",
+   "O(d^b)",
+   "O(b^(d/2))"
+  ],
+  "correcta": 1,
+  "explicacion": "En cada uno de los d niveles se abren b ramas: O(b^d), crecimiento exponencial con la duración de la partida."
+ },
+ {
+  "id": "04-03-04",
+  "tema": "Minimax",
+  "pregunta": "Con poda alpha-beta, si en cada nodo se explora primero la mejor jugada, ¿a cuánto baja el coste?",
+  "opciones": [
+   "O(b^(d/2))",
+   "O(b^d)",
+   "O(b · d)",
+   "O(d^b)"
+  ],
+  "correcta": 0,
+  "explicacion": "Con la mejor ordenación el coste baja a O(b^(d/2)): en el mismo tiempo se explora el doble de profundidad."
+ },
+ {
+  "id": "04-03-05",
+  "tema": "Minimax",
+  "pregunta": "En la poda alpha-beta, ¿cuándo se deja de explorar el resto de hijos de un nodo?",
+  "opciones": [
+   "Cuando alpha ≥ beta",
+   "Cuando alpha < beta",
+   "Cuando alpha vale 0",
+   "Cuando beta vale +∞"
+  ],
+  "correcta": 0,
+  "explicacion": "Si alpha ≥ beta ya existe una rama anterior mejor y nunca se llegará a la actual, así que se poda."
+ },
+ {
+  "id": "04-03-06",
+  "tema": "Minimax",
+  "pregunta": "¿Cambia la poda alpha-beta el resultado que devuelve Minimax?",
+  "opciones": [
+   "Sí, puede elegir una jugada peor",
+   "Sí, si la heurística es mala",
+   "No, solo reduce los nodos evaluados",
+   "No, pero exige utilidades binarias"
+  ],
+  "correcta": 2,
+  "explicacion": "La poda alpha-beta no cambia el resultado: Minimax con poda sigue siendo óptimo y sirve para cualquier juego."
+ },
+ {
+  "id": "04-03-07",
+  "tema": "Minimax",
+  "pregunta": "¿Qué se pierde al usar Minimax heurístico, truncado a una profundidad máxima D?",
+  "opciones": [
+   "La capacidad de jugar con 2 jugadores",
+   "La garantía de la estrategia óptima",
+   "La posibilidad de usar poda alpha-beta",
+   "La alternancia entre max y min"
+  ],
+  "correcta": 1,
+  "explicacion": "Minimax heurístico ya no garantiza la estrategia óptima: será tan bueno como la heurística utilizada."
+ },
+ {
+  "id": "04-03-08",
+  "tema": "Minimax",
+  "pregunta": "¿En qué juegos se puede aplicar la poda binaria?",
+  "opciones": [
+   "Solo en juegos de más de dos jugadores",
+   "Cuando la heurística usada es consistente",
+   "Cuando la profundidad del árbol es un número par",
+   "Si la utilidad tiene máximo y mínimo conocidos"
+  ],
+  "correcta": 3,
+  "explicacion": "Se aplica cuando la utilidad tiene máximo y mínimo conocidos (p. ej. ganar/perder): al hallar el máximo se para."
+ },
+ {
+  "id": "04-03-09",
+  "tema": "Minimax",
+  "pregunta": "Según la tabla de los apuntes, ¿cuál de estos juegos es de información perfecta?",
+  "opciones": [
+   "Poker",
+   "Mastermind",
+   "Dilema del prisionero",
+   "Ajedrez"
+  ],
+  "correcta": 3,
+  "explicacion": "En el ajedrez todos conocen el estado total en todo momento. Poker, Mastermind y el dilema tienen información oculta."
+ },
+ {
+  "id": "04-03-10",
+  "tema": "Minimax",
+  "pregunta": "En la poda alpha-beta, ¿qué representa el valor alpha?",
+  "opciones": [
+   "La mejor opción hallada para max hasta ahora",
+   "La mejor opción hallada para min hasta ahora",
+   "La utilidad máxima posible del juego",
+   "La profundidad máxima de búsqueda"
+  ],
+  "correcta": 0,
+  "explicacion": "alpha es la mejor opción encontrada para max hasta el momento; beta, la mejor para min."
+ },
+ {
+  "id": "05-01-01",
+  "tema": "Metaheurísticas",
+  "pregunta": "Según los apuntes, ¿qué es una solución de un problema de optimización?",
+  "opciones": [
+   "Un conjunto de valores que satisface las restricciones del problema",
+   "El valor mínimo que puede alcanzar la función objetivo",
+   "Una secuencia de acciones que garantiza el óptimo global",
+   "Un punto donde la derivada de la función objetivo vale cero"
+  ],
+  "correcta": 0,
+  "explicacion": "Un problema son restricciones más una función objetivo; una solución es un conjunto de valores que cumple las restricciones y lleva asociado un valor del objetivo."
+ },
+ {
+  "id": "05-01-02",
+  "tema": "Metaheurísticas",
+  "pregunta": "En el tema siempre se minimiza. Si un problema quiere maximizar una función f, ¿qué se hace?",
+  "opciones": [
+   "Minimizar la función inversa 1/f",
+   "Aplicar obligatoriamente búsqueda exhaustiva",
+   "Minimizar la función negativa −f",
+   "Minimizar f y quedarse con la peor solución"
+  ],
+  "correcta": 2,
+  "explicacion": "Maximizar f equivale a minimizar −f; por eso en el tema se habla siempre de minimizar la función objetivo."
+ },
+ {
+  "id": "05-01-03",
+  "tema": "Metaheurísticas",
+  "pregunta": "¿Qué es una solución sub-óptima?",
+  "opciones": [
+   "La peor solución posible de todo el espacio de búsqueda",
+   "Una que no se puede demostrar óptima pero reduce bastante el objetivo",
+   "Una solución que incumple alguna restricción pero mejora el objetivo",
+   "Un mínimo local que siempre coincide con el mínimo global"
+  ],
+  "correcta": 1,
+  "explicacion": "No se puede demostrar que sea óptima (puede haber mejores), pero reduce la función objetivo «lo suficiente» según el problema y el contexto."
+ },
+ {
+  "id": "05-01-04",
+  "tema": "Metaheurísticas",
+  "pregunta": "Minimizamos de forma analítica f(x)=x²−4x+4 con x∈[−10,10]. ¿Qué puntos candidatos hay que evaluar?",
+  "opciones": [
+   "Solo x = 2, donde se anula la derivada",
+   "Solo los extremos del rango, −10 y 10",
+   "Los puntos x = 0 y x = 2",
+   "Los puntos x = −10, x = 2 y x = 10"
+  ],
+  "correcta": 3,
+  "explicacion": "Candidatos: puntos con derivada nula (2x−4=0 ⇒ x=2) más los límites del rango. Evaluándolos, el óptimo es x=2 con f=0."
+ },
+ {
+  "id": "05-01-05",
+  "tema": "Metaheurísticas",
+  "pregunta": "En optimización analítica, que la derivada valga 0 en un punto interior es una condición...",
+  "opciones": [
+   "Suficiente: ese punto siempre es el mínimo global",
+   "Suficiente pero no necesaria para tener un mínimo",
+   "Innecesaria si la función es derivable en todo el rango",
+   "Necesaria pero no suficiente (ocurre en puntos de silla)"
+  ],
+  "correcta": 3,
+  "explicacion": "En máximos y mínimos interiores la derivada es 0, pero también se anula en puntos de silla; por eso hay que evaluar todos los candidatos."
+ },
+ {
+  "id": "05-01-06",
+  "tema": "Metaheurísticas",
+  "pregunta": "¿Qué caracteriza al backtracking como forma de búsqueda exhaustiva?",
+  "opciones": [
+   "Construye soluciones recursivamente y retrocede si dejan de ser viables",
+   "Conoce a priori todo el dominio de soluciones mediante combinatoria",
+   "Genera soluciones aleatorias y se queda con la mejor encontrada",
+   "Sigue la dirección contraria al gradiente hasta un mínimo local"
+  ],
+  "correcta": 0,
+  "explicacion": "El backtracking avanza mientras la solución parcial sea viable y, cuando no hay extensiones posibles, retrocede al último punto donde podía avanzar."
+ },
+ {
+  "id": "05-01-07",
+  "tema": "Metaheurísticas",
+  "pregunta": "Búsqueda exhaustiva de f(x,y) con x e y enteros en [−10,10]. ¿Cuántas soluciones hay que evaluar?",
+  "opciones": [
+   "400 soluciones",
+   "441 soluciones",
+   "420 soluciones",
+   "121 soluciones"
+  ],
+  "correcta": 1,
+  "explicacion": "Cada coordenada toma 21 valores enteros (de −10 a 10, incluido el 0), así que hay 21² = 441 soluciones posibles."
+ },
+ {
+  "id": "05-01-08",
+  "tema": "Metaheurísticas",
+  "pregunta": "En la dicotomía exploración/explotación, ¿qué es la explotación?",
+  "opciones": [
+   "Buscar en un espacio de soluciones lo más amplio posible",
+   "Generar soluciones al azar para salir de mínimos locales",
+   "Mejorar una solución ya encontrada indagando a su alrededor",
+   "Recorrer todas las soluciones posibles y elegir la mejor"
+  ],
+  "correcta": 2,
+  "explicacion": "Explotación es mejorar una solución ya encontrada indagando sobre un punto concreto; exploración es buscar en un espacio de soluciones amplio."
+ },
+ {
+  "id": "05-01-09",
+  "tema": "Metaheurísticas",
+  "pregunta": "Según los apuntes, las metaheurísticas poblacionales, frente a las dirigidas, se basan más en...",
+  "opciones": [
+   "La explotación, mejorando una única solución inicial",
+   "La derivada de la función objetivo en cada punto",
+   "Probar todas las soluciones del espacio de búsqueda",
+   "La exploración, usando una población de soluciones"
+  ],
+  "correcta": 3,
+  "explicacion": "Las dirigidas mejoran una solución inicial (explotación); las poblacionales usan una población y buscan en un espacio más amplio (exploración)."
+ },
+ {
+  "id": "05-01-10",
+  "tema": "Metaheurísticas",
+  "pregunta": "Una metaheurística reduce el tamaño de su paso cuando la mejora se estanca. ¿Qué tipo de criterio usa?",
+  "opciones": [
+   "Adaptativo: ajusta sus propios parámetros",
+   "De ejecuciones fijas: se lanza N veces",
+   "Iterativo: para tras un nº de iteraciones",
+   "Iterativo: para al agotar un tiempo fijo"
+  ],
+  "correcta": 0,
+  "explicacion": "Las adaptativas ajustan sus propios parámetros según la evolución de la función objetivo, por ejemplo reduciendo el paso cuando la mejora se estanca."
+ },
+ {
+  "id": "05-02-01",
+  "tema": "Búsqueda local",
+  "pregunta": "¿En qué se diferencia la búsqueda local de la búsqueda aleatoria?",
+  "opciones": [
+   "Genera soluciones al azar por todo el espacio de búsqueda",
+   "Solo busca soluciones cercanas a la actual para irla mejorando",
+   "Recorre todas las soluciones y garantiza el óptimo global",
+   "Mantiene una población de soluciones que se cruzan entre sí"
+  ],
+  "correcta": 1,
+  "explicacion": "Frente a la búsqueda aleatoria, la búsqueda local solo explora soluciones cercanas a la actual y se centra en ir mejorándola."
+ },
+ {
+  "id": "05-02-02",
+  "tema": "Búsqueda local",
+  "pregunta": "¿Cuál de estas es una desventaja de la búsqueda local según los apuntes?",
+  "opciones": [
+   "Es muy difícil de implementar en la práctica",
+   "Tarda mucho en encontrar soluciones aceptables",
+   "Solo puede aplicarse a funciones derivables",
+   "Depende mucho de la solución inicial elegida"
+  ],
+  "correcta": 3,
+  "explicacion": "Sus desventajas son quedar atrapada en mínimos locales y depender de la solución inicial; en cambio, es simple y eficiente."
+ },
+ {
+  "id": "05-02-03",
+  "tema": "Búsqueda local",
+  "pregunta": "¿Cuál es la regla de actualización del descenso de gradiente?",
+  "opciones": [
+   "s(t+1) = s(t) − α·∇f(s(t))",
+   "s(t+1) = s(t) + α·∇f(s(t))",
+   "s(t+1) = α·s(t) − ∇f(s(t))",
+   "s(t+1) = s(t) − ∇f(s(t)) / α"
+  ],
+  "correcta": 0,
+  "explicacion": "Se avanza en la dirección opuesta al gradiente (la de máximo descenso), con un paso escalado por el factor de aprendizaje α."
+ },
+ {
+  "id": "05-02-04",
+  "tema": "Búsqueda local",
+  "pregunta": "Descenso de gradiente sobre f(x)=x² desde x=3 con α=0,1. ¿Cuál es el siguiente punto?",
+  "opciones": [
+   "x = 3,6",
+   "x = 2,7",
+   "x = 2,4",
+   "x = 0"
+  ],
+  "correcta": 2,
+  "explicacion": "f'(x)=2x, así que ∇f(3)=6. Aplicando s − α·∇f: 3 − 0,1·6 = 2,4."
+ },
+ {
+  "id": "05-02-05",
+  "tema": "Búsqueda local",
+  "pregunta": "En el ejemplo de los apuntes, usar α=5 en vez de α=0,5 hace que el descenso de gradiente sea...",
+  "opciones": [
+   "Más lento y más preciso: favorece la explotación",
+   "Más rápido y menos preciso: favorece la exploración",
+   "Igual de rápido, pero alcanza siempre el mínimo global",
+   "Más lento y menos preciso: favorece la exploración"
+  ],
+  "correcta": 1,
+  "explicacion": "Con α=5 llegó en 4 puntos y con α=0,5 necesitó 61: un α mayor da pasos más grandes (exploración), más rápido pero menos preciso."
+ },
+ {
+  "id": "05-02-06",
+  "tema": "Búsqueda local",
+  "pregunta": "¿Qué afirmación sobre el descenso de gradiente es correcta según los apuntes?",
+  "opciones": [
+   "Es estocástico: dos ejecuciones iguales dan resultados distintos",
+   "Garantiza llegar al menos a un mínimo local con cualquier α",
+   "Garantiza el mínimo global siempre que f sea derivable",
+   "Es determinista, pero su resultado depende del punto inicial y de α"
+  ],
+  "correcta": 3,
+  "explicacion": "El algoritmo es determinista, pero no asegura ni siquiera un mínimo local: con α demasiado grande puede oscilar o divergir."
+ },
+ {
+  "id": "05-02-07",
+  "tema": "Búsqueda local",
+  "pregunta": "Si la función es derivable, ¿por qué usar descenso de gradiente en vez de la solución analítica?",
+  "opciones": [
+   "Porque las raíces de la derivada pueden ser incalculables o costosas",
+   "Porque el descenso de gradiente garantiza siempre el óptimo global",
+   "Porque la solución analítica solo sirve en dominios discretos",
+   "Porque el descenso de gradiente no necesita conocer las derivadas"
+  ],
+  "correcta": 0,
+  "explicacion": "Hay derivadas sin solución analítica sencilla, superficies con muchos mínimos o cálculos muy costosos; el gradiente da aproximaciones eficientes."
+ },
+ {
+  "id": "05-02-08",
+  "tema": "Búsqueda local",
+  "pregunta": "Hill climbing desde (2,2) con f=1,455. Vecinos: (1,2)=1,259; (3,2)=1,539; (2,1)=1,738; (2,3)=1,060. ¿Siguiente solución?",
+  "opciones": [
+   "(1,2), el primer vecino que mejora",
+   "(2,1), el vecino de mayor valor de f",
+   "(2,3), el vecino de menor valor de f",
+   "(2,2), porque ningún vecino mejora"
+  ],
+  "correcta": 2,
+  "explicacion": "Hill climbing evalúa los vecinos y se mueve al mejor si mejora la actual. Como minimizamos, gana (2,3) con 1,060 < 1,455."
+ },
+ {
+  "id": "05-02-09",
+  "tema": "Búsqueda local",
+  "pregunta": "¿Qué distingue al hill climbing del descenso de gradiente?",
+  "opciones": [
+   "Usa una población de soluciones en lugar de una sola",
+   "Evalúa los vecinos en lugar de calcular derivadas",
+   "Acepta siempre soluciones peores para explorar más",
+   "Solo puede aplicarse a funciones continuas derivables"
+  ],
+  "correcta": 1,
+  "explicacion": "Hill climbing sirve cuando la utilidad no es derivable: en vez del gradiente, evalúa las soluciones vecinas y selecciona la mejor."
+ },
+ {
+  "id": "05-02-10",
+  "tema": "Búsqueda local",
+  "pregunta": "¿Qué variante acepta soluciones peores con una probabilidad controlada por una temperatura decreciente?",
+  "opciones": [
+   "Búsqueda tabú con lista de corto plazo",
+   "Búsqueda local con reinicio aleatorio",
+   "Recocido simulado",
+   "Búsqueda por haz local"
+  ],
+  "correcta": 2,
+  "explicacion": "El recocido simulado, inspirado en la metalurgia, acepta empeoramientos con una probabilidad controlada por una temperatura que va bajando."
+ },
+ {
+  "id": "05-03-01",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "Según los apuntes, ¿qué tipo de metaheurística es un algoritmo evolutivo?",
+  "opciones": [
+   "Dirigida, que mejora una única solución inicial",
+   "Exhaustiva, que prueba todas las soluciones",
+   "Poblacional, que mantiene un conjunto de soluciones",
+   "Analítica, que anula la derivada del fitness"
+  ],
+  "correcta": 2,
+  "explicacion": "Es una metaheurística poblacional: mantiene una población de individuos que busca en varios puntos y promueve a los que obtienen mejores resultados."
+ },
+ {
+  "id": "05-03-02",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "¿En qué miembro de la familia evolutiva los individuos son vectores de reales y el operador principal es la mutación?",
+  "opciones": [
+   "Estrategia evolutiva",
+   "Algoritmo genético",
+   "Programación genética",
+   "Selección artificial"
+  ],
+  "correcta": 0,
+  "explicacion": "En la estrategia evolutiva los individuos son vectores de reales y domina la mutación; en el algoritmo genético son cadenas y domina el cruce."
+ },
+ {
+  "id": "05-03-03",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "En la analogía de los algoritmos evolutivos con la biología, ¿con qué se corresponde la función de fitness?",
+  "opciones": [
+   "Con la especie a la que pertenece el organismo",
+   "Con la selección natural o artificial",
+   "Con la mutación y la reproducción sexual",
+   "Con la capacidad de reproducción"
+  ],
+  "correcta": 3,
+  "explicacion": "Individuo ↔ organismo, población ↔ especie, fitness ↔ capacidad de reproducción, operadores ↔ mutación y reproducción sexual."
+ },
+ {
+  "id": "05-03-04",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "En los ejemplos del tema, ¿qué individuo es mejor: A con fitness 0,142 o B con fitness 1,259?",
+  "opciones": [
+   "B, porque en el tema mayor fitness significa mejor",
+   "A, porque en el tema se minimiza: menor fitness es mejor",
+   "Ninguno: el fitness no sirve para compararlos",
+   "Ambos por igual, ya que están dentro del dominio"
+  ],
+  "correcta": 1,
+  "explicacion": "Aunque en la bibliografía fitness suele ser «mayor = mejor», en este tema se minimiza: menor fitness = mejor individuo."
+ },
+ {
+  "id": "05-03-05",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "¿Cómo funciona la selección por torneo?",
+  "opciones": [
+   "Se eligen M individuos al azar y pasa el mejor; se repite N veces",
+   "Se eligen directamente los N individuos con mejor fitness",
+   "Se eligen N individuos con probabilidad según su fitness",
+   "Los mejores pasan sin cambios y el resto se elige al azar"
+  ],
+  "correcta": 0,
+  "explicacion": "Torneo: M individuos aleatorios compiten y sobrevive el mejor, repitiéndolo N veces. Las otras opciones describen best, ruleta y elitista."
+ },
+ {
+  "id": "05-03-06",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "Con selección elitista, ¿qué ocurre con el mejor fitness de la población de una generación a la siguiente?",
+  "opciones": [
+   "Mejora siempre de forma estricta en cada generación",
+   "Puede empeorar si la ruleta descarta al mejor",
+   "Nunca empeora, porque el mejor individuo sobrevive",
+   "Converge siempre al mínimo global del problema"
+  ],
+  "correcta": 2,
+  "explicacion": "En el elitismo ciertos individuos pasan a la siguiente generación sin modificar; así el mejor siempre sobrevive y el mejor fitness nunca empeora."
+ },
+ {
+  "id": "05-03-07",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "En el ejemplo 2 el cruce es [x1,y1]×[x2,y2]=[x1,y2]. ¿Qué hijo dan (9,−1)×(1,6)?",
+  "opciones": [
+   "(1, −1): x del segundo, y del primero",
+   "(5, 2,5): la media de ambos padres",
+   "(9, −1): una copia del primer padre",
+   "(9, 6): x del primero, y del segundo"
+  ],
+  "correcta": 3,
+  "explicacion": "El hijo toma la x del primer individuo y la y del segundo: (9, −1) × (1, 6) = (9, 6)."
+ },
+ {
+  "id": "05-03-08",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "En el ejemplo 1 (selección best, solo mutación) la población acabó con 4 copias de (−9,−6). ¿Qué implica?",
+  "opciones": [
+   "Que se ha encontrado con seguridad el mínimo global",
+   "Que no saldrá de ese mínimo local aunque siga iterando",
+   "Que el criterio de parada estaba mal programado",
+   "Que la mutación genera individuos fuera del dominio"
+  ],
+  "correcta": 1,
+  "explicacion": "Todos los individuos son iguales y sus mutaciones no mejoran el fitness, así que con selección best la población queda atascada en ese mínimo local."
+ },
+ {
+  "id": "05-03-09",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "¿Por qué conviene añadir aleatoriedad al mecanismo de selección?",
+  "opciones": [
+   "Para dar opciones a individuos peores y salir de mínimos locales",
+   "Para garantizar que el mejor individuo nunca se pierda",
+   "Para que la población converja antes a un único individuo",
+   "Para reducir el tiempo de cálculo de la función de fitness"
+  ],
+  "correcta": 0,
+  "explicacion": "Se premia a los mejores individuos, pero dar también oportunidades a los peores permite escapar de mínimos locales."
+ },
+ {
+  "id": "05-03-10",
+  "tema": "Algoritmos evolutivos",
+  "pregunta": "¿Cuál es una desventaja de los algoritmos evolutivos según los apuntes?",
+  "opciones": [
+   "Solo funcionan en espacios de búsqueda pequeños",
+   "Su mecanismo es difícil de describir e intuir",
+   "Son muy sensibles a los parámetros de entrada",
+   "Son deterministas y siempre dan la misma solución"
+  ],
+  "correcta": 2,
+  "explicacion": "Son muy sensibles a la elección de selección, mutación y cruce; además son inestables (no deterministas) y suelen ser lentos."
+ },
+ {
+  "id": "05-04-01",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "¿Cuándo se dice que un problema de optimización es multiobjetivo?",
+  "opciones": [
+   "Cuando la función de utilidad devuelve varios valores a optimizar",
+   "Cuando la función objetivo tiene varios mínimos locales",
+   "Cuando hay varias soluciones que cumplen las restricciones",
+   "Cuando se combinan varias metaheurísticas para resolverlo"
+  ],
+  "correcta": 0,
+  "explicacion": "Es multiobjetivo cuando la función de utilidad devuelve varios valores (Fu: S → ℝᴺ), es decir, hay varios objetivos que optimizar a la vez."
+ },
+ {
+  "id": "05-04-02",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "Minimizando todos los objetivos, ¿cuándo una solución s1 domina a otra s2?",
+  "opciones": [
+   "Cuando s1 es estrictamente mejor que s2 en todos los objetivos",
+   "Cuando s1 es al menos igual en todos y estrictamente mejor en alguno",
+   "Cuando s1 es mejor que s2 en la mayoría de los objetivos",
+   "Cuando la suma de los objetivos de s1 es menor que la de s2"
+  ],
+  "correcta": 1,
+  "explicacion": "s1 domina a s2 si fi(s1) ≤ fi(s2) para todo i y existe algún j con fj(s1) < fj(s2)."
+ },
+ {
+  "id": "05-04-03",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "Minimizando (f1, f2): A=(2,5), B=(3,5), C=(1,7). ¿Qué relación de dominancia es cierta?",
+  "opciones": [
+   "A domina a C, porque es mejor en f2",
+   "C domina a B, porque es mejor en f1",
+   "A domina a B: igual en f2 y mejor en f1",
+   "B domina a C, porque es mejor en f2"
+  ],
+  "correcta": 2,
+  "explicacion": "A iguala a B en f2 (5=5) y es estrictamente mejor en f1 (2<3). Los demás pares mejoran cada uno en un objetivo distinto: no se dominan."
+ },
+ {
+  "id": "05-04-04",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "¿Qué es un óptimo de Pareto?",
+  "opciones": [
+   "La solución con la mejor media de todos los objetivos",
+   "La solución que es la mejor en todos los objetivos a la vez",
+   "Cualquier solución que cumpla las restricciones del problema",
+   "Una no dominada: no se mejora un objetivo sin empeorar otro"
+  ],
+  "correcta": 3,
+  "explicacion": "Es una solución no dominada por ninguna otra: no se puede mejorar un objetivo sin empeorar otro. Todas juntas forman la frontera de Pareto."
+ },
+ {
+  "id": "05-04-05",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "Minimizando f1=(x+1)² y f2=(x−1)², ¿qué puntos forman el óptimo de Pareto?",
+  "opciones": [
+   "Todos los del intervalo x ∈ [−1, 1]",
+   "Únicamente el punto central x = 0",
+   "Únicamente los extremos x = −1 y x = 1",
+   "Todos los números reales x"
+  ],
+  "correcta": 0,
+  "explicacion": "Entre −1 y 1, acercarse al mínimo de una función aleja del de la otra. Fuera de ese intervalo ambas empeoran a la vez, así que esos puntos están dominados."
+ },
+ {
+  "id": "05-04-06",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "Reduciendo f1=(x+1)² y f2=(x−1)² a su media (f1+f2)/2, ¿qué punto se obtiene al minimizar?",
+  "opciones": [
+   "x = −1, mínimo de f1",
+   "x = 1, mínimo de f2",
+   "x = 0, con valor medio 1",
+   "x = 0,5, con valor medio 1,25"
+  ],
+  "correcta": 2,
+  "explicacion": "(f1+f2)/2 = x²+1, cuyo mínimo está en x=0 con valor 1; es un punto de la frontera de Pareto."
+ },
+ {
+  "id": "05-04-07",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "Minimizar f1=(x+1)² sujeto a f2=(x−1)² ≤ 2. ¿Qué punto selecciona el método de la restricción?",
+  "opciones": [
+   "x = −1, el mínimo de f1",
+   "x = 1 − √2 ≈ −0,414",
+   "x = 0, el punto medio",
+   "x = 1, el mínimo de f2"
+  ],
+  "correcta": 1,
+  "explicacion": "f2 ≤ 2 exige x ≥ 1−√2 (x=−1 daría f2=4). En esa región, f1 es mínima en el punto más cercano a −1: x = 1−√2 ≈ −0,414."
+ },
+ {
+  "id": "05-04-08",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "En el método de la utilidad (suma ponderada), ¿qué garantiza que la solución pertenezca al frente de Pareto?",
+  "opciones": [
+   "Que los pesos sumen exactamente 1",
+   "Que haya tantos pesos como soluciones",
+   "Que al menos un peso sea negativo",
+   "Que todos los pesos sean positivos"
+  ],
+  "correcta": 3,
+  "explicacion": "Según el teorema de los apuntes, si todos los pesos son positivos la solución del problema reducido por utilidad es un punto del frente de Pareto."
+ },
+ {
+  "id": "05-04-09",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "¿En qué caso el método de la restricción puede devolver un punto que no está en el frente de Pareto?",
+  "opciones": [
+   "Con empates en la función a minimizar, si decide el objetivo restringido",
+   "Siempre que el umbral de la restricción sea demasiado alto",
+   "Cuando todos los pesos de la combinación lineal son positivos",
+   "Nunca: el método de la restricción siempre da óptimos de Pareto"
+  ],
+  "correcta": 0,
+  "explicacion": "Solo puede ocurrir con empates en la función a minimizar, donde la dominancia la determina el objetivo restringido."
+ },
+ {
+  "id": "05-04-10",
+  "tema": "Optimización multiobjetivo",
+  "pregunta": "¿Por qué se suelen reducir los problemas multiobjetivo a problemas uni-objetivo?",
+  "opciones": [
+   "Porque así se obtiene siempre todo el frente de Pareto",
+   "Porque los multiobjetivo no tienen soluciones óptimas",
+   "Para poder aplicar las metaheurísticas ya estudiadas",
+   "Porque las metaheurísticas no admiten restricciones"
+  ],
+  "correcta": 2,
+  "explicacion": "Optimizar varias funciones a la vez complica el diseño; reduciéndolo a una sola función se pueden usar las metaheurísticas ya estudiadas."
+ }
+]
