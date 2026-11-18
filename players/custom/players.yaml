@@ -19,4 +19,6 @@
 #   - file: tu-usuario-mi-bot.py
 #     class: MiBot
 
-players: []
+players:
+  - file: marcos-felgueroso-trampero-bayesiano.py
+    class: TramperoBayesiano
