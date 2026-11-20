@@ -22,3 +22,6 @@
 players:
   - file: marcos-felgueroso-trampero-bayesiano.py
     class: TramperoBayesiano
+
+  - file: criscolunga-maximin-meu.py
+    class: MaximinMEU
