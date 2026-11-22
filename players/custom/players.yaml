@@ -25,3 +25,6 @@ players:
 
   - file: criscolunga-maximin-meu.py
     class: MaximinMEU
+
+  - file: carmencuerva-car-lu.py
+    class: CarLu
