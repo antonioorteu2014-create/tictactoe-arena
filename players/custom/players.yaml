@@ -28,3 +28,6 @@ players:
 
   - file: carmencuerva-car-lu.py
     class: CarLu
+
+  - file: danielaagonzalezz-minimax-expectimax.py
+    class: MinimaxExpectimax
